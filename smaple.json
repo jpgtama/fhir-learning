@@ -1,0 +1,51 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "122223",
+  "meta": {
+    "versionId": "3",
+    "lastUpdated": "2016-10-17T04:20:15.362-04:00"
+  },
+  "identifier": [
+    {
+      "value": "PatientBasicInfoQuestionnaire"
+    }
+  ],
+  "publisher": "Evan Hu",
+  "group": {
+    "title": "Root Group",
+    "group": [
+      {
+        "linkId": "patientBasicInfo",
+        "title": "Patient Basic Info",
+        "question": [
+          {
+            "linkId": "patientName",
+            "text": "Patient Name",
+            "type": "string"
+          },
+          {
+            "linkId": "gender",
+            "text": "Gender",
+            "type": "choice",
+            "options": {
+                "reference": "http://hl7.org/fhir/ValueSet/administrative-gender" 
+            }
+          },
+          {
+            "linkId": "birthDate",
+            "text": "Birth Date",
+            "type": "date"
+          },
+            {
+                "linkId": "smoke",
+                "text":"Do you smoke?",
+                "type":"choice",
+                "options": {
+                    "reference":"http://hl7.org/fhir/ValueSet/yesnodontknow"
+                }
+            }
+        ]
+      }
+    ]
+  }
+}
