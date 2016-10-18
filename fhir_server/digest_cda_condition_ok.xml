@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../hl7/xsl/cda.xsl"?>
+
+
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 ../hl7/Schemas/CDA.xsd">
+	<id extension="7f13c2ae-215f-11e6-addd-000c295905c1" root="000.000.000.000"/>
+    <effectiveTime value="20070214090000-000"/>
+    <!-- http://cdatools.org/infocenter/index.jsp?topic=%2Forg.openhealthtools.mdht.uml.cda.consol.doc%2Fclasses%2FContinuityOfCareDocument.html -->
+      <templateId root="2.16.840.1.113883.10.20.22.1.1" assigningAuthorityName="US Realm Clinical Document Header" />
+  <templateId root="2.16.840.1.113883.10.20.22.1.2" assigningAuthorityName="Consolidated CDA - CCD Document" />
+  
+   <recordTarget>
+        <patientRole>
+            <!-- 患者主索引号 -->
+            <id root="2.16.840.1.113883.2.23.11.4.2.2.99" extension="88446" assigningAuthorityName="BC-PHN"/>
+            <!-- 身份证号 --> 
+            <id root="2.16.840.1.113883.2.23.11.4.2.1.1" extension=""/> 
+            <!-- 病案号 --> 
+            <id root="2.16.840.1.113883.2.23.11.4.3.4" extension="501430"/> 
+            <!-- 诊疗号 --> 
+            <id root="2.16.840.1.113883.2.23.11.4.3.98" extension="149429"/> 
+            <patient>
+                <name>
+                    <given>新华</given>
+                    <family>温</family>
+                </name>
+                <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1"/>
+                
+
+            </patient>
+        </patientRole>
+    </recordTarget>
+    <author>
+        <time value="20160524112751"/>
+        <assignedAuthor>
+            <id extension="hhippocrates" root="DCCD2C68-389B-44c4-AD99-B8FB2DAD1493"/>
+            <assignedAuthoringDevice>
+                <softwareName>iCMC, Philips</softwareName>
+            </assignedAuthoringDevice>
+        </assignedAuthor>
+	</author>
+    
+    <participant typeCode="IND">
+		<!--联系人@classCode：CON，固定值，表示角色是联系人     -->
+		<associatedEntity classCode="ECON">
+			<!--联系人-->
+			<associatedPerson classCode="PSN" determinerCode="INSTANCE">
+			</associatedPerson>
+		</associatedEntity>
+	</participant>
+
+    <component>
+		<structuredBody>
+            <component> 
+                        <section>
+                          <code code="11535-2" displayName="主要诊断" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/> 
+                  
+                        <templateId root="2.16.840.1.113883.10.20.22.2.5.1" assigningAuthorityName="CCDA Active Problems Section (Entries Required)" />
+                     <title>Problems</title> 
+                     <text>
+                     1111111111111111111111111111111111111
+                     </text>
+
+ <entry>
+       
+                    <act>
+                    <templateId root="2.16.840.1.113883.10.20.22.4.3" assigningAuthorityName="CCDA Problem Concern Act" />
+
+                           <entryRelationship typeCode="SUBJ" inversionInd="true">
+                            <observation classCode="ACT" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.22.4.4" assigningAuthorityName="CCDA Problem Observation" />
+                
+                                <code code="E0030|二尖瓣,F0025|反流,VE00028|是" displayName="EFV0200001" codeSystem="Philips_CNCDR"/>
+                                <value type="BL" value="true"/>
+                                <originalText>
+                                   <reference value="#8bb58b1f-1409-11e5-b904-000c2989d5ef"/>
+                                </originalText>
+                            </observation>
+                            
+                            
+                        </entryRelationship>
+                        </act>
+                        </entry>
+        </section>
+            </component> 
+            
+
+		</structuredBody>
+
+    </component>
+
+</ClinicalDocument>

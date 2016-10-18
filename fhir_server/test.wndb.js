@@ -1,0 +1,1 @@
+var wndb = require('wndb-with-exceptions');

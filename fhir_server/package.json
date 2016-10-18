@@ -1,0 +1,20 @@
+{
+  "name": "fhir-server",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "async": "^1.5.2",
+    "body-parser": "^1.15.2",
+    "consolidate": "^0.14.1",
+    "eco": "^1.0.3",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.17",
+    "node-wordnet": "^0.1.12",
+    "restler": "^3.4.0",
+    "underscore": "^1.8.3",
+    "wndb-with-exceptions": "^3.0.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

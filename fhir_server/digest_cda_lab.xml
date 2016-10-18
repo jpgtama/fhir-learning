@@ -1,0 +1,1626 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../hl7/xsl/cda.xsl"?>
+
+
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 ../hl7/Schemas/CDA.xsd">
+	<id extension="1ab334d1-25b1-11e6-800c-000c295905c1" root="000.000.000.000"/>
+    <effectiveTime value="20150702000000-000"/>
+    <!-- http://cdatools.org/infocenter/index.jsp?topic=%2Forg.openhealthtools.mdht.uml.cda.consol.doc%2Fclasses%2FContinuityOfCareDocument.html -->
+    <templateId root="2.16.840.1.113883.10.20.21.1.10" assigningAuthorityName="Unstructured Document" />
+    <recordTarget>
+        <patientRole>
+            <!-- 患者主索引号 -->
+            <id root="2.16.840.1.113883.2.23.11.4.2.2.99" extension="898523" assigningAuthorityName="BC-PHN"/>
+            <patient>
+                <name>
+                    <given>三</given>
+                    <family>张</family>
+                </name>
+                
+
+            </patient>
+        </patientRole>
+    </recordTarget>
+    <author>
+        <time value="20160529232206"/>
+        <assignedAuthor>
+            <id extension="hhippocrates" root="DCCD2C68-389B-44c4-AD99-B8FB2DAD1493"/>
+            <assignedAuthoringDevice>
+                <softwareName>iCMC, Philips</softwareName>
+            </assignedAuthoringDevice>
+        </assignedAuthor>
+	</author>
+    
+    <participant typeCode="IND">
+		<!--联系人@classCode：CON，固定值，表示角色是联系人     -->
+		<associatedEntity classCode="ECON">
+			<!--联系人-->
+			<associatedPerson classCode="PSN" determinerCode="INSTANCE">
+			</associatedPerson>
+		</associatedEntity>
+	</participant>
+    <!--文档中医疗卫生事件的就诊场景-->
+	<componentOf typeCode="COMP">
+		<!--就诊-->
+		<encompassingEncounter classCode="ENC" moodCode="EVN">
+			<!--就诊类别 -->
+            <!--CV4201.01 病人类型代码 值 01 02 03 04 值含义 门诊 急诊 住院 体检 -->
+          
+            <templateId root="2.16.840.1.113883.10.20.22.4.49" assigningAuthorityName="CCDA Encounter Activity" />
+            <code code="01" displayName="门诊" codeSystem="2.16.840.1.113883.2.23.11.4201.1" codeSystemName="CV4201.01 病人类型代码"/>
+            
+            <effectiveTime>
+                <!-- only one document level timestamp -->
+                <low value = "20150702000000-000"/>
+            </effectiveTime>
+            
+		</encompassingEncounter>
+	</componentOf>
+    <component>
+    		<structuredBody>
+        
+                <component>
+<section>
+	<templateId root="2.16.840.1.113883.10.20.22.2.3.1" assigningAuthorityName="CCDA Results Section (Entries Required)"/>
+	<code code="30954-2" displayName="RESULTS" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+	<title>Lab Results</title>
+	<text>
+		<table width="100%">
+			<col/>
+			<col width="1px"/>
+			<thead>
+				<tr>
+					<th align="left" ID="labTestDescription497">CBC w/ Differential &amp; Platelet</th>
+					<th align="right">LabCorp Madison</th>
+				</tr>
+				<tr>
+					<th align="left">Ordered by David E Ford MD on 01/03/2008</th>
+					<th align="right">Collected: 01/03/2008 Reported: 01/03/2008</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td/>
+				</tr>
+			</tbody>
+		</table>
+		<table width="100%">
+			<col width="300px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<tbody>
+				<tr>
+					<td ID="testResultComponentDescription19">White Blood Cell (WBC) Count</td>
+					<td>
+						<paragraph>6.8</paragraph>
+					</td>
+					<td>THOUS/MCL</td>
+					<td ID="resultRange19">(3.8-10.8)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription20">Red Blood Cell (RBC) Count</td>
+					<td>
+						<paragraph>4.50</paragraph>
+					</td>
+					<td>MILL/MCL</td>
+					<td ID="resultRange20">(3.80-5.10)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription21">Hemoglobin</td>
+					<td>
+						<paragraph>13.7</paragraph>
+					</td>
+					<td>G/DL</td>
+					<td ID="resultRange21">(11.7-15.5)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription22">Hematocrit</td>
+					<td>
+						<paragraph>41.0</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange22">(35.0-45.0)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription23">MCV</td>
+					<td>
+						<paragraph>80.0</paragraph>
+					</td>
+					<td>FL</td>
+					<td ID="resultRange23">(.0-100.0)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription24">MCH</td>
+					<td>
+						<paragraph>30.0</paragraph>
+					</td>
+					<td>PG</td>
+					<td ID="resultRange24">(27.0-33.0)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription25">MCHC</td>
+					<td>
+						<paragraph>35.5</paragraph>
+					</td>
+					<td>G/DL</td>
+					<td ID="resultRange25">(32.0-36.0)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription26">Polys</td>
+					<td>
+						<paragraph>52.0</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange26">
+                  </td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription27">Lymphs</td>
+					<td>
+						<paragraph>32.6</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange27">
+                  </td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription28">Monocytes</td>
+					<td>
+						<paragraph>8.3</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange28">
+                  </td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription29">Eos</td>
+					<td>
+						<paragraph>6.2</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange29">
+                  </td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription30">Basos</td>
+					<td>
+						<paragraph>0.9</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange30">
+                  </td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription31">Platelets</td>
+					<td>
+						<paragraph>349</paragraph>
+					</td>
+					<td>THOUS/MCL</td>
+					<td ID="resultRange31">(140-400)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription32">Polys (Absolute)</td>
+					<td>
+						<paragraph>2852</paragraph>
+					</td>
+					<td>CELLS/MCL</td>
+					<td ID="resultRange32">(1500-7800)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription33">Lymphs (Absolute)</td>
+					<td>
+						<paragraph>1901</paragraph>
+					</td>
+					<td>CELLS/MCL</td>
+					<td ID="resultRange33">(850-3900)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription34">Monocytes(Absolute)</td>
+					<td>
+						<paragraph>601</paragraph>
+					</td>
+					<td>CELLS/MCL</td>
+					<td ID="resultRange34">(200-950)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription35">Eos (Absolute Value)</td>
+					<td>
+						<paragraph>420</paragraph>
+					</td>
+					<td>CELLS/MCL</td>
+					<td ID="resultRange35">(15-500)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription36">Baso(Absolute)</td>
+					<td>
+						<paragraph>45</paragraph>
+					</td>
+					<td>CELLS/MCL</td>
+					<td ID="resultRange36">(0-200)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription37">RDW</td>
+					<td>
+						<paragraph>12.5</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange37">(11.0-15.0)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td colspan="6">Reviewed by David E Ford MD on 01/08/2008; All test results are final unless otherwise noted.</td>
+				</tr>
+			</tbody>
+		</table>
+		<paragraph>
+            </paragraph>
+		<table width="100%">
+			<col/>
+			<col width="1px"/>
+			<thead>
+				<tr>
+					<th align="left" ID="labTestDescription178">CBC WITH DIFFERENTIAL/PLATELET</th>
+					<th align="right">LabCorp Madison</th>
+				</tr>
+				<tr>
+					<th align="left">Ordered by David E Ford MD on 11/02/2007</th>
+					<th align="right">Collected: 11/02/2007 Reported: 11/05/2007</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td/>
+				</tr>
+			</tbody>
+		</table>
+		<table width="100%">
+			<col width="300px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<tbody>
+				<tr>
+					<td ID="testResultComponentDescription38">White Blood Cell (WBC) Count</td>
+					<td>
+						<paragraph>5.3</paragraph>
+					</td>
+					<td>X_10-3/uL</td>
+					<td ID="resultRange38">(4.0-10.5)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription39">Red Blood Cell (RBC) Count</td>
+					<td>
+						<paragraph>3.86</paragraph>
+					</td>
+					<td>X_10-6/uL</td>
+					<td ID="resultRange39">(3.80-5.10)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription40">Hemoglobin</td>
+					<td>
+						<paragraph>11.5</paragraph>
+					</td>
+					<td>g/dL</td>
+					<td ID="resultRange40">(11.5-15.0)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription41">Hematocrit</td>
+					<td>
+						<paragraph>34.2</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange41">(34.0-44.0)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription42">MCV</td>
+					<td>
+						<paragraph>86</paragraph>
+					</td>
+					<td>fL</td>
+					<td ID="resultRange42">(80-98)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription43">MCH</td>
+					<td>
+						<paragraph>28.6</paragraph>
+					</td>
+					<td>pg</td>
+					<td ID="resultRange43">(27.0-34.0)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription44">MCHC</td>
+					<td>
+						<paragraph>33.2</paragraph>
+					</td>
+					<td>g/dL</td>
+					<td ID="resultRange44">(32.0-36.0)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription45">Polys</td>
+					<td>
+						<paragraph>57</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange45">(40-74)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription46">Lymphs</td>
+					<td>
+						<paragraph>29</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange46">(14-46)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription47">Monocytes</td>
+					<td>
+						<paragraph>11</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange47">(4-13)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription48">Eos</td>
+					<td>
+						<paragraph>3</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange48">(0-7)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription49">Basos</td>
+					<td>
+						<paragraph>0</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange49">(0-3)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription50">Platelets</td>
+					<td>
+						<paragraph>258</paragraph>
+					</td>
+					<td>X_10-3/uL</td>
+					<td ID="resultRange50">(140-415)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription51">Hematology Comments:</td>
+					<td>
+						<paragraph>
+                    </paragraph>
+					</td>
+					<td>
+                  </td>
+					<td ID="resultRange51">
+                  </td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>Status: Cannot be done</td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription52">Polys (Absolute)</td>
+					<td>
+						<paragraph>3.0</paragraph>
+					</td>
+					<td>X_10-3/uL</td>
+					<td ID="resultRange52">(1.8-7.8)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription53">Lymphs (Absolute)</td>
+					<td>
+						<paragraph>1.5</paragraph>
+					</td>
+					<td>X_10-3/uL</td>
+					<td ID="resultRange53">(0.7-4.5)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription54">Monocytes(Absolute)</td>
+					<td>
+						<paragraph>0.6</paragraph>
+					</td>
+					<td>X_10-3/uL</td>
+					<td ID="resultRange54">(0.1-1.0)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription55">Eos (Absolute Value)</td>
+					<td>
+						<paragraph>0.2</paragraph>
+					</td>
+					<td>X_10-3/uL</td>
+					<td ID="resultRange55">(0.0-0.4)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription56">Baso(Absolute)</td>
+					<td>
+						<paragraph>0.0</paragraph>
+					</td>
+					<td>X_10-3/uL</td>
+					<td ID="resultRange56">(0.0-0.2)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription57">RDW</td>
+					<td>
+						<paragraph>14.8</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange57">(11.7-15.0)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td colspan="6">Reviewed by David E Ford MD on 11/05/2007; All test results are final unless otherwise noted.</td>
+				</tr>
+			</tbody>
+		</table>
+		<paragraph>
+            </paragraph>
+		<table width="100%">
+			<col/>
+			<col width="1px"/>
+			<thead>
+				<tr>
+					<th align="left" ID="labTestDescription179">HFP7+3AC</th>
+					<th align="right">LabCorp Madison</th>
+				</tr>
+				<tr>
+					<th align="left">Ordered by David E Ford MD on 11/02/2007</th>
+					<th align="right">Collected: 11/02/2007 Reported: 11/05/2007</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td/>
+				</tr>
+			</tbody>
+		</table>
+		<table width="100%">
+			<col width="300px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<tbody>
+				<tr>
+					<td ID="testResultComponentDescription58">Cholesterol, Total</td>
+					<td>
+						<paragraph>220</paragraph>
+					</td>
+					<td>mg/dL</td>
+					<td ID="resultRange58">(100-199)</td>
+					<td>
+						<paragraph>H (High)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td colspan="6" ID="component2test58">Note: Performed At: MA
+LABCORP MADISON
+1447 YORK COURT
+MADISON, CA 956530000
+</td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription59">Protein, Total, Serum</td>
+					<td>
+						<paragraph>6.3</paragraph>
+					</td>
+					<td>g/dL</td>
+					<td ID="resultRange59">(6.0-8.5)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription60">Albumin, Serum</td>
+					<td>
+						<paragraph>3.7</paragraph>
+					</td>
+					<td>g/dL</td>
+					<td ID="resultRange60">(3.6-4.8)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription61">Bilirubin, Total</td>
+					<td>
+						<paragraph>0.8</paragraph>
+					</td>
+					<td>mg/dL</td>
+					<td ID="resultRange61">(0.1-1.2)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription62">Alkaline Phosphatase, Serum</td>
+					<td>
+						<paragraph>142</paragraph>
+					</td>
+					<td>IU/L</td>
+					<td ID="resultRange62">(25-165)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription63">LDH</td>
+					<td>
+						<paragraph>108</paragraph>
+					</td>
+					<td>IU/L</td>
+					<td ID="resultRange63">(100-250)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription64">AST (SGOT)</td>
+					<td>
+						<paragraph>27</paragraph>
+					</td>
+					<td>IU/L</td>
+					<td ID="resultRange64">(0-40)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription65">Bilirubin, Direct</td>
+					<td>
+						<paragraph>0.31</paragraph>
+					</td>
+					<td>mg/dL</td>
+					<td ID="resultRange65">(0.00-0.40)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription66">ALT (SGPT)</td>
+					<td>
+						<paragraph>23</paragraph>
+					</td>
+					<td>IU/L</td>
+					<td ID="resultRange66">(0-40)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription67">GGT</td>
+					<td>
+						<paragraph>36</paragraph>
+					</td>
+					<td>IU/L</td>
+					<td ID="resultRange67">(0-60)</td>
+					<td>
+						<paragraph>None</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td colspan="6">Reviewed by David E Ford MD on 11/05/2007; All test results are final unless otherwise noted.</td>
+				</tr>
+			</tbody>
+		</table>
+		<paragraph>
+            </paragraph>
+		<table width="100%">
+			<col/>
+			<col width="1px"/>
+			<thead>
+				<tr>
+					<th align="left" ID="labTestDescription160">THYROID PANEL WITH TSH</th>
+					<th align="right">LabCorp Madison</th>
+				</tr>
+				<tr>
+					<th align="left">Ordered by David E Ford MD on 10/05/2007</th>
+					<th align="right">Collected: 10/05/2007 Reported: 10/08/2007</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td/>
+				</tr>
+			</tbody>
+		</table>
+		<table width="100%">
+			<col width="300px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<tbody>
+				<tr>
+					<td ID="testResultComponentDescription68">Thyroxine (T4)</td>
+					<td>
+						<paragraph>5.1</paragraph>
+					</td>
+					<td>mcg/dL</td>
+					<td ID="resultRange68">(4.5-12.0)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td colspan="6" ID="component3test68">Note:              ***EFFECTIVE NOVEMBER 26, 2001 The reference interval***
+                will be changing to:
+                                          Male            Female
+                     Cord Blood         6.6-17.5         6.6-17.5
+                     1-  3 Days        11.0-21.5        11.0-21.5
+                     1-  4 Weeks        8.2-16.6         8.2-16.6
+                     1- 11 Months       6.4-13.9         4.9-13.7
+                     1-  3 Years        7.0-13.1         7.1-14.1
+                     4-  6 Years        6.1-12.6         7.2-14.0
+                     7- 12 Years        6.7-13.4         6.1-12.1
+                     13-15 Years        4.8-11.5         5.8-11.2
+                     Adult              4.5-12.0         4.5-12.0
+                                                                     .
+</td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription69">T3 Uptake</td>
+					<td>
+						<paragraph>31</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange69">(24-39)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription70">Free Thyroxine Index</td>
+					<td>
+						<paragraph>3.2</paragraph>
+					</td>
+					<td>
+                  </td>
+					<td ID="resultRange70">(1.2-4.9)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription71">TSH, High Sensitivity, Serum</td>
+					<td>
+						<paragraph>4.21</paragraph>
+					</td>
+					<td>mcIU/mL</td>
+					<td ID="resultRange71">(0.35-5.50)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td colspan="6" ID="component3test71">Note:                              **Please Note Reference Interval Change**
+                                                                         .
+</td>
+				</tr>
+				<tr>
+					<td colspan="6">Reviewed by David E Ford MD on 10/08/2007; All test results are final unless otherwise noted.</td>
+				</tr>
+			</tbody>
+		</table>
+		<paragraph>
+            </paragraph>
+		<table width="100%">
+			<col/>
+			<col width="1px"/>
+			<thead>
+				<tr>
+					<th align="left" ID="labTestDescription161">Cl+K+Na</th>
+					<th align="right">LabCorp Madison</th>
+				</tr>
+				<tr>
+					<th align="left">Ordered by David E Ford MD on 10/05/2007</th>
+					<th align="right">Collected: 10/05/2007 Reported: 10/08/2007</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td/>
+				</tr>
+			</tbody>
+		</table>
+		<table width="100%">
+			<col width="300px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<tbody>
+				<tr>
+					<td ID="testResultComponentDescription72">Potassium, Serum</td>
+					<td>
+						<paragraph>4.1</paragraph>
+					</td>
+					<td>mmol/L</td>
+					<td ID="resultRange72">(3.5-5.5)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription73">Sodium, Serum</td>
+					<td>
+						<paragraph>139</paragraph>
+					</td>
+					<td>mmol/L</td>
+					<td ID="resultRange73">(135-148)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription74">Chloride, Serum</td>
+					<td>
+						<paragraph>101</paragraph>
+					</td>
+					<td>mmol/L</td>
+					<td ID="resultRange74">(96-109)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td colspan="6">Reviewed by David E Ford MD on 10/08/2007; All test results are final unless otherwise noted.</td>
+				</tr>
+			</tbody>
+		</table>
+		<paragraph>
+            </paragraph>
+		<table width="100%">
+			<col/>
+			<col width="1px"/>
+			<thead>
+				<tr>
+					<th align="left" ID="labTestDescription162">RPR</th>
+					<th align="right">LabCorp Madison</th>
+				</tr>
+				<tr>
+					<th align="left">Ordered by David E Ford MD on 10/05/2007</th>
+					<th align="right">Collected: 10/05/2007 Reported: 10/08/2007</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td/>
+				</tr>
+			</tbody>
+		</table>
+		<table width="100%">
+			<col width="300px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<tbody>
+				<tr>
+					<td ID="testResultComponentDescription75">RPR</td>
+					<td>
+						<paragraph>Non-Reactive</paragraph>
+					</td>
+					<td>
+                  </td>
+					<td ID="resultRange75">(Non-Reactive)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td colspan="6" ID="component5test75">Note: Performed At: MA
+LABCORP MADISON
+1447 YORK COURT
+MADISON, CA 956530000
+</td>
+				</tr>
+				<tr>
+					<td colspan="6">Reviewed by David E Ford MD on 10/08/2007; All test results are final unless otherwise noted.</td>
+				</tr>
+			</tbody>
+		</table>
+		<paragraph>
+            </paragraph>
+		<table width="100%">
+			<col/>
+			<col width="1px"/>
+			<thead>
+				<tr>
+					<th align="left" ID="labTestDescription493">CBC w/ Differential &amp; Platelet</th>
+					<th align="right">LabCorp Madison</th>
+				</tr>
+				<tr>
+					<th align="left">Ordered by David E Ford MD on 09/03/2007</th>
+					<th align="right">Collected: 09/03/2007 Reported: 09/03/2007</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td/>
+				</tr>
+			</tbody>
+		</table>
+		<table width="100%">
+			<col width="300px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<tbody>
+				<tr>
+					<td ID="testResultComponentDescription0">White Blood Cell (WBC) Count</td>
+					<td>
+						<paragraph>5.8</paragraph>
+					</td>
+					<td>THOUS/MCL</td>
+					<td ID="resultRange0">(3.8-10.8)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription1">Red Blood Cell (RBC) Count</td>
+					<td>
+						<paragraph>4.20</paragraph>
+					</td>
+					<td>MILL/MCL</td>
+					<td ID="resultRange1">(3.80-5.10)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription2">Hemoglobin</td>
+					<td>
+						<paragraph>11.7</paragraph>
+					</td>
+					<td>G/DL</td>
+					<td ID="resultRange2">(11.7-15.5)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription3">Hematocrit</td>
+					<td>
+						<paragraph>36.2</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange3">(35.0-45.0)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription4">MCV</td>
+					<td>
+						<paragraph>86.1</paragraph>
+					</td>
+					<td>FL</td>
+					<td ID="resultRange4">(.0-100.0)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription5">MCH</td>
+					<td>
+						<paragraph>28.0</paragraph>
+					</td>
+					<td>PG</td>
+					<td ID="resultRange5">(27.0-33.0)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription6">MCHC</td>
+					<td>
+						<paragraph>32.5</paragraph>
+					</td>
+					<td>G/DL</td>
+					<td ID="resultRange6">(32.0-36.0)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription7">Polys</td>
+					<td>
+						<paragraph>51.1</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange7">
+                  </td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription8">Lymphs</td>
+					<td>
+						<paragraph>31.8</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange8">
+                  </td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription9">Monocytes</td>
+					<td>
+						<paragraph>9.1</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange9">
+                  </td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription10">Eos</td>
+					<td>
+						<paragraph>7.2</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange10">
+                  </td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription11">Basos</td>
+					<td>
+						<paragraph>0.8</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange11">
+                  </td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription12">Platelets</td>
+					<td>
+						<paragraph>354</paragraph>
+					</td>
+					<td>THOUS/MCL</td>
+					<td ID="resultRange12">(140-400)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription13">Polys (Absolute)</td>
+					<td>
+						<paragraph>2964</paragraph>
+					</td>
+					<td>CELLS/MCL</td>
+					<td ID="resultRange13">(1500-7800)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription14">Lymphs (Absolute)</td>
+					<td>
+						<paragraph>1844</paragraph>
+					</td>
+					<td>CELLS/MCL</td>
+					<td ID="resultRange14">(850-3900)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription15">Monocytes(Absolute)</td>
+					<td>
+						<paragraph>528</paragraph>
+					</td>
+					<td>CELLS/MCL</td>
+					<td ID="resultRange15">(200-950)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription16">Eos (Absolute Value)</td>
+					<td>
+						<paragraph>418</paragraph>
+					</td>
+					<td>CELLS/MCL</td>
+					<td ID="resultRange16">(15-500)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription17">Baso(Absolute)</td>
+					<td>
+						<paragraph>46</paragraph>
+					</td>
+					<td>CELLS/MCL</td>
+					<td ID="resultRange17">(0-200)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription18">RDW</td>
+					<td>
+						<paragraph>13.4</paragraph>
+					</td>
+					<td>%</td>
+					<td ID="resultRange18">(11.0-15.0)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td colspan="6">Reviewed by David E Ford MD on 01/08/2008; All test results are final unless otherwise noted.</td>
+				</tr>
+			</tbody>
+		</table>
+		<paragraph>
+            </paragraph>
+		<table width="100%">
+			<col/>
+			<col width="1px"/>
+			<thead>
+				<tr>
+					<th align="left" ID="labTestDescription308">Hematocrit</th>
+					<th align="right">Madison Laboratory</th>
+				</tr>
+				<tr>
+					<th align="left">Ordered by James T Monroe MD on 09/03/2007</th>
+					<th align="right">Collected: 09/03/2007 Reported: 09/03/2007</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td/>
+				</tr>
+			</tbody>
+		</table>
+		<table width="100%">
+			<col width="300px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<tbody>
+				<tr>
+					<td ID="testResultComponentDescription76">Female</td>
+					<td>
+						<paragraph>40</paragraph>
+					</td>
+					<td>
+                  </td>
+					<td ID="resultRange76">(37-47)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription77">Male</td>
+					<td>
+						<paragraph>00</paragraph>
+					</td>
+					<td>
+                  </td>
+					<td ID="resultRange77">(40-54)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td colspan="6">Reviewed by James T Monroe MD on 09/03/2007; All test results are final unless otherwise noted.</td>
+				</tr>
+			</tbody>
+		</table>
+		<paragraph>
+            </paragraph>
+		<table width="100%">
+			<col/>
+			<col width="1px"/>
+			<thead>
+				<tr>
+					<th align="left" ID="labTestDescription309">Urinalysis</th>
+					<th align="right">Madison Laboratory</th>
+				</tr>
+				<tr>
+					<th align="left">Ordered by James T Monroe MD on 09/03/2007</th>
+					<th align="right">Collected: 09/03/2007 Reported: 09/03/2007</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td/>
+				</tr>
+			</tbody>
+		</table>
+		<table width="100%">
+			<col width="300px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<col width="100px"/>
+			<tbody>
+				<tr>
+					<td ID="testResultComponentDescription78">Appearance</td>
+					<td>
+						<paragraph>Clear</paragraph>
+					</td>
+					<td>
+                  </td>
+					<td ID="resultRange78">(Clear-Mod Cloud)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription79">Bilirubin</td>
+					<td>
+						<paragraph>Negative</paragraph>
+					</td>
+					<td>
+                  </td>
+					<td ID="resultRange79">(Negative-Small)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription80">Blood</td>
+					<td>
+						<paragraph>Negative</paragraph>
+					</td>
+					<td>
+                  </td>
+					<td ID="resultRange80">(Negative)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription81">Color</td>
+					<td>
+						<paragraph>Yellow</paragraph>
+					</td>
+					<td>
+                  </td>
+					<td ID="resultRange81">(None-Yellow)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription82">Glucose</td>
+					<td>
+						<paragraph>Negative</paragraph>
+					</td>
+					<td>
+                  </td>
+					<td ID="resultRange82">(Negative-250)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription83">Specific Gravity</td>
+					<td>
+						<paragraph>1.005</paragraph>
+					</td>
+					<td>
+                  </td>
+					<td ID="resultRange83">(1.000-1.010)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription84">Ketone</td>
+					<td>
+						<paragraph>Negative</paragraph>
+					</td>
+					<td>
+                  </td>
+					<td ID="resultRange84">(Negative-Trace)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription85">Leukocytes</td>
+					<td>
+						<paragraph>Negative</paragraph>
+					</td>
+					<td>
+                  </td>
+					<td ID="resultRange85">(Negative-Trace)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription86">Nitrites</td>
+					<td>
+						<paragraph>Negative</paragraph>
+					</td>
+					<td>
+                  </td>
+					<td ID="resultRange86">(Negative)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription87">pH Level</td>
+					<td>
+						<paragraph>6.0</paragraph>
+					</td>
+					<td>
+                  </td>
+					<td ID="resultRange87">(5.0-6.5)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td ID="testResultComponentDescription88">Urobilinogen</td>
+					<td>
+						<paragraph>Negative</paragraph>
+					</td>
+					<td>
+                  </td>
+					<td ID="resultRange88">(Negative)</td>
+					<td>
+						<paragraph>N (Normal)</paragraph>
+					</td>
+					<td>
+                  </td>
+				</tr>
+				<tr>
+					<td colspan="6">Reviewed by James T Monroe MD on 09/03/2007; All test results are final unless otherwise noted.</td>
+				</tr>
+			</tbody>
+		</table>
+		<paragraph>
+            </paragraph>
+	</text>
+	<entry>
+		<organizer classCode="BATTERY" moodCode="EVN">
+			<templateId root="2.16.840.1.113883.10.20.22.4.1" assigningAuthorityName="CCDA Result Organizer"/>
+			<statusCode code="completed"/>
+			<component>
+				<observation classCode="OBS" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.22.4.2" assigningAuthorityName="CCDA Result Observation"/>
+                    <code code="6690-2" displayName="White Blood Cell (WBC) Count" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<text>
+						<reference value="#testResultComponentDescription19"/>
+					</text>
+					<statusCode code="completed"/>
+					<effectiveTime value="20080103145800-0500"/>
+					<value value="6.8" unit="THOUS/MCL" xsi:type="PQ"/>
+					<interpretationCode code="N" displayName="Normal" codeSystem="2.16.840.1.113883.5.83" codeSystemName="ObservationInterpretation"/>
+					<referenceRange>
+						<observationRange>
+							<text xsi:type="ED">(3.8-10.8)<reference value="#resultRange19"/>
+							</text>
+						</observationRange>
+					</referenceRange>
+				</observation>
+			</component>
+		</organizer>
+	</entry>
+
+</section>
+        </component>
+
+    	</structuredBody>
+    </component>
+
+</ClinicalDocument>
