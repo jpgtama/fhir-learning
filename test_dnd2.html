@@ -1,0 +1,161 @@
+<html>
+
+<head>
+    
+    <style>
+        * {
+  margin: 0;
+  box-sizing: border-box;
+}
+#squad {
+  width: 40vw;
+  height: 90vh;
+  overflow-y: scroll;
+  border-radius: 10px;
+  margin-left: 5vw;
+  margin-top: 5vh;
+  background-color: red;
+  float: left;
+}
+h1 {
+  text-align: center;
+}
+#myTeam {
+  float: left;
+  height: 60vh;
+  width: 40vw;
+  border-radius: 10px;
+  background-color: red;
+  margin-left: 10vw;
+  margin-top: 5vh;
+}
+#scores {
+  width: 40vw;
+  height: 25vh;
+  margin-top: 5vh;
+  margin-left: 10vw;
+  background-color: red;
+  border-radius: 10px;
+  float: left;
+}
+.champion {
+  width: 90%;
+  height: 15vh;
+  margin: 1%;
+  padding: 2%;
+  border: 1px black solid;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.champion h1 {
+  float: left;
+}
+.attributes {
+  margin-left: 10%;
+  float: left;
+}
+.number {
+  float: left;
+  text-align: center;
+  margin-left: 10px;
+}
+#div1,
+#div2 {
+  width: 90%;
+  height: 15vh;
+  margin: 1%;
+  border: 1px black solid;
+  border-radius: 10px;
+}
+    
+    </style>
+    
+    
+    </head>
+
+    
+    <body>
+    
+        <div id="squad" ondrop="drop(event, this)" ondragover="allowDrop(event)">
+  <h1>SQUAD</h1>
+
+  <div id="jeff" class="champion" draggable="true" ondragstart="drag(event)" ondrop="return false" ondragover="return false">
+    <h1>Jeff</h1>
+
+    <div class="attributes">
+      <div class="number kills"><span> 4</span>
+        <p>Kills</p>
+      </div>
+      <div class="number deaths"><span>2 </span>
+        <p>Deaths</p>
+      </div>
+      <div class="number GPM"><span> 12</span>
+        <p>GPM</p>
+      </div>
+    </div>
+  </div>
+  <div id="Geoff" class="champion" draggable="true" ondragstart="drag(event)" ondrop="return false" ondragover="return false">
+    <h1>Geoff</h1>
+
+    <div class="attributes">
+      <div class="number kills"><span> 7</span>
+        <p>Kills</p>
+      </div>
+      <div class="number deaths"><span>0 </span>
+        <p>Deaths</p>
+      </div>
+      <div class="number GPM"><span> 14</span>
+        <p>GPM</p>
+      </div>
+    </div>
+  </div>
+  <div id="jeph" class="champion" draggable="true" ondragstart="drag(event)" ondrop="return false" ondragover="return false">
+    <h1>Jeph</h1>
+
+    <div class="attributes">
+      <div class="number kills"><span> 1</span>
+        <p>Kills</p>
+      </div>
+      <div class="number deaths"><span>9 </span>
+        <p>Deaths</p>
+      </div>
+      <div class="number GPM"><span> 24</span>
+        <p>GPM</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of squad div-->
+<div id="myTeam" ondrop="drop(event, this)" ondragover="allowDrop(event)"   >
+  <h1>My Team</h1>
+
+</div>
+<div id="scores"  ondragenter="(function(e, o){console.log('drag enter', e.target.tagName, o.tagName)})(event, this)"  ondragleave2="(function(){ console.log('drag exit')  })()" >
+  <h1 style="border: 1px solid ">My Team Scores</h1>
+
+</div>
+
+
+        <script>
+        
+            function allowDrop(ev) {
+  
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev, el) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  el.appendChild(document.getElementById(data));
+}
+        </script>
+        
+    
+    </body>
+    
+</html>

@@ -15,6 +15,7 @@
             font-size: 25px;
         }
 
+/*
         table.question {
             border-spacing: 10px;
             border-collapse: separate;
@@ -25,474 +26,640 @@
             border: 1px dashed lightgray;
             padding: 2px 10px;
         }
+*/
+        
+        .workarea{
+            display: flex;
+            height: 800px;
+            padding: 5px;
+            
+            
+        }
+        
+        .workarea > div{
+            margin: 5px;
+        }
+        
+        .drawPane{
+            flex: 5;
+            border: 1px solid lightgray;
+            overflow: scroll;
+        }
+        
+        .fields{
+            flex: 1;
+            border: 1px solid lightgray;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            align-content: flex-start;
+        }
+        
+        .fields .f{
+/*            flex-grow: 1;*/
+            width: 46%;
+            height: 20px;
+            border: 1px solid red;
+            margin: 5px;
+/*            background-color: antiquewhite;*/
+        }
+        
+        
+        .page{
+            padding: 23px;
+            
+        }
+        
+        .page .name{
+            position: relative;
+            width: 140px;
+            border-top: 1px solid lightgray;
+            text-align: center;
+            margin-left: 11px;
+        }
+        
+        
+        .page .name:before, .page .name:after{
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0px;
+            height: 100%;
+            width: 1px;
+            background-color: lightgray;
+            transform: skew(-30deg, 0deg);
+                
+        }
+        
+        .page .name:before{
+            left: -6px;
+        }
+        
+        
+        .page .name:after{
+            transform:skew(30deg, 0deg);
+            right: -6px;
+        }
+        
+        .page .body{
+            border: 1px solid lightgray;
+/*            height: 800px;*/
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            padding:5px;
+        }
+        
+        .page .body .section{
+/*            border: 1px solid lightgray;*/
+            min-height: 100px;
+            margin: 5px;
+            position: relative;
+        }
+        
+        
+        .section .info{
+            position: absolute;
+            top: 0px;
+            right:20px;
+            cursor: pointer;
+        }
+        
+        .section .close{
+            position: absolute;
+            top: 0px;
+            right:5px;
+            cursor: pointer;
+        }
+        
+        .section .info:hover, .section .close:hover{
+            background-color: aquamarine;
+        }
+        
+        .section .body{
+            min-height: 100px;
+            padding: 5px;
+            padding-bottom: 33px;
+            padding-top: 33px;
+            background-color: aliceblue;
+            border: none;
+        }
+        
+        .section .name{
+            position: relative;
+            width: 140px;
+            border-top: none;
+            border-bottom: 1px solid #acceec;
+            text-align: center;
+            margin-left: 11px;
+            background-color: aliceblue;
+        }
+        
+        
+        .section .name:before, .section .name:after{
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0px;
+            height: 100%;
+            width: 11px;
+            background-color: aliceblue;
+            transform: skew(-30deg, 0deg);
+            border-bottom: 1px solid #acceec;
+        }
+        
+        .section .name:before{
+            left: -6px;
+        }
+        
+        
+        .section .name:after{
+            transform:skew(30deg, 0deg);
+            right: -6px;
+        }
+        
+        .section .name span{
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: block;
+        }
+        
+        .question{
+            margin: 5px;
+        }
+        
+        .question .self:hover{
+            background-color: beige;
+        }
+        
+        .dragOver{
+                background-color: aquamarine
+        }
+        
+        .group{
+            position: relative;
+            left: 20px;
+        }
+        
     </style>
 </header>
 
 <body>
 <pre>Generate Questionaire</pre>
 
+    
+    <!-- Simple pop-up dialog box, containing a form -->
+<dialog id="favDialog">
+  <form method="dialog">
+    <section>
+      <p><label for="favAnimal">Favorite animal:</label>
+      <select id="favAnimal">
+        <option></option>
+        <option>Brine shrimp</option>
+        <option>Red panda</option>
+        <option>Spider monkey</option>
+      </select></p>
+    </section>
+    <menu>
+      <button id="cancel" type="reset">Cancel</button>
+      <button type="submit" value="confirm">Confirm</button>
+    </menu>
+  </form>
+</dialog>
+
+<menu>
+  <button id="updateDetails">Update details</button>
+</menu>
+
+    
+    
 <hr/>
 
+    
+    
 
-<table>
-<tr>
-    <td> Title:</td>
-    <td><input/></td>
-</tr>
-
-
-<tr>
-    <td> publisher:</td>
-    <td><input/></td>
-</tr>
-
-<tr>
-    <td> Status:</td>
-    <td>
-        <select>
-            <option value="draft">draft</option>
-            <option value="published">published</option>
-            <option value="retired">retired</option>
-        </select>
-    </td>
-</tr>
-
-
-<tr>
-<td>Questions:</td>
-<td>
-<table class="question">
-<tr>
-<td><input/></td>
-
-<td>
-    <select>
-        <option value="boolean"> boolean</option>
-        <option value="decimal"> decimal</option>
-        <option value="integer"> integer</option>
-        <option value="date"> date</option>
-        <option value="dateTime"> dateTime</option>
-        <option value="instant"> instant</option>
-        <option value="time"> time</option>
-        <option value="string"> string</option>
-        <option value="text"> text</option>
-        <option value="url"> url</option>
-        <option value="choice"> choice</option>
-        <option value="open-choice"> open-choice</option>
-        <option value="attachment"> attachment</option>
-        <option value="reference"> reference</option>
-        <option value="quantity"> quantity</option>
-    </select>
-</td>
-
-<td>
-    <label></bale><input type="checkbox"/>Is required? </label>
-</td>
-
-<td>
-<label> <input type="checkbox"/> Options: </label>
-<select>
-<option value="account-status"> account-status</option>
-<option value="actionlist"> actionlist</option>
-<option value="activity-reason"> activity-reason</option>
-<option value="additionalmaterials"> additionalmaterials</option>
-<option value="address-type"> address-type</option>
-<option value="address-use"> address-use</option>
-<option value="adjudication"> adjudication</option>
-<option value="adjudication-error"> adjudication-error</option>
-<option value="adjustment-reason"> adjustment-reason</option>
-<option value="administrative-gender"> administrative-gender</option>
-<option value="age-units"> age-units</option>
-<option value="allergy-intolerance-category"> allergy-intolerance-category</option>
-<option value="allergy-intolerance-criticality"> allergy-intolerance-criticality</option>
-<option value="allergy-intolerance-status"> allergy-intolerance-status</option>
-<option value="allergy-intolerance-type"> allergy-intolerance-type</option>
-<option value="allergyintolerance-substance-code"> allergyintolerance-substance-code</option>
-<option value="animal-breeds"> animal-breeds</option>
-<option value="animal-genderstatus"> animal-genderstatus</option>
-<option value="animal-species"> animal-species</option>
-<option value="answer-format"> answer-format</option>
-<option value="anzsco-occupations"> anzsco-occupations</option>
-<option value="appointmentstatus"> appointmentstatus</option>
-<option value="approach-site-codes"> approach-site-codes</option>
-<option value="assert-direction-codes"> assert-direction-codes</option>
-<option value="assert-operator-codes"> assert-operator-codes</option>
-<option value="assert-response-code-types"> assert-response-code-types</option>
-<option value="audit-event-action"> audit-event-action</option>
-<option value="audit-event-outcome"> audit-event-outcome</option>
-<option value="audit-event-sub-type"> audit-event-sub-type</option>
-<option value="audit-event-type"> audit-event-type</option>
-<option value="audit-source-type"> audit-source-type</option>
-<option value="basic-resource-type"> basic-resource-type</option>
-<option value="binding-strength"> binding-strength</option>
-<option value="body-site"> body-site</option>
-<option value="bodysite-laterality"> bodysite-laterality</option>
-<option value="bodysite-relative-location"> bodysite-relative-location</option>
-<option value="bundle-type"> bundle-type</option>
-<option value="c80-doc-classcodes"> c80-doc-classcodes</option>
-<option value="c80-doc-typecodes"> c80-doc-typecodes</option>
-<option value="c80-facilitycodes"> c80-facilitycodes</option>
-<option value="c80-practice-codes"> c80-practice-codes</option>
-<option value="care-plan-activity"> care-plan-activity</option>
-<option value="care-plan-activity-category"> care-plan-activity-category</option>
-<option value="care-plan-activity-status"> care-plan-activity-status</option>
-<option value="care-plan-category"> care-plan-category</option>
-<option value="care-plan-relationship"> care-plan-relationship</option>
-<option value="care-plan-status"> care-plan-status</option>
-<option value="choice-list-orientation"> choice-list-orientation</option>
-<option value="claim-exception"> claim-exception</option>
-<option value="claim-modifiers"> claim-modifiers</option>
-<option value="claim-type-link"> claim-type-link</option>
-<option value="claim-use-link"> claim-use-link</option>
-<option value="classification-or-context"> classification-or-context</option>
-<option value="clinical-findings"> clinical-findings</option>
-<option value="clinical-impression-status"> clinical-impression-status</option>
-<option value="communication-request-status"> communication-request-status</option>
-<option value="communication-status"> communication-status</option>
-<option value="composition-attestation-mode"> composition-attestation-mode</option>
-<option value="composition-status"> composition-status</option>
-<option value="concept-map-equivalence"> concept-map-equivalence</option>
-<option value="condition-category"> condition-category</option>
-<option value="condition-cause"> condition-cause</option>
-<option value="condition-clinical"> condition-clinical</option>
-<option value="condition-code"> condition-code</option>
-<option value="condition-outcome"> condition-outcome</option>
-<option value="condition-predecessor"> condition-predecessor</option>
-<option value="condition-severity"> condition-severity</option>
-<option value="condition-stage"> condition-stage</option>
-<option value="condition-state"> condition-state</option>
-<option value="condition-ver-status"> condition-ver-status</option>
-<option value="conditional-delete-status"> conditional-delete-status</option>
-<option value="conformance-expectation"> conformance-expectation</option>
-<option value="conformance-resource-status"> conformance-resource-status</option>
-<option value="conformance-statement-kind"> conformance-statement-kind</option>
-<option value="consistency-type"> consistency-type</option>
-<option value="constraint-severity"> constraint-severity</option>
-<option value="contact-point-system"> contact-point-system</option>
-<option value="contact-point-use"> contact-point-use</option>
-<option value="contactentity-type"> contactentity-type</option>
-<option value="content-type"> content-type</option>
-<option value="contract-action"> contract-action</option>
-<option value="contract-actorrole"> contract-actorrole</option>
-<option value="contract-signer-type"> contract-signer-type</option>
-<option value="contract-subtype"> contract-subtype</option>
-<option value="contract-term-subtype"> contract-term-subtype</option>
-<option value="contract-term-type"> contract-term-type</option>
-<option value="contract-type"> contract-type</option>
-<option value="cpt-all"> cpt-all</option>
-<option value="data-absent-reason"> data-absent-reason</option>
-<option value="data-types"> data-types</option>
-<option value="dataelement-sdcobjectclass"> dataelement-sdcobjectclass</option>
-<option value="dataelement-sdcobjectclassproperty"> dataelement-sdcobjectclassproperty</option>
-<option value="dataelement-stringency"> dataelement-stringency</option>
-<option value="days-of-week"> days-of-week</option>
-<option value="defined-types"> defined-types</option>
-<option value="designation-use"> designation-use</option>
-<option value="detectedissue-category"> detectedissue-category</option>
-<option value="detectedissue-mitigation-action"> detectedissue-mitigation-action</option>
-<option value="detectedissue-severity"> detectedissue-severity</option>
-<option value="device-action"> device-action</option>
-<option value="device-use-request-priority"> device-use-request-priority</option>
-<option value="device-use-request-status"> device-use-request-status</option>
-<option value="devicestatus"> devicestatus</option>
-<option value="diagnostic-order-event"> diagnostic-order-event</option>
-<option value="diagnostic-order-priority"> diagnostic-order-priority</option>
-<option value="diagnostic-order-status"> diagnostic-order-status</option>
-<option value="diagnostic-report-status"> diagnostic-report-status</option>
-<option value="diagnostic-requests"> diagnostic-requests</option>
-<option value="diagnostic-service-sections"> diagnostic-service-sections</option>
-<option value="dicm-402-roleid"> dicm-402-roleid</option>
-<option value="dicm-405-mediatype"> dicm-405-mediatype</option>
-<option value="dicom-cid29"> dicom-cid29</option>
-<option value="dicom-dcim"> dicom-dcim</option>
-<option value="diet-type"> diet-type</option>
-<option value="digital-media-subtype"> digital-media-subtype</option>
-<option value="digital-media-type"> digital-media-type</option>
-<option value="doc-classcodes"> doc-classcodes</option>
-<option value="doc-section-codes"> doc-section-codes</option>
-<option value="doc-typecodes"> doc-typecodes</option>
-<option value="document-mode"> document-mode</option>
-<option value="document-reference-status"> document-reference-status</option>
-<option value="document-relationship-type"> document-relationship-type</option>
-<option value="encounter-admit-source"> encounter-admit-source</option>
-<option value="encounter-class"> encounter-class</option>
-<option value="encounter-diet"> encounter-diet</option>
-<option value="encounter-discharge-disposition"> encounter-discharge-disposition</option>
-<option value="encounter-location-status"> encounter-location-status</option>
-<option value="encounter-participant-type"> encounter-participant-type</option>
-<option value="encounter-priority"> encounter-priority</option>
-<option value="encounter-reason"> encounter-reason</option>
-<option value="encounter-special-arrangements"> encounter-special-arrangements</option>
-<option value="encounter-special-courtesy"> encounter-special-courtesy</option>
-<option value="encounter-state"> encounter-state</option>
-<option value="encounter-type"> encounter-type</option>
-<option value="enteral-route"> enteral-route</option>
-<option value="entformula-additive"> entformula-additive</option>
-<option value="entformula-type"> entformula-type</option>
-<option value="episode-of-care-status"> episode-of-care-status</option>
-<option value="event-timing"> event-timing</option>
-<option value="example-expansion"> example-expansion</option>
-<option value="example-extensional"> example-extensional</option>
-<option value="example-inline"> example-inline</option>
-<option value="example-intensional"> example-intensional</option>
-<option value="extension-context"> extension-context</option>
-<option value="filter-operator"> filter-operator</option>
-<option value="fips-county"> fips-county</option>
-<option value="flag-category"> flag-category</option>
-<option value="flag-code"> flag-code</option>
-<option value="flag-priority"> flag-priority</option>
-<option value="flag-status"> flag-status</option>
-<option value="fm-conditions"> fm-conditions</option>
-<option value="focal-subject"> focal-subject</option>
-<option value="food-type"> food-type</option>
-<option value="formatcodes"> formatcodes</option>
-<option value="forms"> forms</option>
-<option value="fundsreserve"> fundsreserve</option>
-<option value="goal-acceptance-status"> goal-acceptance-status</option>
-<option value="goal-category"> goal-category</option>
-<option value="goal-priority"> goal-priority</option>
-<option value="goal-relationship-type"> goal-relationship-type</option>
-<option value="goal-start-event"> goal-start-event</option>
-<option value="goal-status"> goal-status</option>
-<option value="goal-status-reason"> goal-status-reason</option>
-<option value="group-type"> group-type</option>
-<option value="guide-dependency-type"> guide-dependency-type</option>
-<option value="guide-page-kind"> guide-page-kind</option>
-<option value="guide-resource-purpose"> guide-resource-purpose</option>
-<option value="history-status"> history-status</option>
-<option value="http-verb"> http-verb</option>
-<option value="icd-10"> icd-10</option>
-<option value="identifier-type"> identifier-type</option>
-<option value="identifier-use"> identifier-use</option>
-<option value="identity-assuranceLevel"> identity-assuranceLevel</option>
-<option value="immunization-reason"> immunization-reason</option>
-<option value="immunization-recommendation-date-criterion"> immunization-recommendation-date-criterion</option>
-<option value="immunization-recommendation-status"> immunization-recommendation-status</option>
-<option value="immunization-route"> immunization-route</option>
-<option value="immunization-site"> immunization-site</option>
-<option value="instance-availability"> instance-availability</option>
-<option value="intervention"> intervention</option>
-<option value="investigation-sets"> investigation-sets</option>
-<option value="issue-severity"> issue-severity</option>
-<option value="issue-type"> issue-type</option>
-<option value="kos-title"> kos-title</option>
-<option value="ldlcholesterol-codes"> ldlcholesterol-codes</option>
-<option value="link-type"> link-type</option>
-<option value="list-empty-reason"> list-empty-reason</option>
-<option value="list-example-codes"> list-example-codes</option>
-<option value="list-item-flag"> list-item-flag</option>
-<option value="list-mode"> list-mode</option>
-<option value="list-order"> list-order</option>
-<option value="list-status"> list-status</option>
-<option value="location-mode"> location-mode</option>
-<option value="location-physical-type"> location-physical-type</option>
-<option value="location-status"> location-status</option>
-<option value="manifestation-codes"> manifestation-codes</option>
-<option value="manifestation-or-symptom"> manifestation-or-symptom</option>
-<option value="marital-status"> marital-status</option>
-<option value="measurement-principle"> measurement-principle</option>
-<option value="media-view"> media-view</option>
-<option value="medication-admin-status"> medication-admin-status</option>
-<option value="medication-codes"> medication-codes</option>
-<option value="medication-dispense-status"> medication-dispense-status</option>
-<option value="medication-form-codes"> medication-form-codes</option>
-<option value="medication-order-status"> medication-order-status</option>
-<option value="medication-package-form-codes"> medication-package-form-codes</option>
-<option value="medication-statement-status"> medication-statement-status</option>
-<option value="message-conformance-event-mode"> message-conformance-event-mode</option>
-<option value="message-events"> message-events</option>
-<option value="message-reason-encounter"> message-reason-encounter</option>
-<option value="message-significance-category"> message-significance-category</option>
-<option value="message-transport"> message-transport</option>
-<option value="metric-calibration-state"> metric-calibration-state</option>
-<option value="metric-calibration-type"> metric-calibration-type</option>
-<option value="metric-category"> metric-category</option>
-<option value="metric-color"> metric-color</option>
-<option value="metric-operational-status"> metric-operational-status</option>
-<option value="missing-tooth-reason"> missing-tooth-reason</option>
-<option value="modified-foodtype"> modified-foodtype</option>
-<option value="name-part-qualifier"> name-part-qualifier</option>
-<option value="name-use"> name-use</option>
-<option value="namingsystem-identifier-type"> namingsystem-identifier-type</option>
-<option value="namingsystem-type"> namingsystem-type</option>
-<option value="narrative-status"> narrative-status</option>
-<option value="network-type"> network-type</option>
-<option value="nhin-purposeofuse"> nhin-purposeofuse</option>
-<option value="no-immunization-reason"> no-immunization-reason</option>
-<option value="note-type"> note-type</option>
-<option value="nutrient-code"> nutrient-code</option>
-<option value="nutrition-order-status"> nutrition-order-status</option>
-<option value="object-lifecycle"> object-lifecycle</option>
-<option value="object-role"> object-role</option>
-<option value="object-type"> object-type</option>
-<option value="observation-category"> observation-category</option>
-<option value="observation-codes"> observation-codes</option>
-<option value="observation-interpretation"> observation-interpretation</option>
-<option value="observation-methods"> observation-methods</option>
-<option value="observation-relationshiptypes"> observation-relationshiptypes</option>
-<option value="observation-status"> observation-status</option>
-<option value="observation-valueabsentreason"> observation-valueabsentreason</option>
-<option value="operation-kind"> operation-kind</option>
-<option value="operation-outcome"> operation-outcome</option>
-<option value="operation-parameter-type"> operation-parameter-type</option>
-<option value="operation-parameter-use"> operation-parameter-use</option>
-<option value="oral-prosthodontic-material"> oral-prosthodontic-material</option>
-<option value="order-status"> order-status</option>
-<option value="organization-type"> organization-type</option>
-<option value="parent-relationship-codes"> parent-relationship-codes</option>
-<option value="participant-role"> participant-role</option>
-<option value="participantrequired"> participantrequired</option>
-<option value="participantstatus"> participantstatus</option>
-<option value="participationstatus"> participationstatus</option>
-<option value="patient-contact-relationship"> patient-contact-relationship</option>
-<option value="patient-mpi-match"> patient-mpi-match</option>
-<option value="payeetype"> payeetype</option>
-<option value="payment-status"> payment-status</option>
-<option value="payment-type"> payment-type</option>
-<option value="performer-role"> performer-role</option>
-<option value="postal-address-use"> postal-address-use</option>
-<option value="practitioner-role"> practitioner-role</option>
-<option value="practitioner-specialty"> practitioner-specialty</option>
-<option value="probability-distribution-type"> probability-distribution-type</option>
-<option value="procedure-category"> procedure-category</option>
-<option value="procedure-code"> procedure-code</option>
-<option value="procedure-followup"> procedure-followup</option>
-<option value="procedure-not-performed-reason"> procedure-not-performed-reason</option>
-<option value="procedure-outcome"> procedure-outcome</option>
-<option value="procedure-progress-status-codes"> procedure-progress-status-codes</option>
-<option value="procedure-reason"> procedure-reason</option>
-<option value="procedure-relationship-type"> procedure-relationship-type</option>
-<option value="procedure-request-priority"> procedure-request-priority</option>
-<option value="procedure-request-status"> procedure-request-status</option>
-<option value="procedure-status"> procedure-status</option>
-<option value="process-outcome"> process-outcome</option>
-<option value="process-priority"> process-priority</option>
-<option value="profile-code"> profile-code</option>
-<option value="property-representation"> property-representation</option>
-<option value="provenance-agent-role"> provenance-agent-role</option>
-<option value="provenance-agent-type"> provenance-agent-type</option>
-<option value="provenance-entity-role"> provenance-entity-role</option>
-<option value="quantity-comparator"> quantity-comparator</option>
-<option value="question-max-occurs"> question-max-occurs</option>
-<option value="questionnaire-answers"> questionnaire-answers</option>
-<option value="questionnaire-answers-status"> questionnaire-answers-status</option>
-<option value="questionnaire-category"> questionnaire-category</option>
-<option value="questionnaire-question-control"> questionnaire-question-control</option>
-<option value="questionnaire-questions"> questionnaire-questions</option>
-<option value="questionnaire-status"> questionnaire-status</option>
-<option value="reaction-event-certainty"> reaction-event-certainty</option>
-<option value="reaction-event-severity"> reaction-event-severity</option>
-<option value="reason-medication-given-codes"> reason-medication-given-codes</option>
-<option value="reason-medication-not-given-codes"> reason-medication-not-given-codes</option>
-<option value="referencerange-meaning"> referencerange-meaning</option>
-<option value="referralstatus"> referralstatus</option>
-<option value="relatedperson-relationshiptype"> relatedperson-relationshiptype</option>
-<option value="relationship"> relationship</option>
-<option value="remittance-outcome"> remittance-outcome</option>
-<option value="report-codes"> report-codes</option>
-<option value="resource-aggregation-mode"> resource-aggregation-mode</option>
-<option value="resource-slicing-rules"> resource-slicing-rules</option>
-<option value="resource-types"> resource-types</option>
-<option value="resource-validation-mode"> resource-validation-mode</option>
-<option value="response-code"> response-code</option>
-<option value="restful-conformance-mode"> restful-conformance-mode</option>
-<option value="restful-interaction"> restful-interaction</option>
-<option value="restful-security-service"> restful-security-service</option>
-<option value="risk-probability"> risk-probability</option>
-<option value="route-codes"> route-codes</option>
-<option value="ruleset"> ruleset</option>
-<option value="search-entry-mode"> search-entry-mode</option>
-<option value="search-modifier-code"> search-modifier-code</option>
-<option value="search-param-type"> search-param-type</option>
-<option value="search-xpath-usage"> search-xpath-usage</option>
-<option value="security-labels"> security-labels</option>
-<option value="service-pharmacy"> service-pharmacy</option>
-<option value="service-product"> service-product</option>
-<option value="service-provision-conditions"> service-provision-conditions</option>
-<option value="service-referral-method"> service-referral-method</option>
-<option value="service-uscls"> service-uscls</option>
-<option value="signature-type"> signature-type</option>
-<option value="slotstatus"> slotstatus</option>
-<option value="special-values"> special-values</option>
-<option value="specimen-collection-method"> specimen-collection-method</option>
-<option value="specimen-collection-priority"> specimen-collection-priority</option>
-<option value="specimen-container-type"> specimen-container-type</option>
-<option value="specimen-status"> specimen-status</option>
-<option value="specimen-treatment-procedure"> specimen-treatment-procedure</option>
-<option value="structure-definition-kind"> structure-definition-kind</option>
-<option value="subscription-channel-type"> subscription-channel-type</option>
-<option value="subscription-status"> subscription-status</option>
-<option value="subscription-tag"> subscription-tag</option>
-<option value="substance-category"> substance-category</option>
-<option value="substance-code"> substance-code</option>
-<option value="supplement-type"> supplement-type</option>
-<option value="supplydelivery-status"> supplydelivery-status</option>
-<option value="supplydelivery-type"> supplydelivery-type</option>
-<option value="supplyrequest-kind"> supplyrequest-kind</option>
-<option value="supplyrequest-reason"> supplyrequest-reason</option>
-<option value="supplyrequest-status"> supplyrequest-status</option>
-<option value="supplyrequest-when"> supplyrequest-when</option>
-<option value="surface"> surface</option>
-<option value="system-restful-interaction"> system-restful-interaction</option>
-<option value="teeth"> teeth</option>
-<option value="template-status-code"> template-status-code</option>
-<option value="testscript-operation-codes"> testscript-operation-codes</option>
-<option value="texture-code"> texture-code</option>
-<option value="timing-abbreviation"> timing-abbreviation</option>
-<option value="tooth"> tooth</option>
-<option value="transaction-mode"> transaction-mode</option>
-<option value="type-restful-interaction"> type-restful-interaction</option>
-<option value="ucum-common"> ucum-common</option>
-<option value="udi"> udi</option>
-<option value="units-of-time"> units-of-time</option>
-<option value="unknown-content-code"> unknown-content-code</option>
-<option value="use-context"> use-context</option>
-<option value="usps-state"> usps-state</option>
-<option value="vaccination-protocol-dose-status"> vaccination-protocol-dose-status</option>
-<option value="vaccination-protocol-dose-status-reason"> vaccination-protocol-dose-status-reason</option>
-<option value="vaccination-protocol-dose-target"> vaccination-protocol-dose-target</option>
-<option value="vaccine-code"> vaccine-code</option>
-<option value="valueset-sdc-profile-example"> valueset-sdc-profile-example</option>
-<option value="versioning-policy"> versioning-policy</option>
-<option value="vision-base-codes"> vision-base-codes</option>
-<option value="vision-eye-codes"> vision-eye-codes</option>
-<option value="vision-product"> vision-product</option>
-<option value="xds-relationship-type"> xds-relationship-type</option>
-<option value="yesnodontknow"> yesnodontknow</option>
-</select>
-</td>
-
-<td>
-    <label> <input type="checkbox"/> Option: </label>
-    <table>
-        <tr>
-            <td>Code: <input/></td>
-            <td>Display: <input/></td>
-            <td>
-                <button>+</button>
-            </td>
-        </tr>
-    </table>
-</td>
-
-<td style="padding-left: 40px; padding-right: 40px">
-    <button>+</button>
-</td>
-</tr>
-
-
-</table>
-</td>
-
-</tr>
-
-</table>
-
-
+    <button onclick="addSection()">Add Section</button>
+    
+    
+    
+    
+    <div class="workarea">
+    
+        <div class="drawPane">
+        
+            <div class="page">
+                <div class="name">Page name</div>
+                
+                <div class="body">
+                    
+<!--
+                    <div class="section">
+                        <span class="info">!</span>
+                        <span class="close">X</span>
+                        <div class="name">Section Name</div>
+                        
+                        <div class="body" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+                    </div>
+-->
+                
+                </div>
+            
+            </div>
+        
+        
+        
+        
+        </div>
+        
+        
+        <div class="fields">
+        </div>
+    
+    </div>
+    
+    
+    
+    
 <script>
+    
+     (function() {
+    var updateButton = document.getElementById('updateDetails');
+    var cancelButton = document.getElementById('cancel');
+    var favDialog = document.getElementById('favDialog');
+
+    // Update button opens a modal dialog
+    updateButton.addEventListener('click', function() {
+      favDialog.showModal();
+    });
+
+    // Form cancel button closes the dialog box
+    cancelButton.addEventListener('click', function() {
+      favDialog.close();
+    });
+
+  })();
+    
+    
+    function showDialog(param, okF ,cancelF){
+        var favDialog = document.getElementById('favDialog');
+        
+        // clear dialog content
+        favDialog.innerHTML = '';
+        
+        
+        // get section
+        var section = toDom('<section></section>')();
+        
+        // get type dom
+        param.forEach(function(p){
+            var label = p.label;
+            var value = p.value;
+            
+            var dom = typeDomMap[p.type](value);
+        
+            dom.addEventListener('keyup', function(e){
+                p.value = this.value;
+            });
+                      
+            // var domStr = dom.outerHTML;
+        
+            var wrapper = toDom(`<p> <label>${label}</label>  </p>`)();
+            
+            //var str = `<p> <label>${label}</label>  ${domStr}   </p>`;    
+        
+            wrapper.appendChild(dom);
+            
+        
+            section.appendChild(wrapper);
+        });
+        
+        
+        var form = toDom('<form method="dialog"> </form>')();
+        
+        form.appendChild(section);
+        
+        form.appendChild(toDom(`<menu>
+                      <button class="cancel" type="reset">Cancel</button>
+                      <button class="submit" type="submit" value="confirm">Confirm</button>
+                    </menu>`)());
+          
+        
+        favDialog.appendChild(form);
+        
+        // cancel
+        var cancel = favDialog.querySelector('.cancel');
+        cancel.addEventListener('click', function(e){
+            if(cancelF)
+                cancelF();
+            favDialog.close();
+        });
+        
+        // submit
+        var submit = favDialog.querySelector('.submit');
+        submit.addEventListener('click', function(e){
+            if(okF)
+                okF();
+        });
+        
+        favDialog.showModal();
+    }
+        
+
+    
+    
+    
+        function allowDrop(ev) {
+          /* The default handling is to not allow dropping elements. */
+          /* Here we allow it by preventing the default behaviour. */
+          ev.preventDefault();
+        }
+    
+
+        function drag(ev) {
+          /* Here is specified what should be dragged. */
+          /* This data will be dropped at the place where the mouse button is released */
+          /* Here, we want to drag the element itself, so we set it's ID. */
+          ev.dataTransfer.setData("text/html", ev.target.innerHTML);
+        }
+
+//        function drop(ev, section) {
+//          /* The default handling is not to process a drop action and hand it to the next 
+//             higher html element in your DOM. */
+//          /* Here, we prevent the default behaviour in order to process the event within 
+//             this handler and to stop further propagation of the event. */
+//          ev.preventDefault();
+//          /* In the drag event, we set the *variable* (it is not a variable name but a 
+//             format, please check the reference!) "text/html", now we read it out */
+//          var data=ev.dataTransfer.getData("text/html");
+//          /* As we put the ID of the source element into this variable, we can now use 
+//             this ID to manipulate the dragged element as we wish. */
+//          /* Let's just move it through the DOM and append it here */
+//          //ev.target.appendChild(document.getElementById(data));
+//            
+//            console.log('drop -->', ev.target);
+//            
+//            var q = generateQuestion(data); 
+//            
+//            section.appendChild(q);
+//            
+//            
+//            section.parentElement.classList.remove('dragOver');
+//        }
 
 
+    var types = ["boolean", "decimal", "integer", "date", "dateTime", "instant", "time", "string", "text", "url", "choice", "open-choice", "attachment", "reference", "quantity"];
+    
+    
+    var typeDomMap = {
+        "boolean": toDom('<input type="checkbox"/>', function(dom, v){  if(v) dom.setAttribute('checked', v); }),
+        "decimal": toDom('<input />', function(dom, v){ if(v)  dom.setAttribute('value', v); }),
+        "integer": toDom('<input />', function(dom, v){ if(v)  dom.setAttribute('value', v); }),
+        "date": toDom('<input />', function(dom, v){ if(v)  dom.setAttribute('value', v); }),
+        "dateTime": toDom('<input />', function(dom, v){ if(v)  dom.setAttribute('value', v); }),
+        "instant": toDom('<input />', function(dom, v){ if(v)  dom.setAttribute('value', v); }),
+        "time": toDom('<input />', function(dom, v){ if(v)  dom.setAttribute('value', v); }),
+        "string": toDom('<input />', function(dom, v){ if(v)  dom.setAttribute('value', v); }),
+        "text": toDom('<textarea></textarea>', function(dom, v){ if(v)  dom.innerHTML = v; }),
+        "url": toDom('<input />', function(dom, v){ if(v)  dom.setAttribute('value', v); }),
+        "choice": toDom('<input />', function(dom, v){ if(v)  dom.setAttribute('value', v); }),
+        "open-choice": toDom('<select> <option value="1">1</option>  <option value="2">2</option>  <option value="3">3</option> </select>', function(dom, v){  if(v)   v.forEach(function(i){ var op = document.createElement('option');  op.value = i; i.innerHTML = i; dom.appendChild(op);  });          }),
+        "attachment": toDom('<input />', function(dom, v){ if(v)  dom.setAttribute('value', v); }),
+        "reference": toDom('<input />', function(dom, v){ if(v)  dom.setAttribute('value', v); }),
+        "quantity": toDom('<input />', function(dom, v){ if(v)  dom.setAttribute('value', v); })
+    };
+    
+    function toDom(str, valueF){
+        
+        var d = document.createElement('div');
+        d.innerHTML = str;
+        
+        
+        
+        return function(value){
+        
+            var dom = d.children[0].cloneNode(true);
+            
+            if(valueF){
+                valueF(dom, value);    
+            }
+            
+            return dom;
+        }
+        
+    }
+    
+    
+    function addInfoAndClose(dom, infoF){
+        
+        dom.style.position = 'relative';
+        
+        
+        var info = toDom('<span class="info">!</span>')();
+        var close = toDom('<span class="close">X</span>')();
+        
+        dom.appendChild(info);
+        dom.appendChild(close);
+        
+        // add event
+        close.addEventListener('click', function(e){
+           this.parentElement.remove(); 
+        });
+        
+        info.addEventListener('click', function(e){
+            var parent = this.parentElement;
+            if(infoF){
+                infoF(parent);
+            }
+        });
+        
+        
+        
+        
+        function setPos(dom, top, right){
+            dom.style.position = 'absolute';
+            dom.style.top = top + 'px';
+            dom.style.right = right + 'px';
+        }
+        
+        setPos(info, 0, 20);
+        setPos(close, 0, 5);
+        
+        
+    }
+    
+    function addFields(){
+        
+        var fields = document.querySelector('.fields');
+        
+        types.forEach(function(t){
+            var d = document.createElement('div');
+            d.innerHTML = t;
+            d.classList.add('f');
+            d.setAttribute('draggable', 'true');
+            d.setAttribute('ondragstart', 'drag(event)');
+            
+            fields.appendChild(d);
+        });
+    }
+    
+    addFields();
 
+    
+    function addSection(){
+        var pageBody = document.querySelector('.page .body');
+        
+        var d = document.createElement('div');
+        d.classList.add('section');
+        d.innerHTML = `<span class="info">!</span>
+                        <span class="close">X</span>
+                        <div class="name"><span>Section Name</span></div>
+                        
+                        <div class="body"  ondragover="allowDrop(event)"> </div>`;
+        
+        
+        // drag enter
+        // drag leave
+        var sbody = d.querySelector('.body');
+        d.addEventListener('dragenter', function(e){
+            e.stopPropagation();
+            d.classList.add('dragOver');
+            console.log('drag enter -->', e.target);
+        });
+        d.addEventListener('dragleave', function(e){
+            e.stopPropagation();
+            d.classList.remove('dragOver');
+            console.log('drag leave -->', e.target);
+        });
+        
+        d.addEventListener('drop',function(ev){
+            ev.preventDefault();
+            
+            var data=ev.dataTransfer.getData("text/html");
+          
+            
+            console.log('drop -->', ev.target);
+            
+            var q = generateQuestion(data); 
+            
+            sbody.appendChild(q);
+            
+            
+            d.classList.remove('dragOver');
+        });
+        
+        
+        
+        
+        // close event
+        var close = d.querySelector('.close');
+        close.addEventListener('click', function(e){
+           this.parentElement.remove(); 
+        });
+        
+        
+        // info event
+        var info = d.querySelector('.info');
+        
+        info.addEventListener('click', function(e){
+            var nameDom = this.parentElement.querySelector('.name span');
+            var param = [{type: 'string', label: 'Name:', value: nameDom.innerHTML}];
+            var ok = function(){
+                console.log('section property dialog submitted.');
+                
+                var newName = param[0].value;
+                nameDom.innerHTML = newName;
+                nameDom.setAttribute('title', newName);
+            };
+            var cancel = function(){
+                console.log('section property dialog cancelled.')
+            };
+            
+            showDialog(param, ok, cancel);
+        });
+        
+        
+        pageBody.appendChild(d);
+        
+    }
+    
+    addSection();
+    
+    
+    var typeNameIndexMap = {
+        
+    };
+    
+    
+    function generateQuestion(type){
+        
+        if(!typeNameIndexMap[type]){
+            typeNameIndexMap[type] = 1;
+        }
+        
+        var name = type + ''+ typeNameIndexMap[type]++;
+        
+        var q = toDom(`<div class="question">  <div class="self"> <label> ${name}   </label> </div>    </div>`)();
+        var qself = q.querySelector('.self');
+        
+        // drag enter
+        // drag leave
+        // drop
+        qself.addEventListener('dragenter', function(e){
+            e.stopPropagation();
+            
+            qself.classList.add('dragOver');
+            console.log('drag enter -->', e.target);
+        });
+        
+        qself.addEventListener('dragleave', function(e){
+            e.stopPropagation();
+            
+            console.log('drag leave -->', e.target);
+            qself.classList.remove('dragOver');
+            
+        });
+        
+        qself.addEventListener('drop', function(ev){
+            // stop bubbling
+            ev.stopPropagation();
+            ev.preventDefault();
+            
+            console.log('drop -->', ev.target);
+            
+            // get data
+            var data = ev.dataTransfer.getData('text/html');
+            var childQ = generateQuestion(data); 
+            
+            // add group
+            var g = q.querySelector('.group') || toDom('<div class="group"></div>')();
+            g.appendChild(childQ);
+            
+            
+            q.appendChild(g);
+            
+            
+            
+            qself.classList.remove('dragOver');
+            
+        });
+        
+        // add dom
+       var dom = typeDomMap[type]();
+        
+        qself.appendChild(dom);
+        
+        addInfoAndClose(qself, function(dom){
+            var label = dom.querySelector('label');
+            var param = {type: 'string', label: 'Question Name:', value: label.innerHTML.trim()};
+            showDialog([param], function(){
+                label.innerHTML = param.value;
+            });
+            
+        });
+        
+        return q;
+    }
+    
     // add property function
     function addPropertyFunction(obj, name) {
 
