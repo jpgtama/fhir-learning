@@ -1,0 +1,188 @@
+body {
+    padding: 10px 20px;
+}
+
+pre {
+    background-color: #ccc;
+    padding: 15px;
+    font-size: 25px;
+}
+
+/*
+        table.question {
+            border-spacing: 10px;
+            border-collapse: separate;
+        }
+
+        table.question td {
+
+            border: 1px dashed lightgray;
+            padding: 2px 10px;
+        }
+*/
+
+.workarea {
+    display: flex;
+    height: 800px;
+    padding: 5px;
+
+}
+
+.workarea > div {
+    margin: 5px;
+}
+
+.drawPane {
+    flex: 5;
+    border: 1px solid lightgray;
+    overflow: scroll;
+}
+
+.fields {
+    flex: 1;
+    border: 1px solid lightgray;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: flex-start;
+}
+
+.fields .f {
+    /*            flex-grow: 1;*/
+    width: 46%;
+    height: 20px;
+    border: 1px solid red;
+    margin: 5px;
+    /*            background-color: antiquewhite;*/
+}
+
+.page {
+    padding: 23px;
+
+}
+
+.page .name {
+    position: relative;
+    width: 140px;
+    border-top: 1px solid lightgray;
+    text-align: center;
+    margin-left: 11px;
+}
+
+.page .name:before, .page .name:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 1px;
+    background-color: lightgray;
+    transform: skew(-30deg, 0deg);
+
+}
+
+.page .name:before {
+    left: -6px;
+}
+
+.page .name:after {
+    transform: skew(30deg, 0deg);
+    right: -6px;
+}
+
+.page .body {
+    border: 1px solid lightgray;
+    /*            height: 800px;*/
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.page .body .section {
+    /*            border: 1px solid lightgray;*/
+    min-height: 100px;
+    margin: 5px;
+    position: relative;
+}
+
+.section .info {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.section .close {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.section .info:hover, .section .close:hover {
+    background-color: aquamarine;
+}
+
+.section .body {
+    min-height: 100px;
+    padding: 5px;
+    padding-bottom: 33px;
+    padding-top: 33px;
+    background-color: aliceblue;
+    border: none;
+}
+
+.section .name {
+    position: relative;
+    width: 140px;
+    border-top: none;
+    border-bottom: 1px solid #acceec;
+    text-align: center;
+    margin-left: 11px;
+    background-color: aliceblue;
+}
+
+.section .name:before, .section .name:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 11px;
+    background-color: aliceblue;
+    transform: skew(-30deg, 0deg);
+    border-bottom: 1px solid #acceec;
+}
+
+.section .name:before {
+    left: -6px;
+}
+
+.section .name:after {
+    transform: skew(30deg, 0deg);
+    right: -6px;
+}
+
+.section .name span {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+}
+
+.question {
+    margin: 5px;
+}
+
+.question .self:hover {
+    background-color: beige;
+}
+
+.dragOver, .section .body.dragOver {
+    background-color: aquamarine
+}
+
+.group {
+    position: relative;
+    padding-left: 20px;
+}

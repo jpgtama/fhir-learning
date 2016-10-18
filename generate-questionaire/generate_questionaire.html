@@ -1,0 +1,90 @@
+<html>
+
+<header>
+    <title>Generate Questionaire</title>
+
+    <link href="main.css" rel="stylesheet"/>
+
+</header>
+
+<body>
+<pre>Generate Questionaire</pre>
+
+    
+    <!-- Simple pop-up dialog box, containing a form -->
+<dialog id="favDialog">
+  <form method="dialog">
+    <section>
+      <p><label for="favAnimal">Favorite animal:</label>
+      <select id="favAnimal">
+        <option></option>
+        <option>Brine shrimp</option>
+        <option>Red panda</option>
+        <option>Spider monkey</option>
+      </select></p>
+    </section>
+    <menu>
+      <button id="cancel" type="reset">Cancel</button>
+      <button type="submit" value="confirm">Confirm</button>
+    </menu>
+  </form>
+</dialog>
+
+<menu>
+  <button id="updateDetails">Update details</button>
+</menu>
+
+    
+    
+<hr/>
+
+    
+    
+
+    <button onclick="addSection()">Add Section</button>
+    
+    
+    
+    
+    <div class="workarea">
+    
+        <div class="drawPane">
+        
+            <div class="page">
+                <div class="name">Page name</div>
+                
+                <div class="body">
+                    
+<!--
+                    <div class="section">
+                        <span class="info">!</span>
+                        <span class="close">X</span>
+                        <div class="name">Section Name</div>
+                        
+                        <div class="body" ondrop="drop(event)" ondragover="allowDrop(event)"> </div>
+                    </div>
+-->
+                
+                </div>
+            
+            </div>
+        
+        
+        
+        
+        </div>
+        
+        
+        <div class="fields">
+        </div>
+    
+    </div>
+    
+    
+    
+    
+<script src="main.js">
+</script>
+</body>
+
+</html>
