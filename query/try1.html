@@ -3,6 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Query</title>
+    <script src="angular-1.0.1.min.js"></script>
     <script src="try1.js"></script>
 
     <style>
@@ -28,9 +29,18 @@
             margin-bottom: 5px;
         }
 
-        .element{
+        .criteriaWrapper {
+            position: relative;
+            padding:5px;
+        }
+
+        .criteriaWrapper > *{
+            vertical-align: middle;
+        }
+
+        .criteria {
             border:1px solid blue;
-            cursor: pointer;
+
             width: 60%;
             height:20px;
             margin:10px;
@@ -38,19 +48,14 @@
             position:relative;
         }
 
-        .element:hover{
+        .criteria .group{
+            cursor: pointer;
+        }
+
+        .criteria .group:hover{
             background-color: aquamarine;
         }
 
-        .elementWrapper{
-            position: relative;
-            padding:5px;
-        }
-
-        .elementWrapper > *{
-            vertical-align: middle;
-
-        }
 
         .delete{
             /*position: absolute;*/
@@ -65,34 +70,340 @@
             transform: scale(1.5);
         }
 
+        .groupOperation{
+            border:1px dotted lightseagreen;
+            width: 50%;
+            height: 30px;
+            margin-bottom: 20px;;
+            display: flex;
+        }
+
+        .groupOperation > *{
+            margin-right: 10px;;
+        }
+
+
+        .dialog{
+            border: 1px solid gray;
+            position: fixed;
+            top: 50%;                  /* 距顶部50%*/
+            left: 50%;                  /* 距左边50%*/
+            height: 400px; margin-top: -200px;   /*margin-top为height一半的负值*/
+            width: 800px; margin-left: -400px;    /*margin-left为width一半的负值*/
+            /*z-index: 2;*/
+            background-color: white;
+        }
+
+        #dialog-cover{
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            top:0px;
+            left: 0px;
+            opacity: 0.5;
+            background: #000 none repeat scroll 0% 0%;
+            /*z-index: 2;*/
+        }
 
     </style>
 
 </head>
 <body>
 
+<!--<div class="criteriaWrapper">-->
+<!--<input class="selector" type="checkbox" />-->
+
+<!--<div class="criteria">-->
+<!--<div class="field">-->
+<!--<select>-->
+<!--<option>Field A</option>-->
+<!--<option>Field B</option>-->
+<!--<option>Field C</option>-->
+<!--<option>Field D</option>-->
+<!--<option>Field E</option>-->
+<!--</select>-->
 
 
-<div class="container">
+<!--<select>-->
+<!--<option>=</option>-->
+<!--<option>&gt;</option>-->
+<!--<option>&lt;</option>-->
+<!--</select>-->
 
 
-    <div class="elementWrapper">
-        <input class="selector" type="checkbox" />
+<!--<input type="text"/>-->
 
-        <div class="element field">
-        </div>
+<!--</div>-->
 
-        <span class="delete">X</span>
+<!--</div>-->
+
+<!--<span class="delete">X</span>-->
+<!--</div>-->
+
+<!--<div class="criteriaWrapper">-->
+<!--<input class="selector" type="checkbox" />-->
+
+<!--<div class="criteria">-->
+<!--<div class="group" onclick="openDialog()">Condition 1 && Condition 2</div>-->
+<!--</div>-->
+
+<!--<span class="delete">X</span>-->
+<!--</div>-->
+
+
+<div class="containerWrapper">
+    <div class="groupOperation">
+        <button>In Group</button>
+        <button>Out Group</button>
+
     </div>
 
 
+    <div class="container">
+    </div>
+
+    <div class="toolBar">
+        <button class="addField" onclick="addField()">Add Field</button>
+        <button class="addGroup" onclick="addGroup()">Add Group</button>
+    </div>
+
 
 </div>
 
-<div class="toolBar">
-    <button class="addField">Add Field</button>
-    <button class="addGroup">Add Group</button>
-</div>
+
+
+
+
+
+
+<div style="clear: both"></div>
+
+<!--<div class="field">-->
+    <!--<select>-->
+        <!--<option value="FA">Field A</option>-->
+        <!--<option value="FB">Field B</option>-->
+        <!--<option value="FC">Field C</option>-->
+        <!--<option value="FD">Field D</option>-->
+        <!--<option value="FE">Field E</option>-->
+    <!--</select>-->
+
+
+    <!--<select>-->
+        <!--<option value="eq">=</option>-->
+        <!--<option value="gt">&gt;</option>-->
+        <!--<option value="lt">&lt;</option>-->
+    <!--</select>-->
+
+
+    <!--<input type="text" value=""/>-->
+
+<!--</div>-->
+
+
+
+
+<!--<button onclick="openDialog()">Open Dialog</button>-->
+
+<!--<button onclick="closeDialog()">Close Dialog</button>-->
+
+<script>
+
+    var container = document.querySelector('.container');
+
+
+    function addField(){
+        var f = new Field();
+
+        var criteria = new Criteria(f);
+
+        criteria.placeAt(container);
+
+    }
+
+    function addGroup(){
+        var g = new Group();
+
+        var criteria = new Criteria(g);
+
+        criteria.placeAt(container);
+    }
+
+
+    function toDom(str){
+        var div = document.createElement('div');
+        div.innerHTML = str;
+
+        return div.children[0];
+    }
+
+
+    function Container(){
+        // TODO
+
+
+
+    }
+
+
+    function Criteria(criteriaElement){
+
+        this.criteriaElement = criteriaElement;
+
+
+        // init dom
+        this.criteriaWrapperDom = toDom('<div class="criteriaWrapper"></div>');
+
+        this.selectorDom = toDom('<input class="selector" type="checkbox" />');
+
+        this.criteriaDom = toDom('<div class="criteria"> </div>');
+
+        this.deleteDom = toDom('<span class="delete">X</span>');
+
+        this.deleteDom.addEventListener('click', e => {
+            this.getDomNode().parentElement.removeChild(this.getDomNode());
+        });
+
+
+        ['selectorDom', 'criteriaDom', 'deleteDom'].forEach(attr => {
+            this.criteriaWrapperDom.appendChild(this[attr]);
+        });
+
+        // add
+        if(this.criteriaElement){
+            this.criteriaDom.appendChild(this.criteriaElement.getDomNode());
+        }else{
+            throw 'no criteriaElement';
+        }
+
+
+        this.placeAt = function(parent){
+            if(parent.getDomNode){
+                parent.getDomNode().appendChild(this.criteriaWrapperDom);
+            }else{
+                parent.appendChild(this.criteriaWrapperDom);
+            }
+        }
+
+
+        this.getDomNode = function () {
+            return this.criteriaWrapperDom;
+        }
+
+    }
+
+
+    function Field(paramArray){
+
+        // init params
+        if(paramArray && paramArray.length == 3){
+            this.field = paramArray[0];
+            this.op = paramArray[1];
+            this.value = paramArray[2];
+        }
+
+
+        this.fieldDom = toDom('<select> <option value="FA">Field A</option> <option value="FB">Field B</option> <option value="FC">Field C</option> <option value="FD">Field D</option> <option value="FE">Field E</option> </select>');
+
+        this.opDom = toDom('<select> <option value="eq">=</option> <option value="gt">&gt;</option> <option value="lt">&lt;</option> </select>');
+
+        this.valueDom = toDom('<input type="text" value=""/>');
+
+        this.domWrapper = toDom('<div class="field"></div>');
+
+
+        ['fieldDom', 'opDom', 'valueDom'].forEach(attr => {
+            this.domWrapper.appendChild(this[attr]);
+
+            var attrV = attr.replace('Dom', '');
+
+            if(this[attrV]){
+                this[attr].value = this[attrV];
+            }
+
+        });
+
+
+        this.placeAt = function(parent){
+            if(parent.getDomNode){
+                parent.getDomNode().appendChild(this.domWrapper);
+            }else{
+                parent.appendChild(this.domWrapper);
+            }
+        };
+
+        this.getDomNode = function () {
+            return this.domWrapper;
+        }
+
+    }
+
+
+
+    function Group(name, clist){
+        /////////////
+        // group of criteria
+        //
+        this.name = name || 'No Name Group';
+
+        this.domNode =  toDom('<div class="group"></div>');
+
+        this.domNode.innerText = this.name;
+
+        this.domNode.addEventListener('click', e => {
+            // open a dialog
+        });
+
+        this.criteriaList = clist;
+
+//        if(this.criteriaList && this.criteriaList.length > 0){
+//            // TODO dialog content from critereia list
+//        }
+
+
+        this.addCriteria = function (c) {
+            this.criteriaList.push(c);
+        }
+
+        this.placeAt = function(parent){
+            if(parent.getDomNode){
+                parent.getDomNode().appendChild(this.domNode);
+            }else{
+                parent.appendChild(this.domNode);
+            }
+        };
+
+        this.getDomNode = function () {
+            return this.domNode;
+        }
+
+
+    }
+
+
+
+    var dm = new DialogManager();
+
+
+    function openDialog(){
+
+        var content = document.createElement('div');
+        var btn = document.createElement('button');
+        btn.innerHTML = "Hello";
+
+        content.appendChild(btn);
+
+
+        dm.openDialog(content);
+    }
+
+
+    function closeDialog(){
+        dm.closeDialog();
+    }
+
+</script>
+
+
 
 
 
