@@ -4,23 +4,53 @@
     <meta charset="UTF-8">
     <title>Query</title>
     <script src="angular-1.0.1.min.js"></script>
-    <script src="try1.js"></script>
+
 
     <style>
+
+        body{
+            height: 800px;
+        }
+
+        .containerWrapper{
+            height: 90%;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .containerWrapper .name{
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .containerWrapper .name input{
+            width: 556px;
+        }
+        .containerWrapper .rel{
+            display: inline-block;
+        }
+
         .container{
-            float: left;
+            /*float: left;*/
+            display: inline-block;
             border:1px dashed lightseagreen;
             width: 50%;
-            height: 400px;
+            height: 72%;
+        }
+
+        .dialog .container{
+            width: 80%;
         }
 
         .toolBar{
             margin-left: 10px;
-            float: left;
+            /*float: left;*/
+            display: inline-block;
+            vertical-align: top;
             width: 50px;
-            height: 400px;
+            height: 72%;
             border: 1px dotted lightgray;
-            display: flex;
+            /*display: flex;*/
             flex-direction: column;
             padding:5px;
         }
@@ -94,6 +124,11 @@
             background-color: white;
         }
 
+        .dialog .buttonBar{
+            text-align: right;
+            padding-right: 20px;
+        }
+
         #dialog-cover{
             position: fixed;
             height: 100%;
@@ -149,34 +184,35 @@
 
 <!--<span class="delete">X</span>-->
 <!--</div>-->
-
-
-<div class="containerWrapper">
-    <div class="groupOperation">
-        <button>In Group</button>
-        <button>Out Group</button>
-
-    </div>
-
-
-    <div class="container">
-    </div>
-
-    <div class="toolBar">
-        <button class="addField" onclick="addField()">Add Field</button>
-        <button class="addGroup" onclick="addGroup()">Add Group</button>
-    </div>
+<div id="workbench">
 
 
 </div>
 
+<!--<div class="containerWrapper">-->
+    <!--<div class="groupOperation">-->
+        <!--<button>In Group</button>-->
+        <!--<button>Out Group</button>-->
+    <!--</div>-->
+
+
+    <!--<div class="container">-->
+    <!--</div>-->
+
+    <!--<div class="toolBar">-->
+        <!--<button class="addField" onclick="addField()">Add Field</button>-->
+        <!--<button class="addGroup" onclick="addGroup()">Add Group</button>-->
+    <!--</div>-->
+
+
+<!--</div>-->
 
 
 
 
 
 
-<div style="clear: both"></div>
+
 
 <!--<div class="field">-->
     <!--<select>-->
@@ -205,205 +241,14 @@
 <!--<button onclick="openDialog()">Open Dialog</button>-->
 
 <!--<button onclick="closeDialog()">Close Dialog</button>-->
+<script src="try1.js"></script>
+<script src="DialogManager.js"></script>
 
 <script>
-
-    var container = document.querySelector('.container');
-
-
-    function addField(){
-        var f = new Field();
-
-        var criteria = new Criteria(f);
-
-        criteria.placeAt(container);
-
-    }
-
-    function addGroup(){
-        var g = new Group();
-
-        var criteria = new Criteria(g);
-
-        criteria.placeAt(container);
-    }
-
-
-    function toDom(str){
-        var div = document.createElement('div');
-        div.innerHTML = str;
-
-        return div.children[0];
-    }
-
-
-    function Container(){
-        // TODO
-
-
-
-    }
-
-
-    function Criteria(criteriaElement){
-
-        this.criteriaElement = criteriaElement;
-
-
-        // init dom
-        this.criteriaWrapperDom = toDom('<div class="criteriaWrapper"></div>');
-
-        this.selectorDom = toDom('<input class="selector" type="checkbox" />');
-
-        this.criteriaDom = toDom('<div class="criteria"> </div>');
-
-        this.deleteDom = toDom('<span class="delete">X</span>');
-
-        this.deleteDom.addEventListener('click', e => {
-            this.getDomNode().parentElement.removeChild(this.getDomNode());
-        });
-
-
-        ['selectorDom', 'criteriaDom', 'deleteDom'].forEach(attr => {
-            this.criteriaWrapperDom.appendChild(this[attr]);
-        });
-
-        // add
-        if(this.criteriaElement){
-            this.criteriaDom.appendChild(this.criteriaElement.getDomNode());
-        }else{
-            throw 'no criteriaElement';
-        }
-
-
-        this.placeAt = function(parent){
-            if(parent.getDomNode){
-                parent.getDomNode().appendChild(this.criteriaWrapperDom);
-            }else{
-                parent.appendChild(this.criteriaWrapperDom);
-            }
-        }
-
-
-        this.getDomNode = function () {
-            return this.criteriaWrapperDom;
-        }
-
-    }
-
-
-    function Field(paramArray){
-
-        // init params
-        if(paramArray && paramArray.length == 3){
-            this.field = paramArray[0];
-            this.op = paramArray[1];
-            this.value = paramArray[2];
-        }
-
-
-        this.fieldDom = toDom('<select> <option value="FA">Field A</option> <option value="FB">Field B</option> <option value="FC">Field C</option> <option value="FD">Field D</option> <option value="FE">Field E</option> </select>');
-
-        this.opDom = toDom('<select> <option value="eq">=</option> <option value="gt">&gt;</option> <option value="lt">&lt;</option> </select>');
-
-        this.valueDom = toDom('<input type="text" value=""/>');
-
-        this.domWrapper = toDom('<div class="field"></div>');
-
-
-        ['fieldDom', 'opDom', 'valueDom'].forEach(attr => {
-            this.domWrapper.appendChild(this[attr]);
-
-            var attrV = attr.replace('Dom', '');
-
-            if(this[attrV]){
-                this[attr].value = this[attrV];
-            }
-
-        });
-
-
-        this.placeAt = function(parent){
-            if(parent.getDomNode){
-                parent.getDomNode().appendChild(this.domWrapper);
-            }else{
-                parent.appendChild(this.domWrapper);
-            }
-        };
-
-        this.getDomNode = function () {
-            return this.domWrapper;
-        }
-
-    }
-
-
-
-    function Group(name, clist){
-        /////////////
-        // group of criteria
-        //
-        this.name = name || 'No Name Group';
-
-        this.domNode =  toDom('<div class="group"></div>');
-
-        this.domNode.innerText = this.name;
-
-        this.domNode.addEventListener('click', e => {
-            // open a dialog
-        });
-
-        this.criteriaList = clist;
-
-//        if(this.criteriaList && this.criteriaList.length > 0){
-//            // TODO dialog content from critereia list
-//        }
-
-
-        this.addCriteria = function (c) {
-            this.criteriaList.push(c);
-        }
-
-        this.placeAt = function(parent){
-            if(parent.getDomNode){
-                parent.getDomNode().appendChild(this.domNode);
-            }else{
-                parent.appendChild(this.domNode);
-            }
-        };
-
-        this.getDomNode = function () {
-            return this.domNode;
-        }
-
-
-    }
-
-
-
-    var dm = new DialogManager();
-
-
-    function openDialog(){
-
-        var content = document.createElement('div');
-        var btn = document.createElement('button');
-        btn.innerHTML = "Hello";
-
-        content.appendChild(btn);
-
-
-        dm.openDialog(content);
-    }
-
-
-    function closeDialog(){
-        dm.closeDialog();
-    }
+    var container = new Container();
+    container.placeAt(document.body);
 
 </script>
-
-
 
 
 
