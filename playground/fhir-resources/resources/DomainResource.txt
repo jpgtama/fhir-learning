@@ -1,0 +1,8 @@
+{
+  "resourceType" : "[name]",
+  // from Resource: id, meta, implicitRules, and language
+  "text" : { Narrative }, 
+  "contained" : [{ Resource }], 
+  "extension": [{Extension}],  
+  "modifierExtension":[{Extension}]  
+}

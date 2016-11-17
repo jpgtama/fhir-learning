@@ -1,0 +1,1 @@
+{  "resourceType" : "ContactPoint",    "system" : "<code>",   "value" : "<string>",   "use" : "<code>",   "rank" : "<positiveInt>",   "period" : { Period } }

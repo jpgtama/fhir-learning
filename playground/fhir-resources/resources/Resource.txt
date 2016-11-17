@@ -1,0 +1,7 @@
+{
+  "resourceType" : "[name]",
+  "id" : "<id>", 
+  "meta" : { Meta }, 
+  "implicitRules" : "<uri>", 
+  "language" : "<code>" 
+}

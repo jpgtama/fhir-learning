@@ -1,0 +1,17 @@
+{
+	"Attachment": "{    \"contentType\" : \"<code>\",   \"language\" : \"<code>\",   \"data\" : \"<base64Binary>\",   \"url\" : \"<uri>\",   \"size\" : \"<unsignedInt>\",   \"hash\" : \"<base64Binary>\",   \"title\" : \"<string>\",   \"creation\" : \"<dateTime>\" }",
+	"Coding": "{    \"system\" : \"<uri>\",   \"version\" : \"<string>\",   \"code\" : \"<code>\",   \"display\" : \"<string>\",   \"userSelected\" : <boolean> }",
+	"CodeableConcept": "{    \"coding\" : [{ Coding }],   \"text\" : \"<string>\" }",
+	"Quantity": "{    \"value\" : <decimal>,   \"comparator\" : \"<code>\",   \"unit\" : \"<string>\",   \"system\" : \"<uri>\",   \"code\" : \"<code>\" }",
+	"Range": "{    \"low\" : { Quantity(SimpleQuantity) },   \"high\" : { Quantity(SimpleQuantity) } }",
+	"Ratio": "{    \"numerator\" : { Quantity },   \"denominator\" : { Quantity } }",
+	"Period": "{    \"start\" : \"<dateTime>\",   \"end\" : \"<dateTime>\" }",
+	"SampledData": "{    \"origin\" : { Quantity(SimpleQuantity) },   \"period\" : <decimal>,   \"factor\" : <decimal>,   \"lowerLimit\" : <decimal>,   \"upperLimit\" : <decimal>,   \"dimensions\" : \"<positiveInt>\",   \"data\" : \"<string>\" }",
+	"Identifier": "{    \"use\" : \"<code>\",   \"type\" : { CodeableConcept },   \"system\" : \"<uri>\",   \"value\" : \"<string>\",   \"period\" : { Period },   \"assigner\" : { Reference(Organization) } }",
+	"HumanName": "{  \"resourceType\" : \"HumanName\",    \"use\" : \"<code>\",   \"text\" : \"<string>\",   \"family\" : [\"<string>\"],   \"given\" : [\"<string>\"],   \"prefix\" : [\"<string>\"],   \"suffix\" : [\"<string>\"],   \"period\" : { Period } }",
+	"Address": "{  \"resourceType\" : \"Address\",    \"use\" : \"<code>\",   \"type\" : \"<code>\",   \"text\" : \"<string>\",   \"line\" : [\"<string>\"],   \"city\" : \"<string>\",   \"district\" : \"<string>\",   \"state\" : \"<string>\",   \"postalCode\" : \"<string>\",   \"country\" : \"<string>\",   \"period\" : { Period } }",
+	"ContactPoint": "{  \"resourceType\" : \"ContactPoint\",    \"system\" : \"<code>\",   \"value\" : \"<string>\",   \"use\" : \"<code>\",   \"rank\" : \"<positiveInt>\",   \"period\" : { Period } }",
+	"Timing": "{  \"resourceType\" : \"Timing\",    \"event\" : [\"<dateTime>\"],   \"repeat\" : {         \"boundsQuantity\" : { Quantity(Duration) },    \"boundsRange\" : { Range },    \"boundsPeriod\" : { Period },    \"count\" : <integer>,     \"duration\" : <decimal>,     \"durationMax\" : <decimal>,     \"durationUnits\" : \"<code>\",     \"frequency\" : <integer>,     \"frequencyMax\" : <integer>,     \"period\" : <decimal>,     \"periodMax\" : <decimal>,     \"periodUnits\" : \"<code>\",     \"when\" : \"<code>\"   },  \"code\" : { CodeableConcept } }",
+	"Signature": "{    \"type\" : [{ Coding }],   \"when\" : \"<instant>\",     \"whoUri\" : \"<uri>\",  \"whoReference\" : { Reference(Practitioner|RelatedPerson|Patient|Device|   Organization) },  \"contentType\" : \"<code>\",   \"blob\" : \"<base64Binary>\" }",
+	"Annotation": "{      \"authorReference\" : { Reference(Practitioner|Patient|RelatedPerson) },  \"authorString\" : \"<string>\",  \"time\" : \"<dateTime>\",   \"text\" : \"<string>\" }"
+}

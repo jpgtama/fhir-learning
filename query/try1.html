@@ -189,6 +189,13 @@
 
 </div>
 
+
+<button onclick="outputQuery()">Output</button>
+<textarea class="queryContent" cols="80" rows="10"></textarea>
+
+
+
+
 <!--<div class="containerWrapper">-->
     <!--<div class="groupOperation">-->
         <!--<button>In Group</button>-->
@@ -247,6 +254,11 @@
 <script>
     var container = new Container();
     container.placeAt(document.body);
+
+
+    function outputQuery(){
+        document.querySelector('.queryContent').value = JSON.stringify(container.toJson());
+    }
 
 </script>
 

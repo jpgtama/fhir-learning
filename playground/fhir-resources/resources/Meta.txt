@@ -1,0 +1,8 @@
+{
+  // from Element: extension
+  "versionId" : "<id>", // Version specific identifier
+  "lastUpdated" : "<instant>", // When the resource version last changed
+  "profile" : ["<uri>"], // Profiles this resource claims to conform to
+  "security" : [{ Coding }], // Security Labels applied to this resource
+  "tag" : [{ Coding }] // Tags applied to this resource
+}

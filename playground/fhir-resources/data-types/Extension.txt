@@ -1,0 +1,28 @@
+"Extension": "{
+  "extension": [{Extension}]
+  "url" : "<uri>", // R!  identifies the meaning of the extension
+  // value[x]: Value of extension. One of these 23:
+  "valueInteger" : <integer>
+  "valueDecimal" : <decimal>
+  "valueDateTime" : "<dateTime>"
+  "valueDate" : "<date>"
+  "valueInstant" : "<instant>"
+  "valueString" : "<string>"
+  "valueUri" : "<uri>"
+  "valueBoolean" : <boolean>
+  "valueCode" : "<code>"
+  "valueBase64Binary" : "<base64Binary>"
+  "valueCoding" : { Coding }
+  "valueCodeableConcept" : { CodeableConcept }
+  "valueAttachment" : { Attachment }
+  "valueIdentifier" : { Identifier }
+  "valueQuantity" : { Quantity }
+  "valueRange" : { Range }
+  "valuePeriod" : { Period }
+  "valueRatio" : { Ratio }
+  "valueHumanName" : { HumanName }
+  "valueAddress" : { Address }
+  "valueContactPoint" : { ContactPoint }
+  "valueSchedule" : { Schedule }
+  "valueReference" : { Reference }
+}"

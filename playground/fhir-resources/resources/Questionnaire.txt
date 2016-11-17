@@ -1,0 +1,45 @@
+{
+  "resourceType" : "Questionnaire",
+  "id" : "<id>", 
+  "meta" : { 
+	  // from Element: extension
+	  "versionId" : "<id>", // Version specific identifier
+	  "lastUpdated" : "<instant>", // When the resource version last changed
+	  "profile" : ["<uri>"], // Profiles this resource claims to conform to
+	  "security" : [{ Coding }], // Security Labels applied to this resource
+	  "tag" : [{ Coding }] // Tags applied to this resource
+  }, 
+  "implicitRules" : "<uri>", 
+  "language" : "<code>" ,
+  "text" : { Narrative }, 
+  "contained" : [{ Resource }], 
+  "extension": [{Extension}],  
+  "modifierExtension":[{Extension}] ,
+  "identifier" : [{ Identifier }], 
+  "version" : "<string>", // Logical identifier for this version of Questionnaire
+  "status" : "<code>", // R!  draft | published | retired
+  "date" : "<dateTime>", // Date this version was authored
+  "publisher" : "<string>", // Organization/individual who designed the questionnaire
+  "telecom" : [{ ContactPoint }], // Contact information of the publisher
+  "subjectType" : ["<code>"], // Resource that can be subject of QuestionnaireResponse
+  "group" : { // C? R!  Grouped questions
+    "linkId" : "<string>", // To link questionnaire with questionnaire response
+    "title" : "<string>", // Name to be displayed for group
+    "concept" : [{ Coding }], // Concept that represents this section in a questionnaire
+    "text" : "<string>", // Additional text for the group
+    "required" : <boolean>, // Whether the group must be included in data results
+    "repeats" : <boolean>, // Whether the group may repeat
+    "group" : [{ Content as for Questionnaire.group }], // C? Nested questionnaire group
+    "question" : [{ // C? Questions in this group
+      "linkId" : "<string>", // To link questionnaire with questionnaire response
+      "concept" : [{ Coding }], // Concept that represents this question on a questionnaire
+      "text" : "<string>", // Text of the question as it is shown to the user
+      "type" : "<code>", // boolean | decimal | integer | date | dateTime +
+      "required" : <boolean>, // Whether the question must be answered in data results
+      "repeats" : <boolean>, // Whether the question  can have multiple answers
+      "options" : { Reference(ValueSet) }, // C? Valueset containing permitted answers
+      "option" : [{ Coding }], // C? Permitted answer
+      "group" : [{ Content as for Questionnaire.group }] // Nested questionnaire group
+    }]
+  }
+}

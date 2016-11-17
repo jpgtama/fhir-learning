@@ -1,0 +1,1 @@
+{    "type" : [{ Coding }],   "when" : "<instant>",     "whoUri" : "<uri>",  "whoReference" : { Reference(Practitioner|RelatedPerson|Patient|Device|   Organization) },  "contentType" : "<code>",   "blob" : "<base64Binary>" }

@@ -1,0 +1,1 @@
+{    "value" : <decimal>,   "comparator" : "<code>",   "unit" : "<string>",   "system" : "<uri>",   "code" : "<code>" }

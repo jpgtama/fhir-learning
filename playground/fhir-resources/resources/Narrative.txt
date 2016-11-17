@@ -1,0 +1,5 @@
+{
+  // from Element: extension
+  "status" : "<code>", // R!  generated | extensions | additional | empty
+  "div" : "(Escaped XHTML)" // R!  Limited xhtml content
+}
