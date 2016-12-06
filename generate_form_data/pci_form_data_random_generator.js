@@ -13,7 +13,7 @@ var Chance = require('chance');
 var chance = new Chance();
 
 // Use Chance here.
-var my_random_string = chance.string();
+// var my_random_string = chance.string();
 
 
 
@@ -29,15 +29,15 @@ var my_random_string = chance.string();
 // var headers = readHeaders();
 
 
-function readFormDef(){
-    var data = fs.readFileSync(path.resolve(__dirname, 'form_def.json'), 'UTF-8');
-    console.log(data);
+// function readFormDef(){
+//     var data = fs.readFileSync(path.resolve(__dirname, 'form_def.json'), 'UTF-8');
+//     console.log(data);
+//
+//
+//     return JSON.parse(data);
+// }
 
-
-    return JSON.parse(data);
-}
-
-var formDef = readFormDef();
+// var formDef = readFormDef();
 
 // loop form def
 function findOutFields(obj, resultArray){
@@ -55,8 +55,8 @@ function findOutFields(obj, resultArray){
     }
 }
 
-var patientFields = [];
-var pciFields = [];
+// var patientFields = [];
+// var pciFields = [];
 
 // var fieldsMap = {};
 // var headerKeyMap = {};
@@ -85,8 +85,8 @@ function handleOptions(options, resultArray) {
 }
 
 
-findOutFields(formDef[0], patientFields);
-findOutFields(formDef[1], pciFields);
+// findOutFields(formDef[0], patientFields);
+// findOutFields(formDef[1], pciFields);
 
 
 
@@ -193,10 +193,10 @@ function getRandomData(f) {
     var ftype = f.type;
     if(randomData[ftype]){
         if(ftype === 'number'){
-            // return randomData[ftype](f.label, f.min, f.max, f.decimals);
+            // return randomDataGenerator[ftype](f.label, f.min, f.max, f.decimals);
             rData = randomData[ftype](f.label, f.min, f.max, f.decimals);
         }else{
-            // return randomData[ftype](f.label, f.options);
+            // return randomDataGenerator[ftype](f.label, f.options);
             rData = randomData[ftype](f.label, f.options);
         }
     }else{
@@ -214,64 +214,116 @@ function getRandomData(f) {
 }
 
 
-function getRandomDataAsKeyObject() {
+// function getRandomDataAsKeyObject() {
+//     var randomDataList = [];
+//
+//     // output data
+//     for(var i=0;i<10;i++){
+//         var patientData = {};
+//         var pciData = {};
+//
+//         patientFields.forEach(f => {
+//             patientData[f.key] = getRandomData(f);
+//         });
+//
+//         pciFields.forEach(f => {
+//             pciData[f.key] = getRandomData(f);
+//         });
+//
+//         randomDataList.push({
+//             patientData: patientData,
+//             pciData: pciData
+//         });
+//     }
+//
+//     return randomDataList;
+// }
+
+
+// var dataList = getRandomDataAsKeyObject();
+//
+// console.log(JSON.stringify(dataList));
+
+function getRandomDataListForFormDefList(formDefList, dataSize) {
+
+    var fieldsList = [];
+
+    formDefList.forEach(formDef => {
+        var fieldsArr = [];
+        findOutFields(formDef, fieldsArr);
+
+        // push to formDefList
+        fieldsList.push(fieldsArr);
+    });
+
+    // randomDataList
     var randomDataList = [];
 
-    // output data
-    for(var i=0;i<10;i++){
-        var patientData = {};
-        var pciData = {};
+    // generate random data
+    for(var i=0;i< (dataSize || 1);i++){
 
-        patientFields.forEach(f => {
-            patientData[f.key] = getRandomData(f);
+        var randomData = [];
+
+        fieldsList.forEach(fields => {
+            var fieldsData = {};
+            fields.forEach(f => {
+                fieldsData[f.key] = getRandomData(f);
+            });
+
+            randomData.push(fieldsData);
         });
 
-        pciFields.forEach(f => {
-            pciData[f.key] = getRandomData(f);
-        });
-
-        randomDataList.push({
-            patientData: patientData,
-            pciData: pciData
-        });
+        randomDataList.push(randomData);
     }
 
     return randomDataList;
 }
 
 
-var dataList = getRandomDataAsKeyObject();
+function getManyRandomDatasForMultiForms(obj, dataSize) {
+    // obj: key: formdef
+    // will retur an array, with element has the same key as the obj but with the random data as value
+    var fieldsMap = JSON.parse(JSON.stringify(obj));
 
-console.log(JSON.stringify(dataList));
+    // findOutFields(formDef[0], patientFields);
+    Object.keys(fieldsMap).forEach(k => {
+        var formDef = fieldsMap[k];
+        var fieldsArr = [];
+        findOutFields(formDef, fieldsArr);
 
-// split to patient and other
-// var splitDataList = [];
-// dataObjList.forEach(eachData => {
-//     var patientDataObj = {};
-//     var otherDataObj = {};
-//
-//     'patientName,birthDate,ethnic,mrn,socialSecurity,inpatientNo,allergies,gender,patientAge,maritalStatus,idCard,outpatientNo,empi,isDeceased,deceasedTime'.split(',').forEach(k =>{
-//         patientDataObj[k] = eachData[k];
-//     });
-//
-//     Object.keys(eachData).forEach(k => {
-//         if(!patientDataObj.hasOwnProperty(k)){
-//             otherDataObj[k] = eachData[k];
-//         }
-//     });
-//
-//     splitDataList.push({
-//         patientDataObj: patientDataObj,
-//         otherDataObj: otherDataObj
-//     });
-// });
+        // replace old value
+        fieldsMap[k] = fieldsArr;
+    });
+
+    // randomDataList
+    var randomDataList = [];
+
+    // generate random data
+    for(var i=0;i<dataSize || 1;i++){
+
+        var randomData = {};
+
+        Object.keys(fieldsMap).forEach(k => {
+            var fields = fieldsMap[k];
+
+            var fieldsData = {};
+            fields.forEach(f => {
+                fieldsData[f.key] = getRandomData(f);
+            });
+
+            randomData[k] = fieldsData;
+        });
+
+        randomDataList.push(randomData);
+
+    }
 
 
+    return randomDataList;
+}
 
 
-// Object.keys(patientDataObj).forEach(k => console.log(k, patientDataObj[k]));
-// console.log('==============================================');
-// Object.keys(otherDataObj).forEach(k => console.log(k, otherDataObj[k]));
-
-
-module.exports = dataList;
+module.exports = {
+    getManyRandomDatasForMultiForms: getManyRandomDatasForMultiForms,
+    getRandomDataListForFormDefList: getRandomDataListForFormDefList
+};

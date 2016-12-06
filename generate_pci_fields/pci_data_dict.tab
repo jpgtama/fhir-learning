@@ -1,0 +1,318 @@
+SERIAL_NO	TABLE_NAME	SECTION_LEVEL1	SECTION_LEVEL2	FIELD_OID	BUSINESS_NAME	FIELD_NAME	FIELD_LABEL	field_label_zh_cn	field_label_en	FORM_OID	DATA_TYPE	DICT_ITEM	DICT_TABLE	DESCRIPTION	VISIBILITY_CONDITION	RELATED_FIELD	IS_PREDEFINED	FIELD_COMPONENT_TYPE	FIELD_DATA_TYPE
+16	CathPCI_Data_Dictionary	B.保险支付		112	到达日期/时间	Arrival_Dt	到达日期	到达日期	Arrival Date/Time	1	datetime						1	time	time
+17	CathPCI_Data_Dictionary	B.保险支付		113	患者现住址	Current_Addr	患者现住址	患者现住址	Patient Zip Code	1	nvarchar(150)					current_addr	1	textfield	text
+18	CathPCI_Data_Dictionary	B.保险支付		114	住址未知	If_Addr_Na	住址未知	住址未知	Zip Code N/A	1	bit					current_addr	1	checkbox	boolean
+19	CathPCI_Data_Dictionary	B.保险支付		115	住院来源	Admt_Source_Cd	住院来源	住院来源	Admit Source	1	char(3)	admt_source	Dict_Candidate_Values				1	radio	list
+20	CathPCI_Data_Dictionary	B.保险支付		116	支付方式	Pay_Method_Cd	支付方式	支付方式	Insurance Payors 	1	nvarchar(40)	pay_method	Dict_Candidate_Values				1	mult_checkbox	list
+21	CathPCI_Data_Dictionary	B.保险支付		117	手术类别	Procedure_Type_Cd	手术类别	手术类别	Type Cd of Procedure	1	nvarchar(100)	procedure_type	Dict_Candidate_Values				1	mult_checkbox	list
+23	CathPCI_Data_Dictionary	C.病史和风险因素		119	正在吸烟/近期吸烟史(<1年)	If_Smoker	正在吸烟/近期吸烟史(<1年)	正在吸烟/近期吸烟史(<1年)	Current/Recent Smoker (<1 year)	2	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+24	CathPCI_Data_Dictionary	C.病史和风险因素		120	高血压	If_Hypertension	高血压	高血压	Hypertension	2	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+25	CathPCI_Data_Dictionary	C.病史和风险因素		121	血脂异常	If_Dyslipidemia	血脂异常	血脂异常	Dyslipidemia	2	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+26	CathPCI_Data_Dictionary	C.病史和风险因素		122	肾功能衰竭	If_Kidney_Failure	肾功能衰竭	肾功能衰竭	Renal Failure	2	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+27	CathPCI_Data_Dictionary	C.病史和风险因素		123	冠心病家族史	If_Family_History_Chd	冠心病家族史	冠心病家族史	Family History of CAD	2	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+28	CathPCI_Data_Dictionary	C.病史和风险因素		124	早发冠心病家族史	If_Family_Hx_Cad	早发冠心病家族史	早发冠心病家族史	Family History of Premature CAD	2	char(3)	if_else_na	Dict_Candidate_Values		if_family_history_chd == 102		1	radio	list
+29	CathPCI_Data_Dictionary	C.病史和风险因素		125	心肌梗死史	If_Prior_Mi	心肌梗死史	心肌梗死史	MI History	2	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+30	CathPCI_Data_Dictionary	C.病史和风险因素		126	心力衰竭史	If_Prior_Hf	心力衰竭史	心力衰竭史	Heart Failure History	2	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+31	CathPCI_Data_Dictionary	C.病史和风险因素		127	瓣膜手术史	If_Valve_Surgery	瓣膜手术史	瓣膜手术史	Prior Valve Surgery	2	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+32	CathPCI_Data_Dictionary	C.病史和风险因素		128	最近瓣膜手术日期	Valve_Surgery_Dt	最近瓣膜手术日期	最近瓣膜手术日期	Most Recent Surgery Date	2	datetime				if_valve_surgery == 102		1	date	date
+33	CathPCI_Data_Dictionary	C.病史和风险因素		129	PCI	If_Prior_Pci	PCI史	PCI史	PCI History	2	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+34	CathPCI_Data_Dictionary	C.病史和风险因素		130	最近进行PCI治疗日期	Prior_Pci_Dt	最近进行PCI治疗日期	最近进行PCI治疗日期	Most Recent PCI Date	2	datetime				if_prior_pci == 102		1	date	date
+35	CathPCI_Data_Dictionary	C.病史和风险因素		131	CABG	If_Prior_Cabg	CABG史	CABG史	CABG History	2	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+36	CathPCI_Data_Dictionary	C.病史和风险因素		132	最近进行CABG日期	Prior_Cabg_Dt	最近进行CABG日期	最近进行CABG日期	Most Recent CABG Date	2	datetime				if_prior_cabg == 102		1	date	date
+37	CathPCI_Data_Dictionary	C.病史和风险因素		133	身高	Patient_Height_Cm	身高(cm)	身高(cm)	Height(cm)	2	decimal(6,2)						1	textfield	decimal
+38	CathPCI_Data_Dictionary	C.病史和风险因素		134	体重	Patient_Weight_Kg	体重(kg)	体重(kg)	Weight(kg)	2	decimal(6,2)						1	textfield	decimal
+39	CathPCI_Data_Dictionary	C.病史和风险因素		135	正在进行透析	If_Current_Dialysis	正在进行透析	正在进行透析	Currently on Dialysis	2	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+40	CathPCI_Data_Dictionary	C.病史和风险因素		136	脑血管病	If_Prior_Cvd	脑血管病	脑血管病	Cerebrovascular Disease	2	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+41	CathPCI_Data_Dictionary	C.病史和风险因素		137	出血性脑血管疾病	If_Bleed_Prior_Cvd	出血性脑血管疾病	出血性脑血管疾病	Hemorrhagic Cerebrovascular Disease	2	char(3)	if_else_na	Dict_Candidate_Values		if_prior_cvd == 102		1	radio	list
+42	CathPCI_Data_Dictionary	C.病史和风险因素		138	外周血管疾病	If_Prior_Pad	外周血管疾病	外周血管疾病	Peripheral Arterial Disease	2	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+43	CathPCI_Data_Dictionary	C.病史和风险因素		139	慢性肺病	If_Prior_Cld	慢性肺病	慢性肺病	Chronic Lung Disease	2	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+44	CathPCI_Data_Dictionary	C.病史和风险因素		140	糖尿病	If_Diabetes	糖尿病	糖尿病	Diabetes Mellitus	2	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+45	CathPCI_Data_Dictionary	C.病史和风险因素		141	使用的糖尿病治疗方案	Diabetes_Control_Cd	使用的糖尿病治疗方案	使用的糖尿病治疗方案	Diabetes Therapy	2	nvarchar(40)	diabetes_control	Dict_Candidate_Values		if_diabetes == 102		1	mult_checkbox	list
+46	CathPCI_Data_Dictionary	D.导管治疗记录	术前临床评估	142	收缩压	Systolic_Bp_Mmhg	收缩压	收缩压	Systolic pressure	3	int						1	textfield	integer
+47	CathPCI_Data_Dictionary	D.导管治疗记录		143	舒张压	Diastolic_Bp_Mmhg	舒张压	舒张压	Diastolic pressure 	3	int						1	textfield	integer
+48	CathPCI_Data_Dictionary	D.导管治疗记录		144	心率	Heart_Rate	心率	心率	Heart Rate	3	int						1	textfield	integer
+49	CathPCI_Data_Dictionary	D.导管治疗记录		145	临床表现	Cad_Presentation_Cd	临床表现	临床表现	CAD Presentation	3	char(3)	cad_presentation	Dict_Candidate_Values				1	radio	list
+50	CathPCI_Data_Dictionary	D.导管治疗记录		146	无症状性心肌缺血最近一次诊断（症状发作）日期/时间	Recent_Diagnosis_Dt	无症状性心肌缺血最近一次诊断（症状发作）日期/时间	无症状性心肌缺血最近一次诊断（症状发作）日期/时间	Silent Myocardial Ischemia Most Recent Diagnosis (Symptom Onset) Date	3	datetime				cad_presentation_cd == 101		1	time	time
+51	CathPCI_Data_Dictionary	D.导管治疗记录		147	无症状性心肌缺血最近一次诊断（症状发作）估计时间	If_Recent_Diagnosis_Dt_Est	无症状性心肌缺血最近一次诊断（症状发作）估计时间	无症状性心肌缺血最近一次诊断（症状发作）估计时间	Silent Myocardial Ischemia Most Recent Diagnosis (Symptom Onset) Estimated Time	3	bit				cad_presentation_cd == 101		1	checkbox	boolean
+52	CathPCI_Data_Dictionary	D.导管治疗记录		148	无症状性心肌缺血最近一次诊断（症状发作）时间未知	If_Recent_Diagnosis_Dt_Na	无症状性心肌缺血最近一次诊断（症状发作）时间未知	无症状性心肌缺血最近一次诊断（症状发作）时间未知	Silent Myocardial Ischemia Most Recent Diagnosis (Symptom Onset) Time Unknown	3	bit				cad_presentation_cd == 101		1	checkbox	boolean
+53	CathPCI_Data_Dictionary	D.导管治疗记录		149	稳定型心绞痛最近一次诊断（症状发作）日期/时间	Stable_Angina_Recent_Diagnosis_Dt	稳定型心绞痛最近一次诊断（症状发作）日期/时间	稳定型心绞痛最近一次诊断（症状发作）日期/时间	Stable Angina Most Recent Diagnosis (Symptom Onset) Date	3	datetime				cad_presentation_cd == 102		1	time	time
+54	CathPCI_Data_Dictionary	D.导管治疗记录		150	稳定型心绞痛最近一次诊断（症状发作）估计时间	Stable_Angina_If_Recent_Diagnosis_Dt_Est	稳定型心绞痛最近一次诊断（症状发作）估计时间	稳定型心绞痛最近一次诊断（症状发作）估计时间	Stable Angina Most Recent Diagnosis (Symptom Onset) Estimated Time	3	bit				cad_presentation_cd == 102		1	checkbox	boolean
+55	CathPCI_Data_Dictionary	D.导管治疗记录		151	稳定型心绞痛最近一次诊断（症状发作）时间未知	Stable_Angina_If_Recent_Diagnosis_Dt_Na	稳定型心绞痛最近一次诊断（症状发作）时间未知	稳定型心绞痛最近一次诊断（症状发作）时间未知	Stable Angina Most Recent Diagnosis (Symptom Onset) Time Unknown	3	bit				cad_presentation_cd == 102		1	checkbox	boolean
+56	CathPCI_Data_Dictionary	D.导管治疗记录		152	不稳定型心绞痛最近一次诊断（症状发作）日期/时间	Unstable_Angina_Recent_Diagnosis_Dt	不稳定型心绞痛最近一次诊断（症状发作）日期/时间	不稳定型心绞痛最近一次诊断（症状发作）日期/时间	Unstable Angina Most Recent Diagnosis (Symptom Onset) Date	3	datetime				cad_presentation_cd == 103		1	time	time
+57	CathPCI_Data_Dictionary	D.导管治疗记录		153	不稳定型心绞痛最近一次诊断（症状发作）估计时间	Unstable_Angina_If_Recent_Diagnosis_Dt_Est	不稳定型心绞痛最近一次诊断（症状发作）估计时间	不稳定型心绞痛最近一次诊断（症状发作）估计时间	Unstable Angina Most Recent Diagnosis (Symptom Onset) Estimated Time	3	bit				cad_presentation_cd == 103		1	checkbox	boolean
+58	CathPCI_Data_Dictionary	D.导管治疗记录		154	不稳定型心绞痛最近一次诊断（症状发作）时间未知	Unstable_Angina_If_Recent_Diagnosis_Dt_Na	不稳定型心绞痛最近一次诊断（症状发作）时间未知	不稳定型心绞痛最近一次诊断（症状发作）时间未知	Unstable Angina Most Recent Diagnosis (Symptom Onset) Time Unknown	3	bit				cad_presentation_cd == 103		1	checkbox	boolean
+59	CathPCI_Data_Dictionary	D.导管治疗记录		155	Non-STEMI症状发作日期/时间	Non_Stemi_Onset_Dt	Non-STEMI症状发作日期/时间	Non-STEMI症状发作日期/时间	Non-STEMI Onset Date	3	datetime				cad_presentation_cd == 104		1	time	time
+60	CathPCI_Data_Dictionary	D.导管治疗记录		156	Non-STEMI症状发作是否为估计时间	Non_Stemi_If_Onset_Dt_Est	Non-STEMI症状发作是否为估计时间	Non-STEMI症状发作是否为估计时间	Non-STEMI Estimated Time	3	bit				cad_presentation_cd == 104		1	checkbox	boolean
+61	CathPCI_Data_Dictionary	D.导管治疗记录		157	Non-STEMI症状发作是否为时间未知	Non_Stemi_If_Onset_Dt_Na	Non-STEMI症状发作是否为时间未知	Non-STEMI症状发作是否为时间未知	Non-STEMI Time Unknown	3	bit				cad_presentation_cd == 104		1	checkbox	boolean
+62	CathPCI_Data_Dictionary	D.导管治疗记录		158	STEMI症状发作日期/时间	Onset_Dt	STEMI症状发作日期/时间	STEMI症状发作日期/时间	STEMI Onset Date	3	datetime				cad_presentation_cd == 105		1	time	time
+63	CathPCI_Data_Dictionary	D.导管治疗记录		159	STEMI症状发作是否为估计时间	If_Onset_Dt_Est	STEMI症状发作是否为估计时间	STEMI症状发作是否为估计时间	STEMI Estimated Time	3	bit				cad_presentation_cd == 105		1	checkbox	boolean
+64	CathPCI_Data_Dictionary	D.导管治疗记录		160	STEMI症状发作是否为时间未知	If_Onset_Dt_Na	STEMI症状发作是否为时间未知	STEMI症状发作是否为时间未知	STEMI Time Unknown	3	bit				cad_presentation_cd == 105		1	checkbox	boolean
+65	CathPCI_Data_Dictionary	D.导管治疗记录		161	STEMI首次医疗接触时间	Stemi_Med_Contact_Dt	STEMI首次医疗接触时间	STEMI首次医疗接触时间	STEMI First Medical Contact Time	3	datetime				cad_presentation_cd == 105		1	time	time
+66	CathPCI_Data_Dictionary	D.导管治疗记录		162	STEMI是否进行溶栓治疗	Has_Throm_Therapy	STEMI是否进行溶栓治疗	STEMI是否进行溶栓治疗	STEMI Thrombolytics	3	char(3)	if_else_na	Dict_Candidate_Values		cad_presentation_cd == 105		1	radio	list
+67	CathPCI_Data_Dictionary	D.导管治疗记录		163	STEMI心功能Killip分级	Stemi_Killip_Cd	STEMI心功能Killip分级	STEMI心功能Killip分级	STEMI Cardiac Function Killip Classification	3	char(3)	functional_class	Dict_Candidate_Values		cad_presentation_cd == 105		1	radio	list
+68	CathPCI_Data_Dictionary	D.导管治疗记录		164	不典型胸痛最近一次诊断（症状发作）日期/时间	Atypical_Chest_Pain_Recent_Diagnosis_Dt	不典型胸痛最近一次诊断（症状发作）日期/时间	不典型胸痛最近一次诊断（症状发作）日期/时间	Atypical Chest Pain Most Recent Diagnosis (Symptom Onset) Date	3	datetime				cad_presentation_cd == 106		1	time	time
+69	CathPCI_Data_Dictionary	D.导管治疗记录		165	不典型胸痛最近一次诊断（症状发作）估计时间	Atypical_Chest_Pain_If_Recent_Diagnosis_Dt_Est	不典型胸痛最近一次诊断（症状发作）估计时间	不典型胸痛最近一次诊断（症状发作）估计时间	Atypical Chest Pain Most Recent Diagnosis (Symptom Onset) Estimated Time	3	bit				cad_presentation_cd == 106		1	checkbox	boolean
+70	CathPCI_Data_Dictionary	D.导管治疗记录		166	不典型胸痛最近一次诊断（症状发作）时间未知	Atypical_Chest_Pain_If_Recent_Diagnosis_Dt_Na	不典型胸痛最近一次诊断（症状发作）时间未知	不典型胸痛最近一次诊断（症状发作）时间未知	Atypical Chest Pain Most Recent Diagnosis (Symptom Onset) Time Unknown	3	bit				cad_presentation_cd == 106		1	checkbox	boolean
+71	CathPCI_Data_Dictionary	D.导管治疗记录		167	可疑心绞痛最近一次诊断（症状发作）日期/时间	Suspicious_Angina_Recent_Diagnosis_Dt	可疑心绞痛最近一次诊断（症状发作）日期/时间	可疑心绞痛最近一次诊断（症状发作）日期/时间	Suspicious Angina Most Recent Diagnosis (Symptom Onset) Date	3	datetime				cad_presentation_cd == 107		1	time	time
+72	CathPCI_Data_Dictionary	D.导管治疗记录		168	可疑心绞痛最近一次诊断（症状发作）估计时间	Suspicious_Angina_If_Recent_Diagnosis_Dt_Est	可疑心绞痛最近一次诊断（症状发作）估计时间	可疑心绞痛最近一次诊断（症状发作）估计时间	Suspicious Angina Most Recent Diagnosis (Symptom Onset) Estimated Time	3	bit				cad_presentation_cd == 107		1	checkbox	boolean
+73	CathPCI_Data_Dictionary	D.导管治疗记录		169	可疑心绞痛最近一次诊断（症状发作）时间未知	Suspicious_Angina_If_Recent_Diagnosis_Dt_Na	可疑心绞痛最近一次诊断（症状发作）时间未知	可疑心绞痛最近一次诊断（症状发作）时间未知	Suspicious Angina Most Recent Diagnosis (Symptom Onset) Time Unknown	3	bit				cad_presentation_cd == 107		1	checkbox	boolean
+74	CathPCI_Data_Dictionary	D.导管治疗记录		170	溶栓治疗开始治疗日期	Throm_Therapy_Dt	溶栓治疗开始治疗日期	溶栓治疗开始治疗日期	Thrombolytics Start date/time	3	datetime				has_throm_therapy == 102		1	time	time
+75	CathPCI_Data_Dictionary	D.导管治疗记录		171	2周内心绞痛分级	Anginal_Class_Cd	2周内心绞痛分级	2周内心绞痛分级	Anginal Classification w/in 2 Weeks	3	char(3)	anginal_class	Dict_Candidate_Values				1	radio	list
+76	CathPCI_Data_Dictionary	D.导管治疗记录		172	2周内抗心绞痛药物治疗	Has_Antianginal_Med	2周内抗心绞痛药物治疗	2周内抗心绞痛药物治疗	Anti-Anginal Drug Therapy within 2 Weeks	3	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+77	CathPCI_Data_Dictionary	D.导管治疗记录		173	2周内抗心绞痛药物治疗，药物类型	Antianginal_Med_Type_Cd	2周内抗心绞痛药物治疗，药物类型	2周内抗心绞痛药物治疗，药物类型	Anti-Anginal Drug Therapy within 2 Weeks, Medication Type	3	nvarchar(40)	antianginal_med_type	Dict_Candidate_Values		has_antianginal_med == 102		1	mult_checkbox	list
+78	CathPCI_Data_Dictionary	D.导管治疗记录		174	2周内心衰	Has_Prior2weeks_Hf	2周内心衰	2周内心衰	Heart Failure w/in 2 Weeks	3	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+79	CathPCI_Data_Dictionary	D.导管治疗记录		175	2周内NYHA心功能分级	Prior2week_Nyha_Cd	2周内NYHA心功能分级	2周内NYHA心功能分级	NYHA Class w/in 2 Weeks	3	char(3)	functional_class	Dict_Candidate_Values		has_prior2weeks_hf == 102		1	radio	list
+80	CathPCI_Data_Dictionary	D.导管治疗记录		176	心肌病或左室收缩功能不全	If_Cardio_Lvsd	心肌病或左室收缩功能不全	心肌病或左室收缩功能不全	Cardiomyopathy or Left Ventricular Systolic Dysfunction	3	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+81	CathPCI_Data_Dictionary	D.导管治疗记录		177	24小时内心源性休克	If_Prior_Cardio_Shock	24小时内心源性休克	24小时内心源性休克	Cardiogenic Shock w/in 24 Hours	3	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+82	CathPCI_Data_Dictionary	D.导管治疗记录		178	非心脏手术术前评估	Has_Periop_Eval	非心脏手术术前评估	非心脏手术术前评估	Pre-operative Evaluation Before Non-Cardiac Surgery	3	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+83	CathPCI_Data_Dictionary	D.导管治疗记录		179	24小时内心脏骤停	If_Prior_Cardiac_Arrest	24小时内心脏骤停	24小时内心脏骤停	Cardiac Arrest within 24 Hours	3	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+84	CathPCI_Data_Dictionary	D.导管治疗记录		180	进行负荷试验或成像检查	Has_Stress_Imaging	进行负荷试验或成像检查	进行负荷试验或成像检查	Stress or Imaging Studies	3	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+85	CathPCI_Data_Dictionary	D.导管治疗记录		181	标准运动负荷试验(含或不含成像检查)	Has_Exercise_Stress_Test	标准运动负荷试验(含或不含成像检查)	标准运动负荷试验(含或不含成像检查)	Standard Exercise Stress Test (with or without imaging)	3	char(3)	if_else_na	Dict_Candidate_Values		has_stress_imaging == 102		1	radio	list
+86	CathPCI_Data_Dictionary	D.导管治疗记录		182	标准运动负荷试验检查结果	Exercise_Test_Result_Cd	标准运动负荷试验检查结果	标准运动负荷试验检查结果	Stress or Imaging Studies Results	3	char(3)	stress_imaging_result	Dict_Candidate_Values		has_exercise_stress_test == 102		1	radio	list
+87	CathPCI_Data_Dictionary	D.导管治疗记录		183	标准运动负荷试验缺血风险/程度	Exercise_Test_Risk_Cd	标准运动负荷试验缺血风险/程度	标准运动负荷试验缺血风险/程度	Stress or Imaging Studies Risk/Extent of ischemia	3	char(3)	stress_imaging_risk	Dict_Candidate_Values		exercise_test_result_cd == 102		1	radio	list
+88	CathPCI_Data_Dictionary	D.导管治疗记录		184	负荷超声心动图	Has_Stress_Echo	负荷超声心动图	负荷超声心动图	Stress Echocardiogram	3	char(3)	if_else_na	Dict_Candidate_Values		has_stress_imaging == 102		1	radio	list
+89	CathPCI_Data_Dictionary	D.导管治疗记录		185	负荷超声心动图检查结果	Stress_Echo_Result_Cd	负荷超声心动图检查结果	负荷超声心动图检查结果	Stress Echocardiogram Results	3	char(3)	stress_imaging_result	Dict_Candidate_Values		has_stress_echo == 102		1	radio	list
+90	CathPCI_Data_Dictionary	D.导管治疗记录		186	负荷超声心动图缺血风险/程度	Stress_Echo_Risk_Cd	负荷超声心动图缺血风险/程度	负荷超声心动图缺血风险/程度	Stress Echocardiogram Risk/Extent of ischemia	3	char(3)	stress_imaging_risk	Dict_Candidate_Values		stress_echo_result_cd == 102		1	radio	list
+91	CathPCI_Data_Dictionary	D.导管治疗记录		187	SPECT心脏负荷检查	Has_Spect_Stress_Test	SPECT心脏负荷检查	SPECT心脏负荷检查	Stress Testing with SPECT MPI	3	char(3)	if_else_na	Dict_Candidate_Values		has_stress_imaging == 102		1	radio	list
+92	CathPCI_Data_Dictionary	D.导管治疗记录		188	SPECT心脏负荷检查检查结果	Spect_Stress_Result_Cd	SPECT心脏负荷检查检查结果	SPECT心脏负荷检查检查结果	Stress Testing with SPECT MPI Results	3	char(3)	stress_imaging_result	Dict_Candidate_Values		has_spect_stress_test == 102		1	radio	list
+93	CathPCI_Data_Dictionary	D.导管治疗记录		189	SPECT心脏负荷检缺血风险/程度	Spect_Stress_Risk_Cd	SPECT心脏负荷检缺血风险/程度	SPECT心脏负荷检缺血风险/程度	Stress Testing with SPECT MPI Risk/Extent of ischemia	3	char(3)	stress_imaging_risk	Dict_Candidate_Values		spect_stress_result_cd == 102		1	radio	list
+94	CathPCI_Data_Dictionary	D.导管治疗记录		190	负荷心脏核磁(CMR)检查	Has_Cmr_Stress_Test	负荷心脏核磁(CMR)检查	负荷心脏核磁(CMR)检查	Stress Test with CMR	3	char(3)	if_else_na	Dict_Candidate_Values		has_stress_imaging == 102		1	radio	list
+95	CathPCI_Data_Dictionary	D.导管治疗记录		191	负荷心脏核磁(CMR)检查结果	Cmr_Stress_Result_Cd	负荷心脏核磁(CMR)检查结果	负荷心脏核磁(CMR)检查结果	Stress Test with CMR Results	3	char(3)	stress_imaging_result	Dict_Candidate_Values		has_cmr_stress_test == 102		1	radio	list
+96	CathPCI_Data_Dictionary	D.导管治疗记录		192	负荷心脏核磁(CMR)检查缺血风险/程度	Cmr_Stress_Risk_Cd	负荷心脏核磁(CMR)检查缺血风险/程度	负荷心脏核磁(CMR)检查缺血风险/程度	Stress Test with CMR Risk/Extent of ischemia	3	char(3)	stress_imaging_risk	Dict_Candidate_Values		cmr_stress_result_cd == 102		1	radio	list
+97	CathPCI_Data_Dictionary	D.导管治疗记录		193	心脏冠状动脉CT造影(CTA)	Has_Cardiac_Cta	心脏冠状动脉CT造影(CTA)	心脏冠状动脉CT造影(CTA)	Cardiac CTA	3	char(3)	if_else_na	Dict_Candidate_Values		has_stress_imaging == 102		1	radio	list
+98	CathPCI_Data_Dictionary	D.导管治疗记录		194	心脏冠状动脉CT造影(CTA)检查结果	Cardiac_Cta_Result_Cd	心脏冠状动脉CT造影(CTA)检查结果	心脏冠状动脉CT造影(CTA)检查结果	Cardiac CTA Results	3	char(3)	cardiac_cta_result	Dict_Candidate_Values		has_cardiac_cta == 102		1	radio	list
+99	CathPCI_Data_Dictionary	D.导管治疗记录		195	冠状动脉钙化积分	Cor_Calcium_Score	冠状动脉钙化积分	冠状动脉钙化积分	Coronary Calcium Score	3	char(3)	if_else_na	Dict_Candidate_Values		has_stress_imaging == 102		1	radio	list
+100	CathPCI_Data_Dictionary	D.导管治疗记录		196	冠状动脉钙化积分钙化积分数	Calcium_Score	冠状动脉钙化积分钙化积分数	冠状动脉钙化积分钙化积分数	Coronary Calcium Score Calcium Score	3	int				cor_calcium_score == 102		1	textfield	integer
+101	CathPCI_Data_Dictionary	D.导管治疗记录	手术信息	197	手术日期/时间	Procedure_Dt	手术日期	手术日期	Date/Time of Procedure	3	datetime						1	time	time
+102	CathPCI_Data_Dictionary	D.导管治疗记录		198	曝光时间<分钟>	Fluro_Duration_Min	曝光时间<分钟>	曝光时间<分钟>	Fluoroscopy Time<Minute>	3	int					fluro_duration_min	1	textfield	integer
+103	CathPCI_Data_Dictionary	D.导管治疗记录		199	曝光剂量<mGy>	Fluro_Dose_Mgy	曝光剂量<mGy>	曝光剂量<mGy>	Fluoroscopy Dose<mGy>	3	int					fluro_duration_min	1	textfield	integer
+104	CathPCI_Data_Dictionary	D.导管治疗记录		200	PCI	Has_Pci	PCI	PCI	PCI Procedure	3	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+105	CathPCI_Data_Dictionary	D.导管治疗记录		201	对比剂用量(mL)	Contrast_Vol_Ml	对比剂用量(mL)	对比剂用量(mL)	Contrast Volume(mL)	3	int						1	textfield	integer
+106	CathPCI_Data_Dictionary	D.导管治疗记录		202	诊断性心导管术	Has_Diagnostic_Cath	诊断性心导管术	诊断性心导管术	Diagnostic Cath	3	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+107	CathPCI_Data_Dictionary	D.导管治疗记录		203	对比剂类型	Contrast_Type_Cd	对比剂类型	对比剂类型	Contrast type	3	char(3)	contrast_type	Dict_Candidate_Values				1	select	list
+108	CathPCI_Data_Dictionary	D.导管治疗记录		204	其他手术(与诊断性心导管术或PCI结合)	Has_Other_Procedure	其他手术(与诊断性心导管术或PCI结合)	其他手术(与诊断性心导管术或PCI结合)	Other Procedure (in conj w/Dx Cath or PCI)	3	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+109	CathPCI_Data_Dictionary	D.导管治疗记录	心室力学支持	205	主动脉内球囊反搏(IABP)	If_Iabp	主动脉内球囊反搏(IABP)	主动脉内球囊反搏(IABP)	Intra-aortic Ballon Pump (IABP)	3	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+110	CathPCI_Data_Dictionary	D.导管治疗记录		206	主动脉内球囊反搏(IABP)，时间	Iabp_Timing_Cd	主动脉内球囊反搏(IABP)，时间	主动脉内球囊反搏(IABP)，时间	Intra-aortic Ballon Pump (IABP),Time	3	char(3)	iabp_timing	Dict_Candidate_Values		if_Iabp == 102		1	radio	list
+111	CathPCI_Data_Dictionary	D.导管治疗记录		207	其他心室力学支持	Has_Mv_Support	其他心室力学支持	其他心室力学支持	Other Ventricular Mechanical Support	3	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+112	CathPCI_Data_Dictionary	D.导管治疗记录		208	其他心室力学支持，时间	Mv_Support_Timing_Cd	其他心室力学支持，时间	其他心室力学支持，时间	Other Ventricular Mechanical Support,Time	3	char(3)	iabp_timing	Dict_Candidate_Values		has_mv_support == 102		1	radio	list
+113	CathPCI_Data_Dictionary	D.导管治疗记录	动脉穿刺	209	动脉穿刺部位	Access_Site_Cd	动脉穿刺部位	动脉穿刺部位	Arterial Access Site	3	char(3)	access_site	Dict_Candidate_Values				1	radio	list
+114	CathPCI_Data_Dictionary	D.导管治疗记录		210	闭合方法	Closure_Method_Cd	闭合方法	闭合方法	Closure Method(s)	3	nvarchar(40)	closure_method	Dict_Candidate_Values			if_method_na	1	mult_select	list
+115	CathPCI_Data_Dictionary	D.导管治疗记录		211	闭合方法未记录方法	If_Method_Na	闭合方法未记录方法	闭合方法未记录方法	Closure Method(s) Method Not Documented	3	bit					if_method_na	1	checkbox	boolean
+116	CathPCI_Data_Dictionary	E.诊断性心导管术		212	诊断性心导管术术者姓名	Dcath_Physican_Name	诊断性心导管术术者姓名	诊断性心导管术术者姓名	Diagnostic Cath Procedure Operator’s Name	3	nvarchar(100)	physician_name	Registry_Physician				1	select	list
+117	CathPCI_Data_Dictionary	E.诊断性心导管术		213	诊断性心导管术术者执照编号	Dcath_Physican_Npi	诊断性心导管术术者执照编号	诊断性心导管术术者执照编号	Diagnostic Cath Procedure Operator NPI	3	nvarchar(32)						1	textfield	text
+118	CathPCI_Data_Dictionary	E.诊断性心导管术		214	诊断性冠状动脉造影	Has_Diag_Cor_Angio	诊断性冠状动脉造影	诊断性冠状动脉造影	Diagnostic Coronary Angiography Procedure	3	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+119	CathPCI_Data_Dictionary	E.诊断性心导管术		215	左心室造影	Has_Left_Heart_Cath	左心室造影	左心室造影	Left Heart Cath Procedure	3	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+120	CathPCI_Data_Dictionary	E.诊断性心导管术		216	诊断性心导管术状态	Dcath_Status_Cd	诊断性心导管术状态	诊断性心导管术状态	Diagnostic Cath Status	3	char(3)	dcath_status	Dict_Candidate_Values				1	radio	list
+121	CathPCI_Data_Dictionary	E.诊断性心导管术		217	处理建议(诊断性心导管术后)	Dcath_Treatment_Cd	处理建议(诊断性心导管术后)	处理建议(诊断性心导管术后)	Rx Recommendation (after Diagnostic Cath)	3	char(3)	dcath_treatment	Dict_Candidate_Values				1	radio	list
+122	CathPCI_Data_Dictionary	F.冠状动脉造影评估		218	冠脉优势型	Dominance_Cd	冠脉优势型	冠脉优势型	Dominance	3	char(3)	dominance	Dict_Candidate_Values				1	radio	list
+123	CathPCI_Data_Dictionary	F.冠状动脉造影评估		219	畸形冠状动脉	If_Anamorphosis_Coronary	畸形冠状动脉(造影)	畸形冠状动脉(造影)	Anomalous coronary artery	3	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+124	CathPCI_Data_Dictionary	F.冠状动脉造影评估		220	造影结论	Conclusion_Angiography_Type	造影结论	造影结论	Conclusion Angiography Type	3	char(3)	conclusion_angiography_type	Dict_Candidate_Values				1	select	list
+125	CathPCI_Data_Dictionary	F.冠状动脉造影评估		221	左主干冠状动脉>=2mm狭窄比例	Lm_Stes_Pct	左主干冠状动脉>=2mm狭窄比例	左主干冠状动脉>=2mm狭窄比例	Left Main Coronary Artery (>=2 Mm) Stenosis Percent	3	int					lm_stes_pct	1	textfield	integer
+126	CathPCI_Data_Dictionary	F.冠状动脉造影评估		222	左主干冠状动脉>=2mm狭窄比例未记录	If_Lm_Stes_Na	左主干冠状动脉>=2mm狭窄比例未记录	左主干冠状动脉>=2mm狭窄比例未记录	Left Main Coronary Artery (>=2 Mm) Stenosis Percent Not Documented	3	bit					lm_stes_pct	1	checkbox	boolean
+127	CathPCI_Data_Dictionary	F.冠状动脉造影评估		223	LAD近段冠状动脉>=2mm狭窄比例	Prox_Lad_Stes_Pct	LAD近段冠状动脉>=2mm狭窄比例	LAD近段冠状动脉>=2mm狭窄比例	Proximal LAD Coronary Artery (>=2 Mm) Stenosis Percent	3	int					prox_lad_stes_pct	1	textfield	integer
+128	CathPCI_Data_Dictionary	F.冠状动脉造影评估		224	LAD近段冠状动脉>=2mm狭窄比例未记录	If_Prox_Lad_Stes_Na	LAD近段冠状动脉>=2mm狭窄比例未记录	LAD近段冠状动脉>=2mm狭窄比例未记录	Proximal LAD Coronary Artery (>=2 Mm) Stenosis Percent  Not Documented	3	bit					prox_lad_stes_pct	1	checkbox	boolean
+129	CathPCI_Data_Dictionary	F.冠状动脉造影评估		225	LAD中段/远段，对角支冠状动脉>=2mm狭窄比例	Md_Lad_Stes_Pct	LAD中段/远段，对角支冠状动脉>=2mm狭窄比例	LAD中段/远段，对角支冠状动脉>=2mm狭窄比例	Mid/Distal LAD, Diagonal Branch Coronary Artery (>=2 Mm) Stenosis Percent	3	int					md_lad_stes_pct	1	textfield	integer
+130	CathPCI_Data_Dictionary	F.冠状动脉造影评估		226	LAD中段/远段，对角支冠状动脉>=2mm狭窄比例未记录	If_Md_Lad_Stes_Na	LAD中段/远段，对角支冠状动脉>=2mm狭窄比例未记录	LAD中段/远段，对角支冠状动脉>=2mm狭窄比例未记录	Mid/Distal LAD, Diagonal Branch Coronary Artery (>=2 Mm) Stenosis Percent  Not Documented	3	bit					md_lad_stes_pct	1	checkbox	boolean
+131	CathPCI_Data_Dictionary	F.冠状动脉造影评估		227	Circ、OMs、LPDA、LPL冠状动脉>=2mm狭窄比例	Circ_Stes_Pct	Circ、OMs、LPDA、LPL冠状动脉>=2mm狭窄比例	Circ、OMs、LPDA、LPL冠状动脉>=2mm狭窄比例	Circ、OMs、LPDA、LPL Coronary Artery (>=2 Mm) Stenosis Percent	3	int					circ_stes_pct	1	textfield	integer
+132	CathPCI_Data_Dictionary	F.冠状动脉造影评估		228	Circ、OMs、LPDA、LPL冠状动脉>=2mm狭窄比例未记录	If_Circ_Stes_Na	Circ、OMs、LPDA、LPL冠状动脉>=2mm狭窄比例未记录	Circ、OMs、LPDA、LPL冠状动脉>=2mm狭窄比例未记录	Circ、OMs、LPDA、LPL Coronary Artery (>=2 Mm) Stenosis Percent  Not Documented	3	bit					circ_stes_pct	1	checkbox	boolean
+133	CathPCI_Data_Dictionary	F.冠状动脉造影评估		229	RCA、RPDA、RPL、AM冠状动脉>=2mm狭窄比例	Rca_Stes_Pct	RCA、RPDA、RPL、AM冠状动脉>=2mm狭窄比例	RCA、RPDA、RPL、AM冠状动脉>=2mm狭窄比例	RCA, RPDA, RPL, AM Coronary Artery (>=2 Mm) Stenosis Percent	3	int					rca_stes_pct	1	textfield	integer
+134	CathPCI_Data_Dictionary	F.冠状动脉造影评估		230	RCA、RPDA、RPL、AM冠状动脉>=2mm狭窄比例未记录	If_Rca_Stes_Na	RCA、RPDA、RPL、AM冠状动脉>=2mm狭窄比例未记录	RCA、RPDA、RPL、AM冠状动脉>=2mm狭窄比例未记录	RCA, RPDA, RPL, AM Coronary Artery (>=2 Mm) Stenosis Percent  Not Documented	3	bit					rca_stes_pct	1	checkbox	boolean
+135	CathPCI_Data_Dictionary	F.冠状动脉造影评估		231	中间支冠状动脉>=2mm血管狭窄比例	Ramus_Stes_Pct	中间支冠状动脉>=2mm血管狭窄比例	中间支冠状动脉>=2mm血管狭窄比例	Intermediate Branch Coronary Artery (>=2 Mm) Stenosis Percent	3	int					ramus_stes_pct	1	textfield	integer
+136	CathPCI_Data_Dictionary	F.冠状动脉造影评估		232	中间支冠状动脉>=2mm血管狭窄比例未记录	If_Ramus_Stes_Na	中间支冠状动脉>=2mm血管狭窄比例未记录	中间支冠状动脉>=2mm血管狭窄比例未记录	Intermediate Branch Coronary Artery (>=2 Mm) Stenosis Percent   Not Documented	3	bit					ramus_stes_pct	1	checkbox	boolean
+137	CathPCI_Data_Dictionary	F.冠状动脉造影评估		233	桥血管	If_Gt_Stes	桥血管	桥血管	Bridge Vessel 	3	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+138	CathPCI_Data_Dictionary	F.冠状动脉造影评估		234	LAD近段桥血管狭窄比例	Prox_Lad_Gt_Stes_Pct	LAD近段桥血管狭窄比例	LAD近段桥血管狭窄比例	Proximal LAD Vascular  Stenosis Percent 	3	int				If_Gt_Stes == 102	prox_lad_gt_stes_pct	1	textfield	integer
+139	CathPCI_Data_Dictionary	F.冠状动脉造影评估		235	LAD近段桥血管狭窄比例未记录	If_Prox_Lad_Gt_Stes_Na	LAD近段桥血管狭窄比例未记录	LAD近段桥血管狭窄比例未记录	Proximal LAD Vascular  Stenosis Percent  Not Documented	3	bit				If_Gt_Stes == 102	prox_lad_gt_stes_pct	1	checkbox	boolean
+140	CathPCI_Data_Dictionary	F.冠状动脉造影评估		236	LAD中段/远段，对角支桥血管狭窄比例	Md_Lad_Gt_Stes_Pct	LAD中段/远段，对角支桥血管狭窄比例	LAD中段/远段，对角支桥血管狭窄比例	Mid/Distal LAD, Diagonal Branch  Stenosis Percent  	3	int				If_Gt_Stes == 102	md_lad_gt_stes_pct	1	textfield	integer
+141	CathPCI_Data_Dictionary	F.冠状动脉造影评估		237	LAD中段/远段，对角支桥血管狭窄比例未记录	If_Md_Lad_Gt_Stes	LAD中段/远段，对角支桥血管狭窄比例未记录	LAD中段/远段，对角支桥血管狭窄比例未记录	Mid/Distal LAD, Diagonal Branch  Stenosis Percent  Not Documented	3	bit				If_Gt_Stes == 102	md_lad_gt_stes_pct	1	checkbox	boolean
+142	CathPCI_Data_Dictionary	F.冠状动脉造影评估		238	Circ、OMs、LPDA、LPL桥血管狭窄比例	Circ_Gt_Stes_Pct	Circ、OMs、LPDA、LPL桥血管狭窄比例	Circ、OMs、LPDA、LPL桥血管狭窄比例	Circ、OMs、LPDA、LPL  Stenosis Percent	3	int				If_Gt_Stes == 102	circ_gt_stes_pct	1	textfield	integer
+143	CathPCI_Data_Dictionary	F.冠状动脉造影评估		239	Circ、OMs、LPDA、LPL桥血管狭窄比例未记录	If_Circ_Gt_Stes_Na	Circ、OMs、LPDA、LPL桥血管狭窄比例未记录	Circ、OMs、LPDA、LPL桥血管狭窄比例未记录	Circ、OMs、LPDA、LPL  Stenosis Percent  Not Documented	3	bit				If_Gt_Stes == 102	circ_gt_stes_pct	1	checkbox	boolean
+144	CathPCI_Data_Dictionary	F.冠状动脉造影评估		240	RCA、RPDA、RPL、AM桥血管狭窄比例	Rca_Gt_Stes_Pct	RCA、RPDA、RPL、AM桥血管狭窄比例	RCA、RPDA、RPL、AM桥血管狭窄比例	RCA, RPDA, RPL, AM  Stenosis Percent	3	int				If_Gt_Stes == 102	rca_gt_stes_pct	1	textfield	integer
+145	CathPCI_Data_Dictionary	F.冠状动脉造影评估		241	RCA、RPDA、RPL、AM桥血管狭窄比例未记录	If_Rca_Gt_Stes_Na	RCA、RPDA、RPL、AM桥血管狭窄比例未记录	RCA、RPDA、RPL、AM桥血管狭窄比例未记录	RCA, RPDA, RPL, AM  Stenosis Percent  Not Documented	3	bit				If_Gt_Stes == 102	rca_gt_stes_pct	1	checkbox	boolean
+146	CathPCI_Data_Dictionary	F.冠状动脉造影评估		242	中间支桥血管狭窄比例	Ramus_Gt_Stes_Pct	中间支桥血管狭窄比例	中间支桥血管狭窄比例	Intermediate Branch  Stenosis Percent	3	int				If_Gt_Stes == 102	ramus_gt_stes_pct	1	textfield	integer
+147	CathPCI_Data_Dictionary	F.冠状动脉造影评估		243	中间支桥血管狭窄比例未记录	If_Ramus_Gt_Stes_Na	中间支桥血管狭窄比例未记录	中间支桥血管狭窄比例未记录	Intermediate Branch  Stenosis Percent  Not Documented	3	bit				If_Gt_Stes == 102	ramus_gt_stes_pct	1	checkbox	boolean
+148	CathPCI_Data_Dictionary	F.冠状动脉造影评估		244	动脉桥病变	If_Artery_Gt_Stes	动脉桥病变	动脉桥病变	Artery  Graft Lesion	3	char(3)	if_else_na	Dict_Candidate_Values		If_Gt_Stes == 102		1	radio	list
+149	CathPCI_Data_Dictionary	F.冠状动脉造影评估		245	静脉桥病变	If_Vein_Gt_Stes	静脉桥病变	静脉桥病变	Vein Graft Lesion	3	char(3)	if_else_na	Dict_Candidate_Values		If_Gt_Stes == 102		1	radio	list
+150	CathPCI_Data_Dictionary	G.PCI手术		246	PCI手术术者姓名	Pci_Physican_Name	PCI手术术者姓名	PCI手术术者姓名	PCI Operator Name	4	nvarchar(100)	physician_name	Registry_Physician				1	select	list
+151	CathPCI_Data_Dictionary	G.PCI手术		247	PCI手术术者执照编号	Pci_Physican_Npi	PCI手术术者执照编号	PCI手术术者执照编号	PCI Operator NPI	4	nvarchar(32)						1	textfield	text
+152	CathPCI_Data_Dictionary	G.PCI手术		248	第一助手姓名	Assistant_Name	第一助手姓名	第一助手姓名	First Assistant Name	4	nvarchar(100)						1	textfield	text
+153	CathPCI_Data_Dictionary	G.PCI手术		249	外请专家姓名	Invite_Expert_Name	外请专家姓名	外请专家姓名	Invited Expert Name	4	nvarchar(100)						1	textfield	text
+154	CathPCI_Data_Dictionary	G.PCI手术		250	PCI状态	Pci_Status_Cd	PCI状态	PCI状态	PCI Status	4	char(3)	pci_status	Dict_Candidate_Values				1	radio	list
+155	CathPCI_Data_Dictionary	G.PCI手术		251	PCI前LVEF	Pre_Pci_Lvef_Pct	PCI前LVEF	PCI前LVEF	Pre-PCI LVEF	4	decimal(6,2)					pre_pci_lvef_pct	1	textfield	decimal
+156	CathPCI_Data_Dictionary	G.PCI手术		252	PCI前LVEF未评估	If_Pre_Pci_Lvef_Na	PCI前LVEF未评估	PCI前LVEF未评估	LVEF Not Assessed Before PCI	4	bit					pre_pci_lvef_pct	1	checkbox	boolean
+157	CathPCI_Data_Dictionary	G.PCI手术		253	PCI开始时出现心源性休克	Has_Pci_Cshock	PCI开始时出现心源性休克	PCI开始时出现心源性休克	Cardiogenic Shock at Start of PCI	4	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+158	CathPCI_Data_Dictionary	G.PCI手术		254	PCI指征	Pci_Indication_Cd	PCI指征	PCI指征	PCI Indication	4	char(3)	pci_indication	Dict_Candidate_Values				1	radio	list
+159	CathPCI_Data_Dictionary	G.PCI手术		255	STEMI或等同STEMI首次发现于	Stemi_First_Noted_Cd	STEMI或等同STEMI首次发现于	STEMI或等同STEMI首次发现于	STEMI or STEMI Equivalent First Noted	4	char(3)	stemi_first_noted	Dict_Candidate_Values		pci_indication_cd == 101		1	radio	list
+160	CathPCI_Data_Dictionary	G.PCI手术		256	出现STEMI或等同于STEMI的后续心电图日期/时间	Sub_Ecg_Dt	出现STEMI或等同于STEMI的后续心电图日期	出现STEMI或等同于STEMI的后续心电图日期	Subsequent ECG with STEMI or STEMI Equivalent Date	4	datetime				stemi_first_noted_cd == 102		1	time	time
+161	CathPCI_Data_Dictionary	G.PCI手术		257	STEMI紧急治疗首次装置置入日期	First_Dev_Acti_Dt	STEMI紧急治疗首次装置置入日期	STEMI紧急治疗首次装置置入日期	STEMI First Device Activation Date/Time	4	datetime				pci_indication_cd == 101		1	time	time
+162	CathPCI_Data_Dictionary	G.PCI手术		258	D2B 时间(分钟)	D2B_Time	D2B 时间(分钟)	D2B 时间(分钟)	D2B_Time(minute)	4	decimal(6,2)						1	textfield	decimal
+163	CathPCI_Data_Dictionary	G.PCI手术		259	STEMI紧急治疗是否转诊	If_Pat_Trans_Pci	STEMI紧急治疗是否转诊	STEMI紧急治疗是否转诊	STEMI Transferred In	4	char(3)	if_else_na	Dict_Candidate_Values		pci_indication_cd == 101		1	radio	list
+164	CathPCI_Data_Dictionary	G.PCI手术		260	进入转诊机构急诊室的日期	Ed_Present_Dt	进入转诊机构急诊室的日期	进入转诊机构急诊室的日期	Date/Time ED Presentation at Referring Facility	4	datetime				if_pat_trans_pci == 102		1	time	time
+165	CathPCI_Data_Dictionary	G.PCI手术		261	STEMI紧急治疗是否出现非系统性原因导致PCI延迟	Pci_Delay_Reason_Cd	STEMI紧急治疗是否出现非系统性原因导致PCI延迟	STEMI紧急治疗是否出现非系统性原因导致PCI延迟	STEMI Non-system Reason for Delay in PCI	4	char(3)	pci_delay_reason	Dict_Candidate_Values		pci_indication_cd == 101		1	radio	list
+166	CathPCI_Data_Dictionary	G.PCI手术	手术用药	262	磺达肝癸钠	Pm_Fondaparinux_Cd	磺达肝癸钠	磺达肝癸钠	Fondaparinux Sodium	4	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+167	CathPCI_Data_Dictionary	G.PCI手术		263	低分子肝素(任意)	Pm_Lmwh_Cd	低分子肝素(任意)	低分子肝素(任意)	Low molecular Heparin (any)	4	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+168	CathPCI_Data_Dictionary	G.PCI手术		264	普通肝素(任意)	Pm_Uh_Cd	普通肝素(任意)	普通肝素(任意)	Unfractionated Heparin (any)	4	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+169	CathPCI_Data_Dictionary	G.PCI手术		265	阿司匹林(任意)(PCI)	Pm_Aspirin_Cd	阿司匹林(任意)(PCI)	阿司匹林(任意)(PCI)	Aspirin (any)(PCI)	4	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+170	CathPCI_Data_Dictionary	G.PCI手术		266	比伐卢定	Pm_Bivalirudin_Cd	比伐卢定	比伐卢定	Bivalirudin	4	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+171	CathPCI_Data_Dictionary	G.PCI手术		267	直接凝血酶抑制剂(其他)	Pm_Dti_Cd	直接凝血酶抑制剂(其他)	直接凝血酶抑制剂(其他)	Direct Thrombin Inhibitor (other)	4	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+172	CathPCI_Data_Dictionary	G.PCI手术		268	IIb/IIIa受体拮抗剂(任意)	Pm_Gpiib_Iiia_Cd	IIb/IIIa受体拮抗剂(任意)	IIb/IIIa受体拮抗剂(任意)	IIb/IIIa Receptor Antagon (any)	4	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+173	CathPCI_Data_Dictionary	G.PCI手术		269	氯吡格雷(PCI)	Pm_Clopidogrel_Cd	氯吡格雷(PCI)	氯吡格雷(PCI)	Clopidogrel(PCI)	4	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+174	CathPCI_Data_Dictionary	G.PCI手术		270	普拉格雷(PCI)	Pm_Prasugrel_Cd	普拉格雷(PCI)	普拉格雷(PCI)	Prasugrel(PCI)	4	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+175	CathPCI_Data_Dictionary	G.PCI手术		271	替卡格雷	Pm_Ticagrelor_Cd	替卡格雷	替卡格雷	Ticagrelor	4	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+176	CathPCI_Data_Dictionary	G.PCI手术		272	噻氯吡啶(PCI)	Pm_Ticlopidine_Cd	噻氯吡啶(PCI)	噻氯吡啶(PCI)	Ticlopidine(PCI)	4	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+177	CathPCI_Data_Dictionary	I.实验室检查		273	术前CK-MB(ng/mL)	Prep_Ckmb_Ngml	术前CK-MB(ng/mL)	术前CK-MB(ng/mL)	Pre-procedure CK-MB(ng/mL)	6	decimal(6,2)					prep_ckmb_ngml	1	textfield	decimal
+178	CathPCI_Data_Dictionary	I.实验室检查		274	术前CK-MB未检测	If_Prep_Ckmb_Nd	术前CK-MB未检测	术前CK-MB未检测	Pre-procedure CK-MB(ng/mL) Not Drawn	6	bit					prep_ckmb_ngml	1	checkbox	boolean
+179	CathPCI_Data_Dictionary	I.实验室检查		275	术前肌钙蛋白I(ng/mL)	Prep_Tnl_Ngml	术前肌钙蛋白I(ng/mL)	术前肌钙蛋白I(ng/mL)	Pre-procedure Troponin l (ng/mL)	6	decimal(6,2)					prep_tnl_ngml	1	textfield	decimal
+180	CathPCI_Data_Dictionary	I.实验室检查		276	术前肌钙蛋白I未检测	If_Prep_Tnl_Nd	术前肌钙蛋白I未检测	术前肌钙蛋白I未检测	Pre-procedure Troponin l Not Drawn	6	bit					prep_tnl_ngml	1	checkbox	boolean
+181	CathPCI_Data_Dictionary	I.实验室检查		277	术前肌钙蛋白T(ng/mL)	Prep_Tnt_Ngml	术前肌钙蛋白T(ng/mL)	术前肌钙蛋白T(ng/mL)	Pre-procedure Troponin T (ng/mL)	6	decimal(6,2)					prep_tnt_ngml	1	textfield	decimal
+182	CathPCI_Data_Dictionary	I.实验室检查		278	术前肌钙蛋白T未检测	If_Prep_Tnt_Nd	术前肌钙蛋白T未检测	术前肌钙蛋白T未检测	Pre-procedure Troponin T Not Drawn	6	bit					prep_tnt_ngml	1	checkbox	boolean
+183	CathPCI_Data_Dictionary	I.实验室检查		279	术前肌酐(μmol/L)	Prep_Creat_Mgdl	术前肌酐(μmol/L)	术前肌酐(μmol/L)	Pre-procedure Creatinine	6	decimal(6,2)					prep_creat_mgdl	1	textfield	decimal
+184	CathPCI_Data_Dictionary	I.实验室检查		280	术前肌酐未检测	If_Prep_Creat_Nd	术前肌酐未检测	术前肌酐未检测	Pre-procedure Creatinine Not Drawn	6	bit					prep_creat_mgdl	1	checkbox	boolean
+185	CathPCI_Data_Dictionary	I.实验室检查		281	术前血红蛋白(g/L)	Prep_Hgb_Gdl	术前血红蛋白(g/L)	术前血红蛋白(g/L)	Pre-procedure Hemoglobin(g/L)	6	decimal(6,2)					prep_hgb_gdl	1	textfield	decimal
+186	CathPCI_Data_Dictionary	I.实验室检查		282	术前血红蛋白未检测	If_Prep_Hgb_Nd	术前血红蛋白未检测	术前血红蛋白未检测	Pre-procedure Hemoglobin Not Drawn	6	bit					prep_hgb_gdl	1	checkbox	boolean
+187	CathPCI_Data_Dictionary	I.实验室检查		283	术前低密度脂蛋白(LDL)(mmol/L)	Prep_Ldl_Mgdl	术前低密度脂蛋白(LDL)(mmol/L)	术前低密度脂蛋白(LDL)(mmol/L)	Pre-procedure Low-density Lipoprotein (LDL)	6	decimal(6,2)					prep_ldl_mgdl	1	textfield	decimal
+188	CathPCI_Data_Dictionary	I.实验室检查		284	术前低密度脂蛋白(LDL)未检测	If_Prep_Ldl_Nd	术前低密度脂蛋白(LDL)未检测	术前低密度脂蛋白(LDL)未检测	Pre-procedure Low-density Lipoprotein (LDL) Not Drawn	6	bit					prep_ldl_mgdl	1	checkbox	boolean
+189	CathPCI_Data_Dictionary	I.实验室检查		285	术前B型脑钠肽(BNP)(pg/mL)	Prep_Bnp_Pgml	术前B型脑钠肽(BNP)(pg/mL)	术前B型脑钠肽(BNP)(pg/mL)	Pre-procedure Type B Brain Natriuretic Peptide (BNP)	6	decimal(6,2)					prep_bnp_pgml	1	textfield	decimal
+190	CathPCI_Data_Dictionary	I.实验室检查		286	术前B型脑钠肽(BNP)未检测	If_Prep_Bnp_Nd	术前B型脑钠肽(BNP)未检测	术前B型脑钠肽(BNP)未检测	Pre-procedure Type B Brain Natriuretic Peptide (BNP) Not Drawn	6	bit					prep_bnp_pgml	1	checkbox	boolean
+191	CathPCI_Data_Dictionary	I.实验室检查		287	术前超敏CRP(Hs-CRP)(μg/mL)	Prep_Hscrp_Ugml	术前超敏CRP(Hs-CRP)(μg/mL)	术前超敏CRP(Hs-CRP)(μg/mL)	Pre-procedure Hypersensitive CRP (Hs-CRP)	6	decimal(6,2)					prep_hscrp_ugml	1	textfield	decimal
+192	CathPCI_Data_Dictionary	I.实验室检查		288	术前超敏CRP(Hs-CRP)未检测	If_Prep_Hscrp_Nd	术前超敏CRP(Hs-CRP)未检测	术前超敏CRP(Hs-CRP)未检测	Pre-procedure Hypersensitive CRP (Hs-CRP) Not Drawn	6	bit					prep_hscrp_ugml	1	checkbox	boolean
+193	CathPCI_Data_Dictionary	I.实验室检查		289	术前eGFR(mL/min*1.73m²)	Prep_Egfr_Mlmin	术前eGFR(mL/min*1.73m²)	术前eGFR(mL/min*1.73m²)	Pre-procedure eGFR(mL/min*1.73m²)	6	decimal(6,2)					prep_egfr_mlmin	1	textfield	decimal
+194	CathPCI_Data_Dictionary	I.实验室检查		290	术前eGFR未检测	If_Prep_Egfr_Nd	术前eGFR未检测	术前eGFR未检测	Pre-procedure eGFR(mL/min*1.73m²) Not Drawn	6	bit					prep_egfr_mlmin	1	checkbox	boolean
+195	CathPCI_Data_Dictionary	I.实验室检查		291	CK-MB(ng/mL)	Ckmb_Ngml	CK-MB(ng/mL)	CK-MB(ng/mL)	CK-MB (ng/mL)	6	decimal(6,2)					ckmb_ngml	1	textfield	decimal
+196	CathPCI_Data_Dictionary	I.实验室检查		292	肌钙蛋白I(ng/mL)	Tnl_Ngml	肌钙蛋白I(ng/mL)	肌钙蛋白I(ng/mL)	Troponin l (ng/mL)	6	decimal(6,2)					tnl_ngml	1	textfield	decimal
+197	CathPCI_Data_Dictionary	I.实验室检查		293	肌钙蛋白T(ng/mL)	Tnt_Ngml	肌钙蛋白T(ng/mL)	肌钙蛋白T(ng/mL)	Troponin T (ng/mL)	6	decimal(6,2)					tnt_ngml	1	textfield	decimal
+198	CathPCI_Data_Dictionary	I.实验室检查		294	肌酐(μmol/L)	Creat_Mgdl	肌酐(μmol/L)	肌酐(μmol/L)	Creatinine (μmol/L)	6	decimal(6,2)					creat_mgdl	1	textfield	decimal
+199	CathPCI_Data_Dictionary	I.实验室检查		295	血红蛋白(g/L)	Hgb_Gdl	血红蛋白(g/L)	血红蛋白(g/L)	Hemoglobin (g/L)	6	decimal(6,2)					hgb_gdl	1	textfield	decimal
+200	CathPCI_Data_Dictionary	I.实验室检查		296	低密度脂蛋白(LDL)(mmol/L)	Ldl_Mgdl	低密度脂蛋白(LDL)(mmol/L)	低密度脂蛋白(LDL)(mmol/L)	Low-density Lipoprotein (LDL) (mmol/L)	6	decimal(6,2)					ldl_mgdl	1	textfield	decimal
+201	CathPCI_Data_Dictionary	I.实验室检查		297	B型脑钠肽(BNP)(pg/mL)	Bnp_Pgml	B型脑钠肽(BNP)(pg/mL)	B型脑钠肽(BNP)(pg/mL)	Type B Brain Natriuretic Peptide (BNP) (pg/mL)	6	decimal(6,2)					bnp_pgml	1	textfield	decimal
+202	CathPCI_Data_Dictionary	I.实验室检查		298	超敏CRP(Hs-CRP)(μg/mL)	Hscrp_Ugml	超敏CRP(Hs-CRP)(μg/mL)	超敏CRP(Hs-CRP)(μg/mL)	Hypersensitive CRP (Hs-CRP)(μg/mL)	6	decimal(6,2)					hscrp_ugml	1	textfield	decimal
+203	CathPCI_Data_Dictionary	I.实验室检查		299	eGFR(mL/min*1.73m²)	Egfr_Mlmin	eGFR(mL/min*1.73m²)	eGFR(mL/min*1.73m²)	eGFR(mL/min*1.73m²)	6	decimal(6,2)					egfr_mlmin	1	textfield	decimal
+204	CathPCI_Data_Dictionary	I.实验室检查		300	术后CK-MB(ng/mL)	Postp_Ckmb_Ngml	术后CK-MB(ng/mL)	术后CK-MB(ng/mL)	Post-procedure CK-MB(ng/mL)	6	decimal(6,2)					postp_ckmb_ngml	1	textfield	decimal
+205	CathPCI_Data_Dictionary	I.实验室检查		301	术后CK不可用	If_Postp_Ck_Nd	术后CK不可用	术后CK不可用	Post-procedure CK Not Applicable	6	bit					postp_ckmb_ngml	1	checkbox	boolean
+206	CathPCI_Data_Dictionary	I.实验室检查		302	术后CK检测且正常(6-24小时峰值)	If_Postp_Ckmb_Nm	术后CK检测且正常(6-24小时峰值)	术后CK检测且正常(6-24小时峰值)	CK-test Normal (peak value within the interval of 6-24 hours)	6	bit					postp_ckmb_ngml	1	checkbox	boolean
+207	CathPCI_Data_Dictionary	I.实验室检查		303	术后肌钙蛋白I(ng/mL)(6-24小时峰值)	Postp_Tnl_Ngml	术后肌钙蛋白I(ng/mL)(6-24小时峰值)	术后肌钙蛋白I(ng/mL)(6-24小时峰值)	Post-procedure Troponin l (ng/mL)(peak value within the interval of 6-24 hours)	6	decimal(6,2)					postp_tnl_ngml	1	textfield	decimal
+208	CathPCI_Data_Dictionary	I.实验室检查		304	术后肌钙蛋白I未检测	If_Postp_Tnl_Nd	术后肌钙蛋白I未检测	术后肌钙蛋白I未检测	Post-procedure Troponin l Not Drawn	6	bit					postp_tnl_ngml	1	checkbox	boolean
+209	CathPCI_Data_Dictionary	I.实验室检查		305	术后肌钙蛋白T(ng/mL)(6-24小时峰值)	Postp_Tnt_Ngml	术后肌钙蛋白T(ng/mL)(6-24小时峰值)	术后肌钙蛋白T(ng/mL)(6-24小时峰值)	Post-procedure Troponin T (ng/mL) (peak value within the interval of 6-24 hours)	6	decimal(6,2)					postp_tnt_ngml	1	textfield	decimal
+210	CathPCI_Data_Dictionary	I.实验室检查		306	术后肌钙蛋白T未检测	If_Postp_Tnt_Nd	术后肌钙蛋白T未检测	术后肌钙蛋白T未检测	Post-procedure Troponin T Not Drawn	6	bit					postp_tnt_ngml	1	checkbox	boolean
+211	CathPCI_Data_Dictionary	I.实验室检查		307	术后肌酐(μmol/L)(最高值)	Postp_Creat_Mgdl	术后肌酐(μmol/L)(最高值)	术后肌酐(μmol/L)(最高值)	Post-procedure Creatinine(Maximum Value)	6	decimal(6,2)					postp_creat_mgdl	1	textfield	decimal
+212	CathPCI_Data_Dictionary	I.实验室检查		308	术后肌酐未检测(72小时内出现最低值)	If_Postp_Creat_Nd	术后肌酐未检测(72小时内出现最低值)	术后肌酐未检测(72小时内出现最低值)	Post-procedure Creatinine Not Drawn(lowest value within the interval of 72 hours)	6	bit					postp_creat_mgdl	1	checkbox	boolean
+213	CathPCI_Data_Dictionary	I.实验室检查		309	术后血红蛋白(g/L)	Postp_Hgb_Gdl	术后血红蛋白(g/L)	术后血红蛋白(g/L)	Post-procedure Hemoglobin(g/L)	6	decimal(6,2)					postp_hgb_gdl	1	textfield	decimal
+214	CathPCI_Data_Dictionary	I.实验室检查		310	术后血红蛋白未检测	If_Postp_Hgb_Nd	术后血红蛋白未检测	术后血红蛋白未检测	Post-procedure Hemoglobin Not Drawn	6	bit					postp_hgb_gdl	1	checkbox	boolean
+215	CathPCI_Data_Dictionary	I.实验室检查		311	术后低密度脂蛋白(LDL)(mmol/L)	Postp_Ldl_Mgdl	术后低密度脂蛋白(LDL)(mmol/L)	术后低密度脂蛋白(LDL)(mmol/L)	Post-procedure Low-density Lipoprotein (LDL)	6	decimal(6,2)					postp_ldl_mgdl	1	textfield	decimal
+216	CathPCI_Data_Dictionary	I.实验室检查		312	术后低密度脂蛋白(LDL)未检测	If_Postp_Ldl_Nd	术后低密度脂蛋白(LDL)未检测	术后低密度脂蛋白(LDL)未检测	Post-procedure Low-density Lipoprotein (LDL) Not Drawn	6	bit					postp_ldl_mgdl	1	checkbox	boolean
+217	CathPCI_Data_Dictionary	I.实验室检查		313	术后B型脑钠肽(BNP)(pg/mL)	Postp_Bnp_Pgml	术后B型脑钠肽(BNP)(pg/mL)	术后B型脑钠肽(BNP)(pg/mL)	Post-procedure Type B Brain Natriuretic Peptide (BNP)	6	decimal(6,2)					postp_bnp_pgml	1	textfield	decimal
+218	CathPCI_Data_Dictionary	I.实验室检查		314	术后B型脑钠肽(BNP)未检测	If_Postp_Bnp_Nd	术后B型脑钠肽(BNP)未检测	术后B型脑钠肽(BNP)未检测	Post-procedure Type B Brain Natriuretic Peptide (BNP) Not Drawn	6	bit					postp_bnp_pgml	1	checkbox	boolean
+219	CathPCI_Data_Dictionary	I.实验室检查		315	术后超敏CRP(Hs-CRP)(μg/mL)	Postp_Hscrp_Ugml	术后超敏CRP(Hs-CRP)(μg/mL)	术后超敏CRP(Hs-CRP)(μg/mL)	Post-procedure Hypersensitive CRP (Hs-CRP)	6	decimal(6,2)					postp_hscrp_ugml	1	textfield	decimal
+220	CathPCI_Data_Dictionary	I.实验室检查		316	术后超敏CRP(Hs-CRP)未检测	If_Postp_Hscrp_Nd	术后超敏CRP(Hs-CRP)未检测	术后超敏CRP(Hs-CRP)未检测	Post-procedure Hypersensitive CRP (Hs-CRP) Not Drawn	6	bit					postp_hscrp_ugml	1	checkbox	boolean
+221	CathPCI_Data_Dictionary	I.实验室检查		317	术后eGFR(mL/min*1.73m²)	Postp_Egfr_Mlmin	术后eGFR(mL/min*1.73m²)	术后eGFR(mL/min*1.73m²)	Post-procedure eGFR(mL/min*1.73m²)	6	decimal(6,2)					postp_egfr_mlmin	1	textfield	decimal
+222	CathPCI_Data_Dictionary	I.实验室检查		318	术后eGFR未检测	If_Postp_Egfr_Nd	术后eGFR未检测	术后eGFR未检测	Post-procedure eGFR Not Drawn	6	bit					postp_egfr_mlmin	1	checkbox	boolean
+223	CathPCI_Data_Dictionary	J.围术期		319	心肌梗死(生物标志物阳性)	If_Post_Mi	心肌梗死(生物标志物阳性)	心肌梗死(生物标志物阳性)	Myocardial Infarction ( Positive Biomarkers)	6	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+224	CathPCI_Data_Dictionary	J.围术期		320	心源性休克	If_Post_Cardio_Shock	心源性休克	心源性休克	Cardiogenic Shock	6	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+225	CathPCI_Data_Dictionary	J.围术期		321	心力衰竭	If_Post_Hf	心力衰竭	心力衰竭	Heart Failure	6	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+226	CathPCI_Data_Dictionary	J.围术期		322	脑卒中	If_Post_Cva	脑卒中	脑卒中	CVA/Stroke	6	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+227	CathPCI_Data_Dictionary	J.围术期		323	如果是脑卒中，是否出血性卒中	If_Post_Hem_Stroke	如果是脑卒中，是否出血性卒中	如果是脑卒中，是否出血性卒中	Hemorrhagic Stroke	6	char(3)	if_else_na	Dict_Candidate_Values		if_post_cva == 102		1	radio	list
+228	CathPCI_Data_Dictionary	J.围术期		324	心脏压塞	If_Post_Tamponade	围术期心脏压塞	围术期心脏压塞	Cardiac Tamponade	6	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+229	CathPCI_Data_Dictionary	J.围术期		325	对比剂过敏	If_Post_Con_Allergy	对比剂过敏	对比剂过敏	Contrast Allergy	6	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+230	CathPCI_Data_Dictionary	J.围术期		326	对比剂肾病	If_Post_Con_In_Nep	对比剂肾病	对比剂肾病	Contrast Induced Nephropathy	6	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+231	CathPCI_Data_Dictionary	J.围术期		327	急性亚急性支架血栓形成	If_Acute_Subacute_Stent_Thrombosis	急性亚急性支架血栓形成	急性亚急性支架血栓形成	Acute and Sub-acute Stent Thrombosis	6	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+232	CathPCI_Data_Dictionary	J.围术期		328	血栓栓塞	If_Thromboembolism	血栓栓塞	血栓栓塞	Thromboembolism	6	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+233	CathPCI_Data_Dictionary	J.围术期		329	新透析需求	If_Post_Dialysis	新透析需求	新透析需求	New Requirement for Dialysis	6	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+234	CathPCI_Data_Dictionary	J.围术期		330	其他需要处理的血管并发症	If_Post_Ot_Vas_Comp	其他需要处理的血管并发症	其他需要处理的血管并发症	Other Vascular Complications Requiring Treatment	6	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+235	CathPCI_Data_Dictionary	J.围术期		331	72小时内出血	If_Post_Bleed	72小时内出血	72小时内出血	Bleeding Event wthin 72 Hours	6	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+236	CathPCI_Data_Dictionary	J.围术期		332	72小时内出血出现穿刺部位出血	If_Post_Bleed_Accsite	72小时内出血出现穿刺部位出血	72小时内出血出现穿刺部位出血	Bleeding at Access Site wthin 72 Hours	6	char(3)	if_else_na	Dict_Candidate_Values		if_post_bleed == 102		1	radio	list
+237	CathPCI_Data_Dictionary	J.围术期		333	72小时内出血出现穿刺部位血肿	If_Post_Bleed_Hem	72小时内出血出现穿刺部位血肿	72小时内出血出现穿刺部位血肿	Hematoma at Access Site wthin 72 Hours	6	char(3)	if_else_na	Dict_Candidate_Values		if_post_bleed == 102		1	radio	list
+238	CathPCI_Data_Dictionary	J.围术期		334	72小时内出血出现穿刺部位血肿大小	Post_Bleed_Hem_Sz_Cd	72小时内出血出现穿刺部位血肿大小	72小时内出血出现穿刺部位血肿大小	Hematoma Size at Access Site wthin 72 Hours	6	char(3)	bleed_hem_sz	Dict_Candidate_Values		if_post_bleed_hem == 102		1	radio	list
+239	CathPCI_Data_Dictionary	J.围术期		335	72小时内出血出现腹膜后出血	If_Post_Retro_Bleed	72小时内出血出现腹膜后出血	72小时内出血出现腹膜后出血	Retroperitoneal Bleeding wthin 72 Hours	6	char(3)	if_else_na	Dict_Candidate_Values		if_post_bleed == 102		1	radio	list
+240	CathPCI_Data_Dictionary	J.围术期		336	72小时内出血出现消化道出血	If_Post_Gi_Bleed	72小时内出血出现消化道出血	72小时内出血出现消化道出血	Gastrointestinal Bleeding wthin 72 Hours	6	char(3)	if_else_na	Dict_Candidate_Values		if_post_bleed == 102		1	radio	list
+241	CathPCI_Data_Dictionary	J.围术期		337	72小时内出血出现泌尿生殖系统出血	If_Post_Gu_Bleed	72小时内出血出现泌尿生殖系统出血	72小时内出血出现泌尿生殖系统出血	Genital-Urinary Bleeding wthin 72 Hours	6	char(3)	if_else_na	Dict_Candidate_Values		if_post_bleed == 102		1	radio	list
+242	CathPCI_Data_Dictionary	J.围术期		338	72小时内出血出现其他出血	If_Post_Ot_Bleed	72小时内出血出现其他出血	72小时内出血出现其他出血	Other Bleeding wthin 72 Hours	6	char(3)	if_else_na	Dict_Candidate_Values		if_post_bleed == 102		1	radio	list
+243	CathPCI_Data_Dictionary	J.围术期		339	浓缩红细胞/全血输血	Has_Post_Trsfu	浓缩红细胞/全血输血	浓缩红细胞/全血输血	Concentrated Red Bloodcells/Whole Blood Transfusion	6	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+244	CathPCI_Data_Dictionary	J.围术期		340	输血前血红蛋白值	Hgb_Prior_Trsfu_Gdl	输血前血红蛋白值	输血前血红蛋白值	Hemoglobin Prior to Transfusion	6	decimal(6,2)				has_post_trsfu == 102		1	textfield	decimal
+245	CathPCI_Data_Dictionary	J.围术期		341	术后感染	If_Postoperative_Infection	术后感染	术后感染	Post-operative Infection	6	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+246	CathPCI_Data_Dictionary	J.围术期		342	脏器功能衰竭	If_Organ_Failure	脏器功能衰竭	脏器功能衰竭	Organ Failure	6	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+247	CathPCI_Data_Dictionary	J.围术期		343	脏器支持	If_Organ_Support	脏器支持	脏器支持	Organ Support	6	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+248	CathPCI_Data_Dictionary	K.出院		344	CABG	If_Cabg	CABG	CABG	CABG	6	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+249	CathPCI_Data_Dictionary	K.出院		345	CABG状态	Cabg_Status_Cd	CABG状态	CABG状态	CABG Status	6	char(3)	cabg_status	Dict_Candidate_Values		if_cabg  == 102		1	radio	list
+250	CathPCI_Data_Dictionary	K.出院		346	CABG指征	Cabg_Indication_Cd	CABG指征	CABG指征	CABG Indication	6	char(3)	cabg_indication	Dict_Candidate_Values		if_cabg  == 102		1	radio	list
+251	CathPCI_Data_Dictionary	K.出院		347	CABG手术地点	Cabg_Location_Cd	CABG手术地点	CABG手术地点	Procedure Location	6	char(3)	cabg_location	Dict_Candidate_Values		if_cabg  == 102		1	radio	list
+252	CathPCI_Data_Dictionary	K.出院		348	手术地点在本院，CABG日期/时间	Cabg_Dt	手术地点在本院，CABG日期	手术地点在本院，CABG日期	CABG Date/Time	6	datetime				cabg_location_cd  == 101		1	time	time
+253	CathPCI_Data_Dictionary	K.出院		349	其他大型手术	Has_Ot_Major_Surgery	其他大型手术	其他大型手术	Other Major Surgery	6	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+254	CathPCI_Data_Dictionary	K.出院		350	术后LVEF	Dc_Lvef	术后LVEF	术后LVEF	Post-operative LVEF	6	decimal(6,2)					dc_lvef	1	textfield	decimal
+255	CathPCI_Data_Dictionary	K.出院		351	未评估术后LVEF	If_Dc_Lvef_Na	未评估术后LVEF	未评估术后LVEF	LVEF Not Assessed	6	bit					dc_lvef	1	checkbox	boolean
+256	CathPCI_Data_Dictionary	K.出院		352	出院日期	Dc_Dt	出院日期	出院日期	Discharge Date	6	datetime						1	date	date
+257	CathPCI_Data_Dictionary	K.出院		353	出院状态	Dc_Status_Cd	出院状态	出院状态	Discharge Status	6	char(3)	dc_status	Dict_Candidate_Values				1	radio	list
+258	CathPCI_Data_Dictionary	K.出院		354	如果存活，心脏复健	Dc_Card_Rehab_Cd	如果存活，心脏复健	如果存活，心脏复健	If alive, cardiac rehabilitation referral	6	char(3)	dc_card_rehab	Dict_Candidate_Values		dc_status_cd  == 101		1	radio	list
+259	CathPCI_Data_Dictionary	K.出院		355	如果死亡，是否在导管室内死亡	If_Death_Lab	如果死亡，是否在导管室内死亡	如果死亡，是否在导管室内死亡	If death,Death in Lab	6	char(3)	if_else_na	Dict_Candidate_Values		dc_status_cd  == 102		1	radio	list
+260	CathPCI_Data_Dictionary	K.出院		356	如果死亡，死亡主因	Death_Cause_Cd	如果死亡，死亡主因	如果死亡，死亡主因	If death,Primary Cause of Death	6	char(3)	death_cause	Dict_Candidate_Values		dc_status_cd  == 102		1	radio	list
+261	CathPCI_Data_Dictionary	K.出院		357	如果死亡，与PCI操作有关	If_Death_Pci	如果死亡，与PCI操作有关	如果死亡，与PCI操作有关	If death,Relevant to PCI Operation	6	char(3)	death_pci	Dict_Candidate_Values		dc_status_cd  == 102		1	radio	list
+262	CathPCI_Data_Dictionary	K.出院			入院状态	Hosp_Status_Cd	入院状态	入院状态	入院状态		char(3)	hosp_status	Dict_Candidate_Values						
+263	CathPCI_Data_Dictionary	K.出院		358	血管紧张素转换酶(ACE)抑制剂(任意)	Dm_Ace_Inhibitor_Cd	血管紧张素转换酶(ACE)抑制剂(任意)	血管紧张素转换酶(ACE)抑制剂(任意)	ACE Inhibitor (any)	6	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+264	CathPCI_Data_Dictionary	K.出院		359	血管紧张素II受体拮抗剂(ARB)(任意)	Dm_Arb_Cd	血管紧张素II受体拮抗剂(ARB)(任意)	血管紧张素II受体拮抗剂(ARB)(任意)	ARB (any)	6	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+265	CathPCI_Data_Dictionary	K.出院		360	阿司匹林(任意)(出院)	Dm_Aspirin_Cd	阿司匹林(任意)(出院)	阿司匹林(任意)(出院)	Aspirin (any)(discharge)	6	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+266	CathPCI_Data_Dictionary	K.出院		361	β-受体阻滞剂(任意)	Dm_Beta_Blocker_Cd	β-受体阻滞剂(任意)	β-受体阻滞剂(任意)	Beta Blockers (any)	6	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+267	CathPCI_Data_Dictionary	K.出院		362	他汀类药物(任意)	Dm_Statin_Cd	他汀类药物(任意)	他汀类药物(任意)	Statins (any)	6	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+268	CathPCI_Data_Dictionary	K.出院		363	非他汀类药物(任意)	Dm_Non_Statin_Cd	非他汀类药物(任意)	非他汀类药物(任意)	Non-Statins (any)	6	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+269	CathPCI_Data_Dictionary	K.出院		364	氯吡格雷(出院)	Dm_Clopidogrel_Cd	氯吡格雷(出院)	氯吡格雷(出院)	Clopidogrel(discharge)	6	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+270	CathPCI_Data_Dictionary	K.出院		365	普拉格雷(出院)	Dm_Prasugrel_Cd	普拉格雷(出院)	普拉格雷(出院)	Prasugrel(discharge)	6	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+271	CathPCI_Data_Dictionary	K.出院		366	替格瑞洛	Dm_Ticagrelor_Cd	替格瑞洛	替格瑞洛	Ticagrelor	6	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+272	CathPCI_Data_Dictionary	K.出院		367	噻氯吡啶(出院)	Dm_Ticlopidine_Cd	噻氯吡啶(出院)	噻氯吡啶(出院)	Ticlopidine(discharge)	6	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+273	CathPCI_Data_Dictionary	K.出院		368	华法林	Dm_Warfarin_Cd	华法林	华法林	Warfarin	6	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+274	CathPCI_Data_Dictionary	K.出院		369	Xa因子拮抗剂（任意）	Dm_Xa_Factor_Antagonists_Cd	Xa因子拮抗剂（任意）	Xa因子拮抗剂（任意）	Xa Factor Antagonist (any)	6	char(3)	medication_administer	Dict_Candidate_Values				1	radio	list
+275	CathPCI_Data_Dictionary	A.基本资料		370	手术年龄	patient_age	手术年龄	手术年龄	Surgery age	1	decimal(17,6)			手术年龄				textfield	decimal
+276	CathPCI_Data_Dictionary	计算字段		371	BSA	patient_bsa	BSA	BSA	BSA	1	decimal(6,2)			BSA				textfield	decimal
+277	CathPCI_Data_Dictionary	C.病史和风险因素		372	BMI	patient_bmi	BMI	BMI	BMI	2	decimal(38,22)			BMI				textfield	decimal
+289	CathPCI_Devices	H.病变和器械			支架计数	IC_Dev_Counter				5	int								
+290	CathPCI_Devices	H.病变和器械		373	装置名称	Device_Name_Cd	装置名称	装置名称	Device name	5	char(3)	device_name	Dict_Candidate_Values					select	list
+291	CathPCI_Devices	H.病变和器械		374	使用的血管内装置类型	IC_Device_Type_Cd	使用的血管内装置类型	使用的血管内装置类型	Device Type	5	char(3)	ic_device_type	Dict_Candidate_Values			ic_device	1	mult_select	list
+292	CathPCI_Devices	H.病变和器械		375	使用的血管内装置	IC_Device	使用的血管内装置	使用的血管内装置	Device in Use	5	nvarchar(100)					ic_device	1	textfield	text
+293	CathPCI_Devices	H.病变和器械			使用的血管内装置(半角)	IC_Device_Half_Width				5	nvarchar(100)								
+294	CathPCI_Devices	H.病变和器械		376	数量	IC_Dev_Number	数量	数量	Quantity	5	int						1	textfield	integer
+295	CathPCI_Devices	H.病变和器械		377	产地	IC_Dev_Origin	产地	产地	Device vendor	5	char(3)	device_origin	Dict_Candidate_Values				1	radio	list
+296	CathPCI_Devices	H.病变和器械		378	相关病变	Associated_Lesion_Cd	相关病变	相关病变	Relevent lesion	5	nvarchar(40)	associated_lesion	Dict_Candidate_Values				1	mult_select	list
+297	CathPCI_Devices	H.病变和器械		379	直径	Dev_Diam_mm	直径(mm)	直径(mm)	Diameter(mm)	5	decimal(6,2)						1	textfield	decimal
+298	CathPCI_Devices	H.病变和器械		380	长度(mm)	Dev_Len_mm	长度(mm)	长度(mm)	Length(mm)	5	decimal(6,2)						1	textfield	decimal
+309	CathPCI_Lesions	H.病变和器械			病变计数	Lession_Counter				5	int								
+310	CathPCI_Lesions	H.病变和器械		381	病变名称	Lesion_Name_Cd	病变名称	病变名称	Lesion Name	5	char(3)	associated_lesion	Dict_Candidate_Values					select	list
+311	CathPCI_Lesions	H.病变和器械		382	分段	Segment_Number_Cd	分段	分段	Segment	5	varchar(40)	segment_number	Dict_Candidate_Values				1	mult_select	list
+312	CathPCI_Lesions	H.病变和器械		383	如果是ACS，罪犯血管	Culprit_Lesion_Cd	如果是ACS，罪犯血管	如果是ACS，罪犯血管	If ACS, culprit lesion	5	char(3)	culprit_lesion	Dict_Candidate_Values				1	radio	list
+313	CathPCI_Lesions	H.病变和器械		384	术前狭窄程度	Stenosis_Prior_Treat	术前狭窄程度	术前狭窄程度	Stenosis Immediately Prior to Rx	5	int						1	textfield	integer
+314	CathPCI_Lesions	H.病变和器械		385	慢性完全闭塞病变	If_Chronic_Occlusion	慢性完全闭塞病变	慢性完全闭塞病变	chronic total occlusion	5	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+315	CathPCI_Lesions	H.病变和器械		386	血管内超声	If_Ivus	血管内超声	血管内超声	IVUS	5	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+316	CathPCI_Lesions	H.病变和器械		387	如果血管内超声，面积狭窄百分比	If_Ivus_Narrow_Percent	如果血管内超声，面积狭窄百分比	如果血管内超声，面积狭窄百分比	If  IVUS,Area Stenosis Percentage	5	int				if_ivus == 102		1	textfield	integer
+317	CathPCI_Lesions	H.病变和器械		388	如果血管内超声，最小管腔面积	If_Ivus_Mla	如果血管内超声，最小管腔面积	如果血管内超声，最小管腔面积	If  IVUS,Minimum Lumen Area	5	int				if_ivus == 102		1	textfield	integer
+318	CathPCI_Lesions	H.病变和器械		389	血流储备分数(FFR)	If_Ffr	血流储备分数(FFR)	血流储备分数(FFR)	FFR 	5	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+319	CathPCI_Lesions	H.病变和器械		390	FFR值	Ffr_Ratio	FFR值	FFR值	FFR Rate	5	decimal(6,2)				if_ffr == 102		1	textfield	decimal
+320	CathPCI_Lesions	H.病变和器械		391	术前TIMI血流	Pre_Proc_Timi_Cd	术前TIMI血流	术前TIMI血流	Preoperative TIMI Flow	5	char(3)	timi	Dict_Candidate_Values				1	radio	list
+321	CathPCI_Lesions	H.病变和器械		392	畸形冠状动脉	If_Lesion_Anamorphosis_Coronary	畸形冠状动脉(病变)	畸形冠状动脉 (病变)	Anomalous coronary artery	5	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+322	CathPCI_Lesions	H.病变和器械		393	既往病变	If_Prev_Treated_Lesion	既往病变	既往病变	Previously Treated Lesion	5	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+323	CathPCI_Lesions	H.病变和器械		394	既往病变时间	Prev_Lesion_Time_Cd	既往病变时间	既往病变时间	Previously Treated Lesion Time	5	char(3)	prev_lesion_time	Dict_Candidate_Values		if_prev_treated_lesion == 102		1	radio	list
+324	CathPCI_Lesions	H.病变和器械		395	如果是既往病变，是否用支架治疗	Has_Previous_Stent	如果是既往病变，是否用支架治疗	如果是既往病变，是否用支架治疗	If Previously Treated Lesion,Treated with Stent	5	char(3)	if_else_na	Dict_Candidate_Values		if_prev_treated_lesion == 102		1	radio	list
+325	CathPCI_Lesions	H.病变和器械		396	如果是(支架治疗)，支架内再狭窄	If_In_Restenosis	如果是(支架治疗)，支架内再狭窄	如果是(支架治疗)，支架内再狭窄	If Treated with Stent,In-stent Restenosis	5	char(3)	if_else_na	Dict_Candidate_Values		has_previous_stent == 102		1	radio	list
+326	CathPCI_Lesions	H.病变和器械		397	如果是(支架治疗)，支架内血栓形成	If_Inthrombosis	如果是(支架治疗)，支架内血栓形成	如果是(支架治疗)，支架内血栓形成	If Treated with Stent,In-stent Thrombosis	5	char(3)	if_else_na	Dict_Candidate_Values		has_previous_stent == 102		1	radio	list
+327	CathPCI_Lesions	H.病变和器械		398	如果是(支架治疗)，支架类型	Stent_Type_Cd	如果是(支架治疗)，支架类型	如果是(支架治疗)，支架类型	If Treated with Stent,Stent Type	5	char(3)	stent_type	Dict_Candidate_Values		has_previous_stent == 102		1	radio	list
+328	CathPCI_Lesions	H.病变和器械		399	桥血管病变	Lesion_Graft_Cd	桥血管病变	桥血管病变	Bypass Graft Lesion	5	char(3)	lesion_graft	Dict_Candidate_Values				1	radio	list
+329	CathPCI_Lesions	H.病变和器械		400	静脉桥血管病变位置	Loc_Graft_Cd	静脉桥血管病变位置	静脉桥血管病变位置	Vein Bypass Graft Lesion Position	5	char(3)	loc_graft	Dict_Candidate_Values		lesion_graft_cd == 102		1	radio	list
+330	CathPCI_Lesions	H.病变和器械		401	左乳内动脉桥血管病变位置	Lb_Loc_Graft_Cd	左乳内动脉桥血管病变位置	左乳内动脉桥血管病变位置	Left Breast Bypass Graft Lesion Position	5	char(3)	loc_graft	Dict_Candidate_Values		lesion_graft_cd == 103		1	radio	list
+331	CathPCI_Lesions	H.病变和器械		402	其他动脉桥血管病变位置	Oa_Loc_Graft_Cd	其他动脉桥血管病变位置	其他动脉桥血管病变位置	Other Artery Bypass Graft Lesion Position	5	char(3)	loc_graft	Dict_Candidate_Values		lesion_graft_cd == 104		1	radio	list
+332	CathPCI_Lesions	H.病变和器械		403	病变复杂度	Leson_Complexty_Cd	病变复杂度	病变复杂度	Lesion Complexity	5	char(3)	leson_complexty	Dict_Candidate_Values				1	radio	list
+333	CathPCI_Lesions	H.病变和器械		404	病变长度(mm)	Lesion_Length_Mm	病变长度(mm)	病变长度(mm)	Lesion Length(mm)	5	int						1	textfield	integer
+334	CathPCI_Lesions	H.病变和器械		405	一般病变	If_Normal_Lesion	一般病变	一般病变	Normal Lesion	5	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+335	CathPCI_Lesions	H.病变和器械		406	钙化病变	If_Calcified_Lesion	钙化病变	钙化病变	Calcified Lesion	5	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+336	CathPCI_Lesions	H.病变和器械		407	出现血栓	If_Thrombus	出现血栓	出现血栓	Thrombus Present	5	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+337	CathPCI_Lesions	H.病变和器械		408	分叉病变	If_Bifurcation_Lesion	分叉病变	分叉病变	Bifurcation Disease	5	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+338	CathPCI_Lesions	H.病变和器械		409	小血管病变（<2.5mm）	If_Small_Vessel_Lesion	小血管病变（<2.5mm）	小血管病变（<2.5mm）	Small Vessel Disease (<2.5mm)	5	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+339	CathPCI_Lesions	H.病变和器械		410	导丝穿过病变	If_Guide_Wire_Lesion	导丝穿过病变	导丝穿过病变	Guidewire Across Lesion	5	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+340	CathPCI_Lesions	H.病变和器械		411	术后狭窄	If_Stenosis_Post_Proc	术后狭窄	术后狭窄	Post-operative Stenosis	5	int				if_guide_wire_lesion == 102		1	textfield	integer
+341	CathPCI_Lesions	H.病变和器械		412	术后TIMI血流	Post_Proc_Timi_Cd	术后TIMI血流	术后TIMI血流	Post-operative TIMI Flow	5	char(3)	timi	Dict_Candidate_Values		if_guide_wire_lesion == 102		1	radio	list
+342	CathPCI_Lesions	H.病变和器械		413	置入装置	Has_Device_Deployed	置入装置	置入装置	Device Deployed	5	char(3)	if_else_na	Dict_Candidate_Values		if_guide_wire_lesion == 102		1	radio	list
+343	CathPCI_Lesions	H.病变和器械		414	球囊预扩张	Has_Balloonpe	球囊预扩张	球囊预扩张	Balloon Pre-dilation	5	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+344	CathPCI_Lesions	H.病变和器械		415	球囊后扩张	Has_Postballoon	球囊后扩张	球囊后扩张	Balloon Post-dilation	5	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+345	CathPCI_Lesions	H.病变和器械		416	术中并发症	If_Procedure_Complication	术中并发症	术中并发症	Procedure Complication	5	char(3)	if_else_na	Dict_Candidate_Values				1	radio	list
+346	CathPCI_Lesions	H.病变和器械		417	慢血流	If_Slow_Flow	慢血流	慢血流	Slow Flow	5	char(3)	if_else_na	Dict_Candidate_Values		If_Procedure_Complication == 102		1	radio	list
+347	CathPCI_Lesions	H.病变和器械		418	显著夹层动脉瘤	If_Sig_Dissection	显著夹层动脉瘤	显著夹层动脉瘤	Severe Dissections	5	char(3)	if_else_na	Dict_Candidate_Values		If_Procedure_Complication == 102		1	radio	list
+348	CathPCI_Lesions	H.病变和器械		419	急性血栓	If_Acute_Thromboembolism	急性血栓	急性血栓	Acute Thrombus	5	char(3)	if_else_na	Dict_Candidate_Values		If_Procedure_Complication == 102		1	radio	list
+349	CathPCI_Lesions	H.病变和器械		420	穿孔	If_Perfseg	穿孔	穿孔	Perforation	5	char(3)	if_else_na	Dict_Candidate_Values		If_Procedure_Complication == 102		1	radio	list
+350	CathPCI_Lesions	H.病变和器械		421	急性闭塞	If_Accute_Occlusion	急性闭塞	急性闭塞	Accute Occlusion	5	char(3)	if_else_na	Dict_Candidate_Values		If_Procedure_Complication == 102		1	radio	list
+351	CathPCI_Lesions	H.病变和器械		422	心脏压塞	If_Cardiac_Tamponade	术中心脏压塞	术中心脏压塞	Cardiac Tamponade	5	char(3)	if_else_na	Dict_Candidate_Values		If_Procedure_Complication == 102		1	radio	list
+358	V_CathPCI_Lesion_Agg	计算字段		423	病变数量	lesion_cnt	病变数量	病变数量	Lesion Count	5	int			病变数量				textfield	integer
+359	V_CathPCI_Device_Agg	计算字段		424	装置数量	device_cnt	装置数量	装置数量	Device Count	5	int			装置数量				textfield	integer
+397	CathPCI_Data_Dictionary	计算字段		425	注册例数	case_cnt	注册例数	注册例数	Regist number	7	int			注册例数				textfield	integer
