@@ -45,7 +45,7 @@ function addPCIData() {
 
                                     // get random form data
                                     var formStructures = formDefs.map(fd => { return JSON.parse(fd.structrue)  });
-                                    var randomDataList = randomDataGenerator.getRandomDataListForFormDefList(formStructures, 10);
+                                    var randomDataList = randomDataGenerator.getRandomDataListForFormDefList(formStructures, 15);
                                     var randomDataListHolder = new RandomDataListHolder(randomDataList);
 
                                     // save form data

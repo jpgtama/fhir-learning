@@ -5,7 +5,7 @@
 var ichmBase = require('./ichmBase.js');
 
 // change url
-// ichmBase.options.host = '130.147.249.85';
+// ichmBase.options.host = '130.147.249.83';
 
 ichmBase.adminLogin(function(){
     ichmBase.request('/ichm/service/role', 'POST', {"role":{"name":"evan"},"permissionIds":[1,1001,1002,2,2001,2002,2003,2004,2005,2006,4,5,5011,5012,5013,5014,5021,5022,5023,6]}, header =>{},
