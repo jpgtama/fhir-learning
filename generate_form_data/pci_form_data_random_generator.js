@@ -12,6 +12,8 @@ var Chance = require('chance');
 // Instantiate Chance so it can be used
 var chance = new Chance();
 
+var realData = require('./real-data/generate_real_data');
+
 // Use Chance here.
 // var my_random_string = chance.string();
 
@@ -109,19 +111,48 @@ var randomDataFormat = {
     }
 };
 
-
+/**
+ *
+ * return value structure:
+ *
+ * {
+ * value: xxxx,
+ * formattedValue: xxxx
+ * }
+ *
+ * currently, only 'value' is returned. 'formattedValue' is preserved for back compatiable.
+ *
+ *
+ * @type {{seq: {}, text: randomData.text, date: randomData.date, datetime: randomData.datetime, textarea: randomData.textarea, radio: randomData.radio, checkbox: randomData.checkbox, boolean: randomData.boolean, select: randomData.select, number: randomData.number, timediff: randomData.timediff}}
+ */
 var randomData = {
 
     seq: {},
 
-    text: function (label) {
+    label: function(f){
+        var label = f.label;
         var nextNum = this.seq[label] || 0;
         nextNum++;
         this.seq[label] = nextNum;
-        return label + '_'+ nextNum;
+
+        var value = label + '_'+ nextNum;
+        var ret = {value: value, formattedValue:value};
+        return ret;
     },
 
-    date: function (label) {
+    text: function (f) {
+        var label = f.label;
+        var nextNum = this.seq[label] || 0;
+        nextNum++;
+        this.seq[label] = nextNum;
+
+        var value = label + '_'+ nextNum;
+        var ret = {value: value, formattedValue:value};
+        return ret;
+    },
+
+    date: function (f) {
+        var label = f.label;
         if(label == '出生日期'){
             // return  moment(chance.birthday({year: chance.year({ min: 1970, max: 2000 }) })).format('YYYY-MM-DD');
             return randomDataFormat.date(moment(chance.birthday({year: chance.year({ min: 1970, max: 2000 }) })));
@@ -131,59 +162,89 @@ var randomData = {
         }
     },
 
-    datetime: function (label) {
+    datetime: function (f) {
+        var label = f.label;
         // return moment(chance.date({year: chance.year({ min: 2011, max: 2015 })})).format('YYYY-MM-DD HH:mm:ss');
         return randomDataFormat.datetime(moment(chance.date({year: chance.year({ min: 2011, max: 2015 })})));
     },
 
-    textarea: function (label) {
-        return "无";
+    textarea: function (f) {
+        var label = f.label;
+
+        var value = "无";
+        var ret = {value: value, formattedValue:value};
+        return ret;
     },
 
-    radio: function (label, options) {
+    radio: function (f) {
+        var label = f.label;
+        var options = f.options;
         // return options[chance.integer({min: 0, max: options.length-1})].label;
         return randomDataFormat.radio(chance.integer({min: 0, max: options.length-1}), options);
     },
 
-    checkbox: function (label, options) {
+    checkbox: function (f) {
+        var label = f.label;
+        var options = f.options;
         // return options[chance.integer({min: 0, max: options.length-1})].label;
         return randomDataFormat.radio(chance.integer({min: 0, max: options.length-1}), options);
     },
 
-    boolean: function (label, options) {
+    boolean: function (f) {
+        var label = f.label;
+        var options = f.options;
         // return chance.bool();
         return randomDataFormat.boolean(chance.bool());
     },
 
-    select: function (label, options) {
+    select: function (f) {
+        var label = f.label;
+        var options = f.options;
         // return options[chance.integer({min: 0, max: options.length-1})].label;
         return randomDataFormat.radio(chance.integer({min: 0, max: options.length-1}), options);
     },
 
-    number: function(label, min, max, decimals){
+    number: function(f){
+        var label = f.label;
+        var min = f.min;
+        var max = f.max;
+        var decimals = f.decimals;
+
         min = min || 0;
         max = max || 100;
+
+        var value = null;
         if(decimals){
-            return chance.floating({min: min, max: max, fixed: decimals});
+            value =  chance.floating({min: min, max: max, fixed: decimals});
         }else{
-            return chance.integer({min: min, max: max});
+            value =  chance.integer({min: min, max: max});
         }
+
+        var ret = {value: value, formattedValue:value};
+        return ret;
     },
 
-    timediff: function (label) {
-        return chance.integer({min: 0, max: 100});
-    }
+    timediff: function (f) {
+        var label = f.label;
+        var value = chance.integer({min: 0, max: 100});
 
+        var ret = {value: value, formattedValue:value};
+        return ret;
+    }
 };
 
-['text', 'textarea', 'number', 'timediff'].forEach(name =>{
-    aop.after(randomData, name, function(value){
-        return {value: value, formattedValue:value};
-    });
-});
+// ['text', 'textarea', 'number', 'timediff'].forEach(name =>{
+//     aop.after(randomData, name, function(value){
+//         return {value: value, formattedValue:value};
+//     });
+// });
 
-
-function getRandomData(f) {
+/**
+ * get random data for common fields, not including nihss
+ * @param f
+ * @returns {*}
+ */
+function getCommonRandomData(f) {
     if(!f){
         return;
     }
@@ -192,57 +253,104 @@ function getRandomData(f) {
 
     var ftype = f.type;
     if(randomData[ftype]){
-        if(ftype === 'number'){
-            // return randomDataGenerator[ftype](f.label, f.min, f.max, f.decimals);
-            rData = randomData[ftype](f.label, f.min, f.max, f.decimals);
-        }else{
-            // return randomDataGenerator[ftype](f.label, f.options);
-            rData = randomData[ftype](f.label, f.options);
-        }
+        rData = randomData[ftype](f);
+        // if(ftype === 'number'){
+        //     // return randomDataGenerator[ftype](f.label, f.min, f.max, f.decimals);
+        //     rData = randomData[ftype](f.label, f.min, f.max, f.decimals);
+        // }else{
+        //     // return randomDataGenerator[ftype](f.label, f.options);
+        //     rData = randomData[ftype](f.label, f.options);
+        // }
     }else{
-        console.error('no random data for ', f.label, f.type);
+        throw 'no random data function found for field: ' +  f.label +' , type is: '+ f.type;
     }
 
-    // return
+    // only return value currently
     if(ftype === 'checkbox'){
         return [rData.value];
     }else{
         return rData.value;
     }
+}
 
+function getRandomDataForNihss(rd, f) {
+    var key = f.key;
+
+    var elements = f.elements;
+
+    if(elements){
+        var sum = 0;
+        var handleElement = function (rd, element) {
+            var eKey = element.key;
+            if(element.options && element.options.length > 0){
+                var valueList = element.options.map(o => {
+                    return o.value;
+                });
+
+                var index = Math.floor(Math.random() * valueList.length);
+
+                var value = valueList[index];
+                sum+= value;
+
+                rd[eKey] = value;
+            }else{
+                console.error('no options found for element in nihss type field, set it to sum value');
+                rd[eKey] = sum;
+            }
+        };
+
+        elements.forEach(e => handleElement(rd, e));
+        rd[key] = sum;
+    }else{
+        throw 'no elements found for nihss type field';
+    }
 
 }
 
 
-// function getRandomDataAsKeyObject() {
-//     var randomDataList = [];
-//
-//     // output data
-//     for(var i=0;i<10;i++){
-//         var patientData = {};
-//         var pciData = {};
-//
-//         patientFields.forEach(f => {
-//             patientData[f.key] = getRandomData(f);
-//         });
-//
-//         pciFields.forEach(f => {
-//             pciData[f.key] = getRandomData(f);
-//         });
-//
-//         randomDataList.push({
-//             patientData: patientData,
-//             pciData: pciData
-//         });
-//     }
-//
-//     return randomDataList;
-// }
+function getRandomDataForMatrix(rd, f) {
+    // matrix
+    var cells = f.cells;
+
+    if(cells && cells.length> 0){
+        var  fieldsArray = [];
+
+        var findOutAllFieldsInCellsArray = function (obj, fieldsArray) {
+            if(Array.isArray(obj)){
+                obj.forEach(o => {
+                    findOutAllFieldsInCellsArray(o, fieldsArray)
+                });
+            }else{
+                if(obj.type !== 'label'){
+                    fieldsArray.push(obj);
+                }else{
+                    console.error('label field in matrix is not set data currently.');
+                }
+            }
+        };
+
+        findOutAllFieldsInCellsArray(cells, fieldsArray);
+
+        fieldsArray.forEach(f => {
+            // fieldsData[f.key] = getCommonRandomData(f);
+            prepareRandomData(rd, f);
+        });
+
+    }else{
+        throw 'no cells found for matrix field: '+ f.label;
+    }
+}
 
 
-// var dataList = getRandomDataAsKeyObject();
-//
-// console.log(JSON.stringify(dataList));
+function prepareRandomData(rd, f){
+    if(f.type === 'nihss'){
+        getRandomDataForNihss(rd, f);
+    }else if(f.type === 'matrix'){
+        getRandomDataForMatrix(rd, f);
+    }else{
+        rd[f.key] = getCommonRandomData(f);
+    }
+}
 
 function getRandomDataListForFormDefList(formDefList, dataSize) {
 
@@ -267,7 +375,13 @@ function getRandomDataListForFormDefList(formDefList, dataSize) {
         fieldsList.forEach(fields => {
             var fieldsData = {};
             fields.forEach(f => {
-                fieldsData[f.key] = getRandomData(f);
+                // fieldsData[f.key] = getCommonRandomData(f);
+                if(f){
+                    prepareRandomData(fieldsData, f);
+                }else{
+                    debugger;
+                    console.error('null field');
+                }
             });
 
             randomData.push(fieldsData);
@@ -279,6 +393,142 @@ function getRandomDataListForFormDefList(formDefList, dataSize) {
     return randomDataList;
 }
 
+
+function getRealDataListForFormDefList(formDefList) {
+
+    var fieldsList = [];
+
+    formDefList.forEach(formDef => {
+        var fieldsArr = [];
+        findOutFields(formDef, fieldsArr);
+
+        // push to formDefList
+        fieldsList.push(fieldsArr);
+    });
+
+    // randomDataList
+    var randomDataList = [];
+
+    // generate random data
+    for(var i=0;i< (realData.data.length || 1);i++){
+
+        var randomData = [];
+
+        fieldsList.forEach(fields => {
+            var fieldsData = {};
+            fields.forEach(f => {
+                fieldsData[f.key] = extractRealDataForField(f, realData.data[i])
+            });
+
+            randomData.push(fieldsData);
+        });
+
+        randomDataList.push(randomData);
+    }
+
+    return randomDataList;
+}
+
+function extractRealDataForField(f, data){
+    // protect patient private information
+    var ppif = ['患者姓名', '身份证号', '患者现住址', 'PCI手术术者姓名', 'PCI手术术者执照编号', '第一助手姓名', '外请专家姓名', '诊断性心导管术术者姓名', '诊断性心导管术术者执照编号'];
+
+    if(ppif.indexOf(f.label) !== -1){
+        return getCommonRandomData(f);
+    }
+
+    // check if there is real data for this field
+    var label = f.label;
+
+    var realData = data[label];
+    if(realData){
+        if(f.type ==='date' || f.type === 'datetime'){
+            // data & datetime
+            var m = moment(realData, "YYYY/MM/DD HH:mm:ss");
+            return m.valueOf();
+        }else if(f.type === 'boolean'){
+            // boolean
+            return realData === 'True';
+        }else{
+            // options
+            if(!Number.isInteger(realData) && f.options && f.options.length> 0){
+                return convertOptionLabelToValue(f, realData);
+            }else{
+                return realData;
+            }
+        }
+    }else{
+        // if not, use random data <-- don't need
+        // return getCommonRandomData(f);
+        return null;
+    }
+}
+
+function convertOptionLabelToValue(f, label, isSecondTime) {
+    // checkbox
+    if(f.type === 'checkbox'){
+        // multiple select
+        var code = [];
+        var lbs = label.split('|');
+
+        if(lbs.length > 1){
+            // debugger;
+        }
+
+        for(var i=0;i<lbs.length;i++){
+
+            var cd = findSingleCodeInOptions(f.options, lbs[i].trim());
+            if(!cd){
+                console.error('no code value found for label: ', label, f.key);
+            }else{
+                code.push(cd);
+            }
+        }
+        return code;
+    }else{
+        return findSingleCodeInOptions(f.options, label);
+    }
+
+    // f.options.forEach(op => {
+    //    if(op.label === label){
+    //        code = op.value;
+    //    }
+    // });
+    //
+    // if(!code){
+    //     // try to remove space in label and try again
+    //     if(!isSecondTime){
+    //         label = label.replace(/ /g, '');
+    //         return convertOptionLabelToValue(f, label, true);
+    //     }
+    //     console.error('no code value found for label: ', label);
+    //     return label;
+    // }else{
+    //     return code;
+    // }
+}
+
+
+function findSingleCodeInOptions(options, label, isSecondTime) {
+    options.forEach(op => {
+        if(op.label === label){
+            code = op.value;
+        }
+    });
+
+    if(!code){
+        // try to remove space in label and try again
+        if(!isSecondTime){
+            label = label.replace(/ /g, '');
+            return findSingleCodeInOptions(options, label, true);
+        }
+        // console.error('no code value found for label: ', label);
+        // return label;
+        return null;
+    }else{
+        return code;
+    }
+}
 
 function getManyRandomDatasForMultiForms(obj, dataSize) {
     // obj: key: formdef
@@ -308,16 +558,14 @@ function getManyRandomDatasForMultiForms(obj, dataSize) {
 
             var fieldsData = {};
             fields.forEach(f => {
-                fieldsData[f.key] = getRandomData(f);
+                fieldsData[f.key] = getCommonRandomData(f);
             });
 
             randomData[k] = fieldsData;
         });
 
         randomDataList.push(randomData);
-
     }
-
 
     return randomDataList;
 }
@@ -325,5 +573,6 @@ function getManyRandomDatasForMultiForms(obj, dataSize) {
 
 module.exports = {
     getManyRandomDatasForMultiForms: getManyRandomDatasForMultiForms,
-    getRandomDataListForFormDefList: getRandomDataListForFormDefList
+    getRandomDataListForFormDefList: getRandomDataListForFormDefList,
+    getRealDataListForFormDefList: getRealDataListForFormDefList
 };

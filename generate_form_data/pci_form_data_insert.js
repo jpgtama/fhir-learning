@@ -7,12 +7,23 @@ var path = require('path');
 
 var ichmBase = require('./ichmBase.js');
 
+
+
+// ichmBase.options.host = '130.147.249.83';
+// ichmBase.options.host = '130.147.249.85';
+
+var dataSize = Math.floor(Math.random()*20);
+var researchName = 'CathPCI';
+// var researchName = '卒中接诊表';
+
+
 var randomDataGenerator = require('./pci_form_data_random_generator.js');
-var formDefList = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'form_def.json'), 'UTF-8'));
-var pciFormDef = formDefList;
+// var formDefList = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'form_def.json'), 'UTF-8'));
+// var pciFormDef = formDefList;
 
 // username and password
 var passwd = {"loginId": "evan", "password": "Oct242016"};
+// var passwd = {"loginId": "tester", "password": "Abc123456"};
 
 
 // addPCIFormResearch();
@@ -30,7 +41,7 @@ function addPCIData() {
                 checkReturn('list research def', ret, ()=>{
                     if(ret.items.length> 0){
 
-                        var pciResearch = findOutResearchByName(ret.items, 'CathPCI');
+                        var pciResearch = findOutResearchByName(ret.items, researchName);
 
                         if(pciResearch){
                             var researchDefId = pciResearch.id;
@@ -45,7 +56,8 @@ function addPCIData() {
 
                                     // get random form data
                                     var formStructures = formDefs.map(fd => { return JSON.parse(fd.structrue)  });
-                                    var randomDataList = randomDataGenerator.getRandomDataListForFormDefList(formStructures, 15);
+                                    var randomDataList = randomDataGenerator.getRandomDataListForFormDefList(formStructures, dataSize);
+                                    // var randomDataList = randomDataGenerator.getRealDataListForFormDefList(formStructures);
                                     var randomDataListHolder = new RandomDataListHolder(randomDataList);
 
                                     // save form data
